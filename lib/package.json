@@ -1,0 +1,23 @@
+{
+  "name": "falcinator",
+  "version": "1.0.0",
+  "description": "Flacinate your app!",
+  "main": "Game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quangogage/falcinator.git"
+  },
+  "author": "Gage Henderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quangogage/falcinator/issues"
+  },
+  "homepage": "https://github.com/quangogage/falcinator#readme",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "react": "^16.0.0"
+  }
+}
