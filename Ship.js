@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import logo from '../../../logo.svg';
+import logo from './ship.svg';
 import { currentPowerup, powerupList } from './Powerups/Powerups';
 
 // ** Global Functions ** \\
@@ -15,10 +15,18 @@ export function loadShip() {
 export function updateShip(ship, dt, mouseX, mouseY) {
   aimShip(ship, mouseX, mouseY);
 }
-export function repositionShip(ship) {
+export function repositionShip(ship, offX, offY) {
+  var newX = window.innerWidth / 2 - ship.width() / 2;
+  var newY = window.innerHeight / 2 - ship.height() / 2;
+  if (offX) {
+    newX += offX;
+  }
+  if (offY) {
+    newY += offY;
+  }
   ship.css({
-    left: $('.psuedo-ship').offset().left,
-    top: $('.psuedo-ship').offset().top,
+    left: newX,
+    top: newY,
     transformOrigin: '59% 61%'
   });
 }

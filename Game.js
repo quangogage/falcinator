@@ -7,6 +7,7 @@ import { loadBlood, resizeBlood, createBlood } from './Blood/Blood';
 import { createParticle, updateParticle } from './Particle/Particle';
 import { addScore, subtractScore, loadScore } from './Score/Score';
 import { updatePowerups } from './Powerups/Powerups';
+import crosshair from './crosshair.png';
 import $ from 'jquery';
 
 var lastUpdate = Date.now();
@@ -16,6 +17,7 @@ var gameLoopInterval;
 var mouseX = 0,
   mouseY = 0;
 var bullets = [];
+var shipOffX, shipOffY;
 
 function loadGame() {
   $(window).click(gameClick);
@@ -49,21 +51,35 @@ function updateGame() {
     subtractScore,
     dt
   );
-  updatePowerups(bullets, dt);
+  // updatePowerups(bullets, dt);
 }
 
 function gameClick(e) {
   shootBullet(e.pageX, e.pageY, ship, world);
 }
 function gameResize() {
-  repositionShip(ship);
+  repositionShip(ship, shipOffX, shipOffY);
   resizeBlood();
 }
 
 export default class Game extends React.Component {
   componentDidMount() {
+    // Game load/loop
     loadGame();
     gameLoopInterval = setInterval(updateGame, 1000 / 60);
+
+    // Crosshair
+    $('.Game').css({
+      cursor: `url(${crosshair}), pointer`
+    });
+
+    // Storing custom ship position
+    if (this.props.x) {
+      shipOffX = this.props.x;
+    }
+    if (this.props.y) {
+      shipOffY = this.props.y;
+    }
   }
   render() {
     return <div className="Game" />;

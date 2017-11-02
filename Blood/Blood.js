@@ -21,7 +21,7 @@ export function loadBlood() {
     width: '100%',
     height: '100%'
   });
-  $('.Home').append(container);
+  $('.Game').append(container);
 }
 export function resizeBlood() {}
 export function createBlood(x, y, angle) {
