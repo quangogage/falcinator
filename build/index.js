@@ -1,11 +1,11 @@
 'use strict';
 
-var _game = require('./components/game');
+var _Game = require('./components/Game');
 
-var _game2 = _interopRequireDefault(_game);
+var _Game2 = _interopRequireDefault(_Game);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
-  Game: _game2.default
+  Game: _Game2.default
 };
