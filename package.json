@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/quangogage/falcinator/issues"
   },
-  "homepage": "https://github.com/quangogage/falcinator#readme"
+  "homepage": "https://github.com/quangogage/falcinator#readme",
+  "dependencies": {
+    "react": "^16.0.0"
+  }
 }
