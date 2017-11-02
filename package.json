@@ -1,23 +1,27 @@
 {
   "name": "falcinator",
   "version": "1.0.0",
-  "description": "Flacinate your app!",
-  "main": "Game.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "cross-env NODE_ENV=development webpack -w",
+    "build:dev": "cross-env NODE_ENV=development webpack",
+    "build:production": "cross-env NODE_ENV=production webpack -p"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quangogage/falcinator.git"
+  "repository": "https://github.com/quangogage/falcinator",
+  "author": "Gage Henderson <gage@quangoinc.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
-  "author": "Gage Henderson",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/quangogage/falcinator/issues"
-  },
-  "homepage": "https://github.com/quangogage/falcinator#readme",
-  "dependencies": {
-    "jquery": "^3.2.1",
-    "react": "^16.0.0"
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "webpack": "^3.8.1"
   }
 }
