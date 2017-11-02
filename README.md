@@ -11,3 +11,19 @@ import falcinator into your desired component.
 Then place it as you like!
 
 `<Falcinator />`
+
+
+## Development
+Clone this repo
+
+`git clone https://github.com/quangogage/falcinator`
+
+Install Dependencies
+
+`npm install`
+
+### Development
+`npm run build:watch`
+
+### Deployment
+Push your updates to the master branch and you've deployed!
