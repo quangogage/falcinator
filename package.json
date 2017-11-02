@@ -2,7 +2,7 @@
   "name": "falcinator",
   "version": "1.0.0",
   "description": "Falcinate your app!",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "build": "babel lib -d build",
     "lint": "eslint lib/**; exit 0",
