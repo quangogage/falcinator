@@ -33,7 +33,7 @@ var Explosion = function () {
         top: y,
         transform: 'translateX(-50%) translateY(-50%)'
       });
-      (0, _jquery2.default)('.Home').append(div);
+      (0, _jquery2.default)('.Game').append(div);
       var animation = setInterval(function () {
         frame += 1;
         div.attr('src', frames[frame]);
