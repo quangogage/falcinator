@@ -14,7 +14,7 @@ Then place it as you like!
 
 
 ## Development Setup
-Clone this repo
+If you want to develop on this library, start by cloning this repo
 
 `git clone https://github.com/quangogage/falcinator`
 
