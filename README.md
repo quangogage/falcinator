@@ -1,4 +1,4 @@
-# falcinator
+# Falcinator
 Falcinate your react app!
 
 ## Install
@@ -13,7 +13,7 @@ Then place it as you like!
 `<Falcinator />`
 
 
-## Development
+## Development Setup
 Clone this repo
 
 `git clone https://github.com/quangogage/falcinator`
@@ -22,8 +22,8 @@ Install Dependencies
 
 `npm install`
 
-### Development
+### Dev
 `npm run build:watch`
 
-### Deployment
+### Deploy
 Push your updates to the master branch and you've deployed!
