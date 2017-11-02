@@ -32,14 +32,16 @@ function loadShip() {
 function updateShip(ship, dt, mouseX, mouseY) {
   aimShip(ship, mouseX, mouseY);
 }
-function repositionShip(ship, offX, offY) {
+function repositionShip(ship, x, y) {
   var newX = window.innerWidth / 2 - ship.width() / 2;
   var newY = window.innerHeight / 2 - ship.height() / 2;
-  if (offX) {
-    newX += offX;
+
+  // Custom positions ( if given. )
+  if (x) {
+    newX = x;
   }
-  if (offY) {
-    newY += offY;
+  if (y) {
+    newY = y;
   }
   ship.css({
     left: newX,

@@ -49,7 +49,7 @@ var gameLoopInterval;
 var mouseX = 0,
     mouseY = 0;
 var bullets = [];
-var shipOffX, shipOffY;
+var shipX, shipY;
 
 function loadGame() {
   (0, _jquery2.default)(window).click(gameClick);
@@ -82,7 +82,7 @@ function gameClick(e) {
   (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship, world);
 }
 function gameResize() {
-  (0, _Ship.repositionShip)(ship, shipOffX, shipOffY);
+  (0, _Ship.repositionShip)(ship, shipX, shipY);
   (0, _Blood.resizeBlood)();
 }
 
@@ -109,10 +109,10 @@ var Game = function (_React$Component) {
 
       // Storing custom ship position
       if (this.props.x) {
-        shipOffX = this.props.x;
+        shipX = this.props.x;
       }
       if (this.props.y) {
-        shipOffY = this.props.y;
+        shipY = this.props.y;
       }
     }
   }, {
