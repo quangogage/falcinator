@@ -7,5 +7,5 @@ var _Game2 = _interopRequireDefault(_Game);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 module.exports = {
-  Game: _Game2.default
+  Falcinator: _Game2.default
 };
