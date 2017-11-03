@@ -6,7 +6,7 @@ Falcinate your react app!
 
 import falcinator into your desired component.
 
-`import falcinator from 'falcinator`
+`import falcinator from 'falcinator'`
 
 Then place it as you like!
 
