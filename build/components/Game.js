@@ -53,7 +53,7 @@ var mouseX = 0,
 var bullets = [];
 var shipX, shipY;
 
-var username;
+var username = '';
 
 function loadGame() {
   (0, _jquery2.default)(window).click(gameClick);
