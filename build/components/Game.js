@@ -34,6 +34,8 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _User = require('./Firebase/User');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51,6 +53,8 @@ var mouseX = 0,
 var bullets = [];
 var shipX, shipY;
 
+username;
+
 function loadGame() {
   (0, _jquery2.default)(window).click(gameClick);
   (0, _jquery2.default)(window).mousemove(function (e) {
@@ -65,6 +69,9 @@ function loadGame() {
   (0, _Score.loadScore)();
 
   world.append(ship);
+
+  alert('working?');
+  (0, _User.loadUser)();
 }
 
 function updateGame() {
