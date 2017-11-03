@@ -15,8 +15,6 @@ var _ship = require('./ship.svg');
 
 var _ship2 = _interopRequireDefault(_ship);
 
-var _Powerups = require('./Powerups/Powerups');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // ** Global Functions ** \\
@@ -59,12 +57,4 @@ function aimShip(ship, mouseX, mouseY) {
   ship.css({
     transform: 'rotate(' + angle + 'rad)'
   });
-}
-// Handle Powerups
-function handlePowerups() {
-  if (_Powerups.currentPowerup === null) {
-    return false;
-  } else {
-    console.log('yup');
-  }
 }
