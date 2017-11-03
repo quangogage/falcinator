@@ -32,6 +32,9 @@ function generate(world, spawnQuail, dt) {
     console.log(timerLim);
   }
 }
+if (timerLim > maxSpawnRate) {
+  timerLim -= spawnRateIncrease;
+}
 
 // ** Helper Functions ** \\
 // Get a random number between two values
