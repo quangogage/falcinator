@@ -7,4 +7,3 @@ sleep 4
 
 cd site
 npm update
-npm start
