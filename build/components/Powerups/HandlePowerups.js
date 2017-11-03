@@ -11,7 +11,7 @@ var _FastShooting = require('./PowerupHandlers/FastShooting');
 var powerupList = [{
   name: 'fast shooting',
   func: _FastShooting.FastShooting,
-  duration: 2000
+  duration: 7500
 }];
 var currentPowerup = null;
 
