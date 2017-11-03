@@ -36,6 +36,8 @@ var currentPowerup = exports.currentPowerup = 1;
 function updatePowerups(bullets, dt) {
   // Generation
   (0, _GeneratePowerups2.default)(spawnPowerup, dt);
+  // Handle these bad bois
+  (0, _HandlePowerups2.default)();
 
   var i = container.length;
   while (i--) {
