@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.currentPowerup = undefined;
 exports.updatePowerups = updatePowerups;
 
 var _jquery = require('jquery');
@@ -30,7 +29,7 @@ var frames = [require('./frames/1.png'), require('./frames/2.png'), require('./f
 var speed = 0.5; // Zoom zoom.
 var framerate = 68; // Animation framerate
 var dustAmountRange = [10, 30]; // How much dust spawns when a powerup is hit?
-var currentPowerup = exports.currentPowerup = 0;
+var currentPowerup = 0;
 
 // ** Global Functions ** \\
 function updatePowerups(bullets, dt) {
