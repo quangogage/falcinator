@@ -23,6 +23,7 @@ function HandlePowerups(dt) {
 
     // Run the timer/end when complete
     timer += dt;
+    console.log(timer);
     if (timer >= powerupList.duration) {
       currentPowerup = null;
     }
