@@ -1,5 +1,10 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = loadUser;
+// Check for/load username
 function loadUser() {
   var storedName = localStorage.getItem('username');
   if (storedName === null) {

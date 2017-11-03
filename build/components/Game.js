@@ -70,7 +70,6 @@ function loadGame() {
 
   world.append(ship);
 
-  alert('working?');
   (0, _User.loadUser)();
 }
 
