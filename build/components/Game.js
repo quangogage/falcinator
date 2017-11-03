@@ -69,8 +69,8 @@ function loadGame() {
   (0, _Score.loadScore)();
 
   world.append(ship);
-  alert('if you see this something is wrong with the compiler');
   username = (0, _User.loadUser)();
+  alert('if you see this something is wrong with the compiler');
 }
 
 function updateGame() {
