@@ -16,7 +16,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var timer = 0;
-var shootRate = 15;
+var shootRate = 100;
 function FastShooting(dt) {
   timer += dt;
   console.log('spawning every 15 milliseconds');

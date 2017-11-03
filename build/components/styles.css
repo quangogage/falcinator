@@ -23,6 +23,7 @@
   background-image: url('Quail/envelope.jpg');
   background-repeat: no-repeat;
   background-size: contain;
+  image-rendering: pixelated;
 }
 .quail {
   position: absolute;
