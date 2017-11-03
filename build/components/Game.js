@@ -69,8 +69,7 @@ function loadGame() {
   (0, _Score.loadScore)();
 
   world.append(ship);
-  username = (0, _User.loadUser)();
-  alert(username);
+  // username = loadUser();
 }
 
 function updateGame() {
