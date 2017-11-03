@@ -11,6 +11,6 @@ function loadUser() {
     // You need to set a username
     prompt('Please enter your name (for high-scores)');
   } else {
-    username = storedName;
+    return storedName;
   }
 }
