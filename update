@@ -2,7 +2,9 @@ git add .
 git commit -m --allow-empty-message ''
 git push origin dev
 
+echo "Pausing for a brief moment. \n Must let git push take effect"
+sleep 4
+
 cd site
 npm update
-
 npm start
