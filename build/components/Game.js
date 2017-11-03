@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.mouseY = exports.mouseX = exports.ship = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -45,11 +46,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var lastUpdate = Date.now();
-var ship;
+var ship = exports.ship = undefined;
 var world;
 var gameLoopInterval;
-var mouseX = 0,
-    mouseY = 0;
+var mouseX = exports.mouseX = 0;
+var mouseY = exports.mouseY = 0;
 var bullets = [];
 var shipX, shipY;
 
@@ -58,13 +59,13 @@ var username = '';
 function loadGame() {
   (0, _jquery2.default)(window).click(gameClick);
   (0, _jquery2.default)(window).mousemove(function (e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
+    exports.mouseX = mouseX = e.pageX;
+    exports.mouseY = mouseY = e.pageY;
   });
   (0, _jquery2.default)(window).resize(gameResize);
 
   world = (0, _jquery2.default)('.Game');
-  ship = (0, _Ship.loadShip)();
+  exports.ship = ship = (0, _Ship.loadShip)();
   (0, _Blood.loadBlood)();
   (0, _Score.loadScore)();
 

@@ -12,4 +12,6 @@ var powerupList = [{
   func: _FastShooting.FastShooting
 }];
 
-function HandlePowerups() {}
+function HandlePowerups(currentPowerup, dt) {
+  powerupList[currentPowerup].func(dt);
+}

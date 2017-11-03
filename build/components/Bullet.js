@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.shootBullet = shootBullet;
 exports.updateBullets = updateBullets;
 
-var _jquery = require("jquery");
+var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -17,7 +17,7 @@ var speed = 1;
 
 // ** Global Functions ** \\
 function shootBullet(mouseX, mouseY, ship, world) {
-  var bulletEl = (0, _jquery2.default)("<div class='bullet'></div>");
+  var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
   var shipX = ship.offset().left + ship.width() / 2;
   var shipY = ship.offset().top + ship.height() / 2;
   var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
@@ -35,7 +35,7 @@ function shootBullet(mouseX, mouseY, ship, world) {
   bulletEl.css({
     left: shipX,
     top: shipY,
-    transform: "rotate(" + angle + "rad)"
+    transform: 'rotate(' + angle + 'rad)'
   });
 
   // Add to world
