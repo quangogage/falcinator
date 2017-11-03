@@ -19,6 +19,7 @@ var timer = 0;
 var shootRate = 15;
 function FastShooting(dt) {
   timer += dt;
+  console.log('spawning every 15 milliseconds');
   if (timer >= shootRate) {
     (0, _Bullet.shootBullet)(_Game.mouseX, _Game.mouseY, _Game.ship, (0, _jquery2.default)('.Game'));
     timer = 0;
