@@ -13,5 +13,5 @@ var powerupList = [{
 }];
 
 function HandlePowerups() {
-  console.log(powerupList[0].func);
+  console.log(powerupList[0]);
 }
