@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = loadUser;
+exports.loadUser = loadUser;
 // Check for/load username
 function loadUser() {
   var storedName = localStorage.getItem('username');

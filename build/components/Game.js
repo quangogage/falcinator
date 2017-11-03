@@ -26,6 +26,8 @@ var _Score = require('./Score/Score');
 
 var _Powerups = require('./Powerups/Powerups');
 
+var _User = require('./Firebase/User');
+
 var _crosshair = require('./crosshair.png');
 
 var _crosshair2 = _interopRequireDefault(_crosshair);
@@ -33,8 +35,6 @@ var _crosshair2 = _interopRequireDefault(_crosshair);
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
-
-var _User = require('./Firebase/User');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
