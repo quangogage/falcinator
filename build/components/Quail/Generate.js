@@ -14,7 +14,7 @@ var timer = 0;
 // Adjustable Variables
 var spawnRateRange = [3500, 3500]; // How quickly should they spawn at first?
 var maxSpawnRate = 875; // What is the cap for how quickly they can spawn
-var spawnRateIncrease = 0.05; // How fast does the spawn rate increase ( every frame ) ?
+var spawnRateIncrease = 0.25; // How fast does the spawn rate increase ( every frame ) ?
 var spawnAmountRange = [1, 2]; // How many can spawn at once?
 
 var timerLim = getRandom(spawnRateRange[0], spawnRateRange[1]);
