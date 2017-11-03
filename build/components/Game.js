@@ -70,7 +70,7 @@ function loadGame() {
 
   world.append(ship);
   username = (0, _User.loadUser)();
-  alert('if you see this something is wrong with the compiler');
+  alert(username);
 }
 
 function updateGame() {
