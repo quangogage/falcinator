@@ -19,8 +19,6 @@ var _Dusts2 = _interopRequireDefault(_Dusts);
 
 var _HandlePowerups = require('./HandlePowerups');
 
-var _HandlePowerups2 = _interopRequireDefault(_HandlePowerups);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var container = [];
@@ -29,14 +27,13 @@ var frames = [require('./frames/1.png'), require('./frames/2.png'), require('./f
 var speed = 0.5; // Zoom zoom.
 var framerate = 68; // Animation framerate
 var dustAmountRange = [10, 30]; // How much dust spawns when a powerup is hit?
-var currentPowerup = 0;
 
 // ** Global Functions ** \\
 function updatePowerups(bullets, dt) {
   // Generation
   (0, _GeneratePowerups2.default)(spawnPowerup, dt);
   // Handle these bad bois
-  (0, _HandlePowerups2.default)(currentPowerup, dt);
+  (0, _HandlePowerups.HandlePowerups)(dt);
 
   var i = container.length;
   while (i--) {
@@ -70,6 +67,7 @@ function updatePowerups(bullets, dt) {
 
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
+        (0, _HandlePowerups.activatePowerup)();
         killPowerup(i, v);
       }
     }
@@ -154,8 +152,6 @@ function killPowerup(i, v) {
   // Remove array object.
   container.splice(i, 1);
 }
-
-function setPowerup() {}
 
 // Get a random number between two values
 function getRandom(min, max) {
