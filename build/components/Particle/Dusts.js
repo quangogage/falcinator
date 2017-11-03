@@ -62,7 +62,7 @@ var Dust = function () {
     key: 'play',
     value: function play(x, y, angle, typeIndex) {
       // Create the burst
-      var typeIndex = typeIndex || Math.floor(getRandom(0, types.length - 2));
+      var typeIndex = typeIndex || 0;
       var type = types[typeIndex];
       var amount = getRandom(type.amount[0], type.amount[1]);
       for (var i = 0; i < amount; i++) {

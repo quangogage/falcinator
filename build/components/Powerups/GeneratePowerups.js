@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = GeneratePowerups;
 var timer = 0;
 var spawnRate = 1250; // How often should it roll for a powerup?
-var spawnChanceRange = 3.25; // How likely is it that a powerup spawns ( percentage ) ?
+var spawnChanceRange = 100; // How likely is it that a powerup spawns ( percentage ) ?
 
 function GeneratePowerups(spawnPowerup, dt) {
   timer += dt;
