@@ -9,7 +9,9 @@ function loadUser() {
   var storedName = localStorage.getItem('username');
   if (storedName === null) {
     // You need to set a username
-    return prompt('Please enter your name (for high-scores)', 'jimmy john');
+    var name = prompt('Please enter your name (for high-scores)', '');
+    localStorage.setItem('username', name);
+    return name;
   } else {
     return storedName;
   }
