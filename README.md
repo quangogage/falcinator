@@ -1,39 +1,25 @@
 # Falcinator
-Falcinate your react app!
+Hate quails? Love Mails? Blood Trails? 
+
+Mail needs to arrive on time, and you have a lot of mail, and NOW is the time!
+
+## Screenshots
+![Screenshot](/screenshots/1.png)
+![Screenshot](/screenshots/2.png)
 
 ## Install
-`npm install https://github.com/quangogage/falcinator`
+`npm install falcinator`
 
-import falcinator into your desired component.
+## Usage
+Start by importing the component.
 
 `import { Falcinator } from 'falcinator'`
 
-Then place it as you like!
+Then, place the `<Falcinator />` tag. Where you put it is mostly irrelevant, as the game takes up the entire screen anyways.
 
-`<Falcinator />`
+But if you want to have the falcon ship in a specific place, the tag also accepts x and y coordinates.
 
+`<Falcinator x={100} y={500} />`
 
-## Development Setup
-If you want to develop on this library, start by cloning this repo
+By default it is placed in the center of the window.
 
-`git clone https://github.com/quangogage/falcinator`
-
-Install Dependencies
-
-`npm install`
-
-### Dev
-Run `npm run build:watch`. This will automatically compile any changes made in the `/lib/` directory and compile them into the `/build/` directory.
-
-There is no built in way to run a local instance of the Falcinator. My suggestion is to use a seperate testing app.
-
-• Install create-react-app - `npm install create-react-app -g`
-
-• Navigate to the desired location on your local, run `create-react-app falcinator-testing-app`.
-
-• Once that is installed cd into the app you just created, run `npm install`, then install this github repository as a dependency as shown above - `npm install https://github.com/quangogage/falcinator`.
-
-Now when you want to see the changes you've made to this repo, simply push your changes up to master, and go into your testing app and run `npm update`.
-
-### Deploy
-Push your updates to the master branch and you've deployed!
