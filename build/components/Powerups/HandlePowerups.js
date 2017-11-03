@@ -11,7 +11,7 @@ var _FastShooting = require('./PowerupHandlers/FastShooting');
 var powerupList = [{
   name: 'fast shooting',
   func: _FastShooting.FastShooting,
-  duration: 500
+  duration: 200
 }];
 var currentPowerup = null;
 
@@ -25,7 +25,6 @@ function HandlePowerups(dt) {
     timer += dt;
     if (timer >= powerupList.duration) {
       currentPowerup = null;
-      timer = 0;
     }
   }
 }
