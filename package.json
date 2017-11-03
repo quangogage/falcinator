@@ -8,7 +8,8 @@
     "lint": "eslint lib/**; exit 0",
     "lint:watch": "esw -w lib/**",
     "prepublish": "npm run build",
-    "build:watch": "babel lib -w -d build"
+    "build:watch": "babel lib -w -d build",
+    "pushdev": "./pushdev"
   },
   "repository": {
     "type": "git",

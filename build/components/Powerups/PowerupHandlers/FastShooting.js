@@ -5,5 +5,5 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = update;
 function update() {
-  alert('bullets');
+  alert('bullets are being updated');
 }

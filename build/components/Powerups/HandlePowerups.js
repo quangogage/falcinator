@@ -10,6 +10,5 @@ var powerupList = [{
 }];
 
 function HandlePowerups() {
-  alert('handle powerups is being updated');
   powerupList[0].func();
 }
