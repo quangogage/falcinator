@@ -4,9 +4,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = HandlePowerups;
+
+var _FastShooting = require('./PowerupHandlers/FastShooting');
+
 var powerupList = [{
   name: 'fast shooting',
-  func: require('./PowerupHandlers/FastShooting')
+  func: _FastShooting.FastShooting
 }];
 
 function HandlePowerups() {

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = update;
-function update() {
+exports.FastShooting = FastShooting;
+function FastShooting() {
   alert('bullets are being updated');
 }
