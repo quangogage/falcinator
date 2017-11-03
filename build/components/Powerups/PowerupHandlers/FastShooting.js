@@ -15,7 +15,12 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var timer = 0;
+var shootRate = 15;
 function FastShooting(dt) {
-  console.log('uhh trying to shoot a bullet');
-  (0, _Bullet.shootBullet)(_Game.mouseX, _Game.mouseY, _Game.ship, (0, _jquery2.default)('.Game'));
+  timer += dt;
+  if (timer >= shootRate) {
+    (0, _Bullet.shootBullet)(_Game.mouseX, _Game.mouseY, _Game.ship, (0, _jquery2.default)('.Game'));
+    timer = 0;
+  }
 }
