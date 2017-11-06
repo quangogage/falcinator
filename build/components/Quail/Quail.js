@@ -25,9 +25,6 @@ var lastUpdate = Date.now();
 // ** Global Functions ** \\
 function updateQuail(world, bullets, createBlood, createParticle, addScore, subtractScore, dt) {
   (0, _Generate2.default)(world, spawnQuail, dt); // Create them.
-  var now = Date.now();
-  dt = handleSlowMo(dt, now, lastUpdate);
-  lastUpdate = Date.now();
   for (var i = quails.length - 1; i >= 0; i--) {
     var v = quails[i];
     var el = v.el;
