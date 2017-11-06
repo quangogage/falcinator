@@ -25,21 +25,18 @@ var powerupList = exports.powerupList = [{
   timer: 0
 }];
 
-var timer = 0;
 function HandlePowerups(dt) {
   for (var i = 0; i < powerupList.length - 1; i++) {
     var v = powerupList[i];
     if (v.active === true) {
-      console.log('BEFORE:', dt);
       v.func(dt);
 
       // Lifetime
-      console.log('AFTER:', dt);
-      v.timer += dt;
       if (v.timer >= v.duration) {
         v.active = false;
       }
     }
+    v.timer += dt;
   }
 }
 
