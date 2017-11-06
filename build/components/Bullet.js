@@ -10,6 +10,8 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _Camera = require('./Camera/Camera');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var bullets = [];
@@ -40,6 +42,9 @@ function shootBullet(mouseX, mouseY, ship, world) {
 
   // Add to world
   world.append(bulletEl);
+
+  // Shake Camera
+  ShakeCamera(50);
 }
 function updateBullets(dt) {
   var i = bullets.length;

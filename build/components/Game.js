@@ -31,6 +31,8 @@ var _User = require('./Firebase/User');
 
 var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
 
+var _Camera = require('./Camera/Camera');
+
 var _crosshair = require('./crosshair.png');
 
 var _crosshair2 = _interopRequireDefault(_crosshair);
@@ -85,6 +87,7 @@ function updateGame() {
   (0, _Particle.updateParticle)(dt);
   (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
   (0, _Powerups.updatePowerups)(bullets, dt);
+  (0, _Camera.UpdateCamera)(dt);
 }
 
 function gameClick(e) {
