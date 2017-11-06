@@ -44,7 +44,7 @@ function shootBullet(mouseX, mouseY, ship, world) {
   world.append(bulletEl);
 
   // Shake Camera
-  ShakeCamera(50);
+  (0, _Camera.ShakeCamera)(500);
 }
 function updateBullets(dt) {
   var i = bullets.length;
