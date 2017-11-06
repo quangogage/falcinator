@@ -7,6 +7,7 @@ exports.default = GeneratePowerups;
 var timer = 0;
 var spawnRate = 1250; // How often should it roll for a powerup?
 var spawnChanceRange = 5; // How likely is it that a powerup spawns ( percentage ) ?
+spawnChanceRange = 100;
 
 function GeneratePowerups(spawnPowerup, dt) {
   timer += dt;

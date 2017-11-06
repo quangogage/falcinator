@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.bullets = undefined;
 exports.shootBullet = shootBullet;
 exports.updateBullets = updateBullets;
 
@@ -14,7 +15,7 @@ var _Camera = require('./Camera/Camera');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var bullets = [];
+var bullets = exports.bullets = [];
 var speed = 1;
 
 // ** Global Functions ** \\
