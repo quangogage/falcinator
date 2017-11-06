@@ -70,10 +70,10 @@ function updatePowerups(bullets, dt) {
       var bulletY = va.y;
 
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
-        va.setToDelete = true; // Actually gets deleted inside of Bullet.js
-        (0, _HandlePowerups.activatePowerup)();
         killPowerup(i);
+        va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         (0, _Notification2.default)();
+        (0, _HandlePowerups.activatePowerup)();
       }
     }
   }
