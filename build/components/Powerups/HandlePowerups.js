@@ -32,13 +32,13 @@ function HandlePowerups(dt) {
       v.func(dt);
 
       // Lifetime
+      v.timer += dt;
+      if (i === 1) {
+        console.log(v.timer);
+      }
       if (v.timer >= v.duration) {
         v.active = false;
       }
-    }
-    v.timer += dt;
-    if (i === 1) {
-      console.log(v.timer);
     }
   }
 }
