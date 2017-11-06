@@ -7,6 +7,4 @@ exports.MailSeek = MailSeek;
 
 var _Bullet = require('../../Bullet');
 
-function MailSeek(dt) {
-  v.angle += 0.05;
-}
+function MailSeek(dt) {}
