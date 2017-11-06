@@ -19,6 +19,10 @@ var _Dusts2 = _interopRequireDefault(_Dusts);
 
 var _HandlePowerups = require('./HandlePowerups');
 
+var _Notification = require('./Notification/Notification');
+
+var _Notification2 = _interopRequireDefault(_Notification);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var container = [];
@@ -69,6 +73,7 @@ function updatePowerups(bullets, dt) {
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         (0, _HandlePowerups.activatePowerup)();
         killPowerup(i, v);
+        (0, _Notification2.default)();
       }
     }
   }
