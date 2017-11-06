@@ -8,11 +8,11 @@ exports.handleSlowMo = handleSlowMo;
 
 var _HandlePowerups = require('../HandlePowerups');
 
-function SlowMotion(dt, isActiveArg) {}
+function SlowMotion(dt) {}
 
 function handleSlowMo(dt) {
   var isActive = _HandlePowerups.powerupList[1].active;
-  console.log(_HandlePowerups.powerupList[1].timer);
+  console.log(dt);
   if (isActive === true) {
     return dt / 2;
   } else {
