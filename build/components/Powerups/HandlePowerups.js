@@ -20,7 +20,7 @@ var powerupList = exports.powerupList = [{
 }, {
   name: 'slow motion',
   func: _SlowMotion.SlowMotion,
-  duration: 500,
+  duration: 150,
   active: false,
   timer: 0
 }];
@@ -37,6 +37,7 @@ function HandlePowerups(dt) {
       }
     }
     v.timer += dt;
+    console.log(v.timer);
   }
 }
 
