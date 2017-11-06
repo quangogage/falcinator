@@ -15,16 +15,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var cam = {
   x: 0,
   y: 0,
-  resetSpeed: 5
+  resetSpeed: 0.1
 };
 function UpdateCamera(dt) {
   cam.x = cam.x - (cam.x - 0) * cam.resetSpeed * dt;
   cam.y = cam.y - (cam.y - 0) * cam.resetSpeed * dt;
 
-  (0, _jquery2.default)('.Game').css({
-    left: cam.x,
-    top: cam.y
-  });
+  if (cam.x !== 0 || cam.y !== 0) {
+    (0, _jquery2.default)('.Game').css({
+      left: cam.x,
+      top: cam.y
+    });
+  }
 }
 function ShakeCam(amount) {
   var angle = getRandom(-5 * 100, 5 * 100) / 100;
