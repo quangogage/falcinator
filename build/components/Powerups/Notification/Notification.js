@@ -30,15 +30,15 @@ function CreateNotification() {
   (0, _jquery2.default)('.Game').append(note);
 
   // Animation
-  phrase.css({
+  note.css({
     transform: 'scale(1)'
   });
   setTimeout(function () {
-    phrase.css({
+    note.css({
       transform: 'scale(1) translateY(100vh)'
     });
     setTimeout(function () {
-      phrase.remove();
+      note.remove();
     }, 500);
   }, 1500);
 }
