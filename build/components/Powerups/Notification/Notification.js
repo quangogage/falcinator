@@ -22,11 +22,11 @@ var styles = {
   color: 'black',
   textShadow: '2px 2px 1px red',
   transform: 'scale(0) translateX(-50%)',
-  transformOrigin: '-50% 50%',
+  transformOrigin: '0% 50%',
   transition: '0.5s'
 };
 function CreateNotification() {
-  var phrase = catchphrases[0];
+  var phrase = catchphrases[Math.floor(getRandom(0, catchphrases.length))];
   var note = (0, _jquery2.default)('<div class="notification">' + phrase + '</div>');
   note.css(styles);
   (0, _jquery2.default)('.Game').append(note);
