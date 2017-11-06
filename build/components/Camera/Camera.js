@@ -3,8 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = UpdateCamera;
-exports.ShakeCam = ShakeCam;
+exports.UpdateCamera = UpdateCamera;
+exports.ShakeCamera = ShakeCamera;
 
 var _jquery = require('jquery');
 
@@ -28,7 +28,7 @@ function UpdateCamera(dt) {
     });
   }
 }
-function ShakeCam(amount) {
+function ShakeCamera(amount) {
   var angle = getRandom(-5 * 100, 5 * 100) / 100;
   cam.x += Math.cos(angle) * amount;
   cam.y += Math.sin(angle) * amount;
