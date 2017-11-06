@@ -30,7 +30,7 @@ var frames = [require('./frames/1.png'), require('./frames/2.png'), require('./f
 
 var speed = 0.5; // Zoom zoom.
 var framerate = 68; // Animation framerate
-var dustAmountRange = [10, 30]; // How much dust spawns when a powerup is hit?
+var dustAmountRange = [5, 10]; // How much dust spawns when a powerup is hit?
 
 // ** Global Functions ** \\
 function updatePowerups(bullets, dt) {
@@ -72,7 +72,7 @@ function updatePowerups(bullets, dt) {
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         (0, _HandlePowerups.activatePowerup)();
-        killPowerup(i, v);
+        killPowerup(i);
         (0, _Notification2.default)();
       }
     }
@@ -146,7 +146,8 @@ function animPowerup(v, dt) {
   }
 }
 // ⚰️
-function killPowerup(i, v) {
+function killPowerup(i) {
+  var v = container[i];
   // Generate dust.
   var amount = getRandom(dustAmountRange[0], dustAmountRange[1]);
   for (var i = 0; i < amount; i++) {

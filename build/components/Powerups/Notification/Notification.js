@@ -31,17 +31,19 @@ function CreateNotification() {
   (0, _jquery2.default)('.Game').append(note);
 
   // Animation
-  note.css({
-    transform: 'scale(1) translateX(-50%)'
-  });
   setTimeout(function () {
     note.css({
-      transform: 'scale(1) translateY(100vh) translateX(-50%)'
+      transform: 'scale(1) translateX(-50%)'
     });
     setTimeout(function () {
-      note.remove();
-    }, 500);
-  }, 1500);
+      note.css({
+        transform: 'scale(1) translateY(100vh) translateX(-50%)'
+      });
+      setTimeout(function () {
+        note.remove();
+      }, 500);
+    }, 1500);
+  }, 150);
 }
 
 // Get a random number between two values
