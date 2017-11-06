@@ -29,6 +29,8 @@ var _Powerups = require('./Powerups/Powerups');
 
 var _User = require('./Firebase/User');
 
+var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
+
 var _crosshair = require('./crosshair.png');
 
 var _crosshair2 = _interopRequireDefault(_crosshair);
@@ -76,6 +78,7 @@ function loadGame() {
 function updateGame() {
   var now = Date.now();
   var dt = now - lastUpdate;
+  dt = (0, _SlowMotion.handleSlowMo)(dt);
   lastUpdate = now;
   bullets = (0, _Bullet.updateBullets)(dt);
   (0, _Ship.updateShip)(ship, dt, mouseX, mouseY);

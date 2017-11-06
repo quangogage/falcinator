@@ -26,7 +26,7 @@ var styles = {
   transition: '0.5s'
 };
 function CreateNotification() {
-  var phrase = catchphrases[Math.floor(getRandom(0, catchphrases.length))];
+  var phrase = catchphrases[Math.floor(getRandom(0, catchphrases.length - 1))];
   var note = (0, _jquery2.default)('<div class="notification">' + phrase + '</div>');
   note.css(styles);
   (0, _jquery2.default)('.Game').append(note);
