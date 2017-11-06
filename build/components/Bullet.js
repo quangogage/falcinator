@@ -24,7 +24,6 @@ function shootBullet(mouseX, mouseY, ship, world) {
   var shipY = ship.offset().top + ship.height() / 2;
   var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
   var index = bullets.length;
-
   // Add to array of stored bullets
   bullets[index] = {
     el: bulletEl,
