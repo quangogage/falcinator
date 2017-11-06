@@ -17,11 +17,12 @@ var styles = {
   position: 'absolute',
   top: '33%',
   left: '50%',
-  fontSize: '3vw',
+  fontSize: '5vw',
   fontFamily: 'actionman',
   color: 'black',
   textShadow: '2px 2px 1px red',
   transform: 'scale(0) translateX(-50%)',
+  transformOrigin: '50% 50%',
   transition: '0.5s'
 };
 function CreateNotification() {
