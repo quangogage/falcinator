@@ -26,7 +26,7 @@ var powerupList = exports.powerupList = [{
 }];
 
 function HandlePowerups(dt) {
-  for (var i = 0; i < powerupList.length - 1; i++) {
+  for (var i = 0; i < powerupList.length; i++) {
     var v = powerupList[i];
     if (v.active === true) {
       v.func(dt);
