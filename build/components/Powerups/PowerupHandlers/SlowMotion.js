@@ -13,7 +13,7 @@ function SlowMotion(dt) {}
 function handleSlowMo(dt, now, lastUpdate) {
   var isActive = _HandlePowerups.powerupList[1].active;
   if (isActive === true) {
-    var newDt = now - lastUpdate;
+    var newDt = (now - lastUpdate) / 2;
     return newDt;
   } else {
     return dt;
