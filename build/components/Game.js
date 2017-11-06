@@ -78,7 +78,8 @@ function loadGame() {
 function updateGame() {
   var now = Date.now();
   var dt = now - lastUpdate;
-  dt = (0, _SlowMotion.handleSlowMo)(dt);
+  dt = (0, _SlowMotion.handleSlowMo)(dt, now, lastUpdate);
+  console.log(dt);
   lastUpdate = now;
   bullets = (0, _Bullet.updateBullets)(dt);
   (0, _Ship.updateShip)(ship, dt, mouseX, mouseY);

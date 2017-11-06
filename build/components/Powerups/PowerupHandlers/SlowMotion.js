@@ -10,11 +10,11 @@ var _HandlePowerups = require('../HandlePowerups');
 
 function SlowMotion(dt) {}
 
-function handleSlowMo(dt) {
+function handleSlowMo(dt, now, lastUpdate) {
   var isActive = _HandlePowerups.powerupList[1].active;
-  console.log(dt);
   if (isActive === true) {
-    return dt / 2;
+    var newDt = now - lastUpdate;
+    return newDt;
   } else {
     return dt;
   }
