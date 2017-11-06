@@ -151,11 +151,6 @@ function animPowerup(v, dt) {
 // ⚰️
 function killPowerup(i) {
   var v = container[i];
-  // Generate dust.
-  var amount = getRandom(dustAmountRange[0], dustAmountRange[1]);
-  for (var i = 0; i < amount; i++) {
-    _Dusts2.default.play(v.x + v.el.width() / 2, v.y + v.el.height() / 2, getRandom(-10, 10), 2);
-  }
   // Remove DOM element.
   v.el.remove();
   // Remove array object.
