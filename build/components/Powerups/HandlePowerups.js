@@ -11,14 +11,20 @@ var _FastShooting = require('./PowerupHandlers/FastShooting');
 
 var _SlowMotion = require('./PowerupHandlers/SlowMotion');
 
+var _Notification = require('./Notification/Notification');
+
+var _Notification2 = _interopRequireDefault(_Notification);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var powerupList = exports.powerupList = [{
-  name: 'fast shooting',
+  name: 'Fast Shooting',
   func: _FastShooting.FastShooting,
   duration: 3000,
   active: false,
   timer: 0
 }, {
-  name: 'slow motion',
+  name: 'Slow Motion',
   func: _SlowMotion.SlowMotion,
   duration: 3500,
   active: false,
@@ -46,9 +52,9 @@ function HandlePowerups(dt) {
 // Activate / return new powerup
 function activatePowerup() {
   var activePowerup = powerupList[Math.floor(getRandom(0, powerupList.length - 1))];
-  console.log('powerup activated!');
   activePowerup.timer = 0;
   activePowerup.active = true;
+  (0, _Notification2.default)(activatePowerup.name);
 }
 
 // Get a random number between two values

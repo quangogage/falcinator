@@ -23,11 +23,15 @@ var styles = {
   textShadow: '2px 2px 1px red',
   transform: 'scale(0) translateX(-50%)',
   transformOrigin: '0% 50%',
-  transition: '0.5s'
+  transition: '0.5s',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 };
-function CreateNotification() {
+function CreateNotification(powerupName) {
   var phrase = catchphrases[Math.floor(getRandom(0, catchphrases.length - 1))];
-  var note = (0, _jquery2.default)('<div class="notification">' + phrase + '</div>');
+  var note = (0, _jquery2.default)('<div class="notification">\n    <div class=\'phrase\'>' + phrase + '</div>\n    <div class=\'powerup\' style="font-size:3vw">' + powerupName + '</div>\n  </div>');
   note.css(styles);
   (0, _jquery2.default)('.Game').append(note);
 
