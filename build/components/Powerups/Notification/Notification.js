@@ -16,11 +16,12 @@ var catchphrases = ['MAIL dominance!', 'MAIL, man!', 'SNAIL MAIL!', 'Going POSTA
 var styles = {
   position: 'absolute',
   top: '33%',
-  left: 0,
+  left: '50%',
   fontSize: '3vw',
+  fontFamily: 'actionman',
   color: 'black',
-  textShadow: '2px 2px red',
-  transform: 'scale(0)',
+  textShadow: '2px 2px 1px red',
+  transform: 'scale(0) translateX(-50%)',
   transition: '0.5s'
 };
 function CreateNotification() {
@@ -31,11 +32,11 @@ function CreateNotification() {
 
   // Animation
   note.css({
-    transform: 'scale(1)'
+    transform: 'scale(1) translateX(-50%)'
   });
   setTimeout(function () {
     note.css({
-      transform: 'scale(1) translateY(100vh)'
+      transform: 'scale(1) translateY(100vh) translateX(-50%)'
     });
     setTimeout(function () {
       note.remove();
