@@ -22,7 +22,7 @@ var styles = {
   color: 'black',
   textShadow: '2px 2px 1px red',
   transform: 'scale(0) translateX(-50%)',
-  transformOrigin: '50% 50%',
+  transformOrigin: '-50% 50%',
   transition: '0.5s'
 };
 function CreateNotification() {
