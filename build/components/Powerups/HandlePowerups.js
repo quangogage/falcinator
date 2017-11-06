@@ -37,7 +37,9 @@ function HandlePowerups(dt) {
       }
     }
     v.timer += dt;
-    console.log(v.timer);
+    if (i === 1) {
+      console.log(v.timer);
+    }
   }
 }
 
