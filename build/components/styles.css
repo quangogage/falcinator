@@ -64,3 +64,9 @@ body {
   font-family: score;
   font-size: 13px;
 }
+
+/* Powerup Splash */
+@font-face {
+  font-family: actionman;
+  src: url('../fonts/Action Man.ttf');
+}
