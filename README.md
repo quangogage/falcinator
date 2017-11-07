@@ -3,6 +3,21 @@ Hate quails? Love Mails? Blood Trails?
 
 Mail needs to arrive on time, and you have a lot of mail, and NOW is the time!
 
+Embed the Falcinator anywhere in your React app!
+
+
+## Play Now!
+Play the game now on it's [github page!](https://quangogage.github.io/falcinator/)
+### V1.5.0
+• Added camera shake
+• Added powerups
+  - Ricochet
+  - Fast Shooting
+  - Slow Motion
+  - + More
+• More balanced difficulty curve
+
+
 ## Screenshots
 ![Screenshot](/screenshots/1.png)
 ![Screenshot](/screenshots/2.png)
