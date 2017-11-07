@@ -23,7 +23,7 @@ Play the game now on it's [github page!](https://quangogage.github.io/falcinator
 
 
 ## Screenshots
-![Screenshot](https://raw.githubusercontent.com/quangogage/falcinator/master/screenshots/new-1.png)
+![Screenshot](https://raw.githubusercontent.com/quangogage/falcinator/master/screenshots/new-new-new1.png)
 ![Screenshot](https://raw.githubusercontent.com/quangogage/falcinator/master/screenshots/new-2.png)
 ![Screenshot](https://raw.githubusercontent.com/quangogage/falcinator/master/screenshots/new-3.png)
 
