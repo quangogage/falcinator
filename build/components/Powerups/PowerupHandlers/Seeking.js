@@ -15,7 +15,12 @@ function MailSeek(dt) {
     var v = _Bullet.bullets[i];
     var target = getQuail(v.x, v.y);
     if (target.y) {
-      console.log('target located');
+      var targetAngle = Math.atan2(target.y - v.y, target.x - v.x);
+      if (targetAngle > v.angle) {
+        v.angle -= turnSpeed * dt;
+      } else {
+        v.angle += turnSpeed * dt;
+      }
     }
   }
 }
@@ -36,7 +41,6 @@ function getQuail(x, y) {
 
     // init closest
     if (!closest) {
-      console.log('Init closest');
       closest = { x: v.x, y: v.y };
     } else {
       var originalDistance = getDistance(closest.x, closest.y, x, y);
