@@ -59,7 +59,8 @@ function updateBullets(dt) {
 
     el.css({
       left: v.x,
-      top: v.y
+      top: v.y,
+      transform: 'rotate(' + v.angle + 'rad)'
     });
 
     // Delete if it has gone offscreen OR
