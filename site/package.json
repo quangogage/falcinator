@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://quangogage.github.io/falcinator/",
   "dependencies": {
-    "falcinator": "^1.5.5",
+    "falcinator": "git+https://github.com/quangogage/falcinator.git#dev",
     "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
