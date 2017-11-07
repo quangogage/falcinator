@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://quangogage.github.io/falcinator/",
   "dependencies": {
-    "falcinator": "git+https://github.com/quangogage/falcinator.git#dev",
+    "falcinator": "^1.5.5",
     "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -15,7 +15,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build&&gh-pages -d build"
   }
 }
