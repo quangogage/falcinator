@@ -50,7 +50,7 @@ function shootBullet(mouseX, mouseY, ship, world) {
   var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
   var index = bullets.length;
   shootFunc(bulletEl, angle, shipX, shipY);
-  handleBurstShot(bulletEl, angle, shipX, shipY, shootFunc);
+  (0, _BurstShot.HandleBurstShot)(bulletEl, angle, shipX, shipY, shootFunc);
 }
 function updateBullets(dt) {
   var i = bullets.length;
