@@ -12,7 +12,7 @@ exports.default = generate;
 var timer = 0;
 
 // Adjustable Variables
-var spawnRateRange = [3500, 3500]; // How quickly should they spawn at first?
+var spawnRateRange = [3200, 3200]; // How quickly should they spawn at first?
 var maxSpawnRate = 1200; // What is the cap for how quickly they can spawn
 var spawnRateIncrease = 0.35; // How fast does the spawn rate increase ( every frame ) ?
 var spawnAmountRange = [1, 2]; // How many can spawn at once?
