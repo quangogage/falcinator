@@ -93,7 +93,6 @@ function updateGame() {
 }
 
 function gameClick(e) {
-  (0, _BurstShot.HandleBurstShot)(e, ship, world);
   (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship, world);
 }
 function gameResize() {

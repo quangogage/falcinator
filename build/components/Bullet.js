@@ -13,6 +13,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _Camera = require('./Camera/Camera');
 
+var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var bullets = exports.bullets = [];
@@ -20,31 +22,35 @@ var speed = 1;
 
 // ** Global Functions ** \\
 function shootBullet(mouseX, mouseY, ship, world) {
+  var shootFunc = function shootFunc(bulletEl, angle, shipX, shipY) {
+    // Add to array of stored bullets
+    bullets[index] = {
+      el: bulletEl,
+      angle: angle,
+      x: shipX,
+      y: shipY
+    };
+
+    // Position and angle
+    bulletEl.css({
+      left: shipX,
+      top: shipY,
+      transform: 'rotate(' + angle + 'rad)'
+    });
+
+    // Add to world
+    world.append(bulletEl);
+
+    // Shake Camera
+    (0, _Camera.ShakeCamera)(20);
+  };
   var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
   var shipX = ship.offset().left + ship.width() / 2;
   var shipY = ship.offset().top + ship.height() / 2;
   var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
   var index = bullets.length;
-  // Add to array of stored bullets
-  bullets[index] = {
-    el: bulletEl,
-    angle: angle,
-    x: shipX,
-    y: shipY
-  };
-
-  // Position and angle
-  bulletEl.css({
-    left: shipX,
-    top: shipY,
-    transform: 'rotate(' + angle + 'rad)'
-  });
-
-  // Add to world
-  world.append(bulletEl);
-
-  // Shake Camera
-  (0, _Camera.ShakeCamera)(20);
+  shootFunc(bulletEl, angle, shipX, shipY);
+  handleBurstShot(bulletEl, angle, shipX, shipY, shootFunc);
 }
 function updateBullets(dt) {
   var i = bullets.length;
