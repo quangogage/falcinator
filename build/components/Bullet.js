@@ -15,6 +15,8 @@ var _Camera = require('./Camera/Camera');
 
 var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
 
+var _HandlePowerups = require('./Powerups/HandlePowerups');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var bullets = exports.bullets = [];
@@ -71,7 +73,12 @@ function updateBullets(dt) {
     // Delete if it has gone offscreen OR
     // if it has hit the quail (collision detection
     // is handled in Quail.js, sets "setToDelete" to true.)
-    if (v.x < 0 || v.y < 0 || v.x > window.innerWidth || v.y > window.innerHeight || v.setToDelete === true) {
+    if (v.x < 0 || v.y < 0 || v.x > window.innerWidth || v.y > window.innerHeight) {
+      if (_HandlePowerups.powerupList[4].active === false) {
+        v.setToDelete = true;
+      }
+    }
+    if (v.setToDelete === true) {
       v.el.remove();
       bullets.splice(i, 1);
     }
