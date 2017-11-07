@@ -31,6 +31,8 @@ var _User = require('./Firebase/User');
 
 var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
 
+var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
+
 var _Camera = require('./Camera/Camera');
 
 var _crosshair = require('./crosshair.png');
@@ -91,6 +93,7 @@ function updateGame() {
 }
 
 function gameClick(e) {
+  (0, _BurstShot.HandleBurstShot)(e, ship, world);
   (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship, world);
 }
 function gameResize() {
