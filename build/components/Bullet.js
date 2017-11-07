@@ -24,7 +24,7 @@ var speed = 1;
 function shootBullet(mouseX, mouseY, ship, world) {
   var shootFunc = function shootFunc(bulletEl, angle, shipX, shipY) {
     // Add to array of stored bullets
-    bullets[index] = {
+    bullets[bullets.length] = {
       el: bulletEl,
       angle: angle,
       x: shipX,
@@ -48,7 +48,6 @@ function shootBullet(mouseX, mouseY, ship, world) {
   var shipX = ship.offset().left + ship.width() / 2;
   var shipY = ship.offset().top + ship.height() / 2;
   var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
-  var index = bullets.length;
   shootFunc(bulletEl, angle, shipX, shipY);
   (0, _BurstShot.HandleBurstShot)(bulletEl, angle, shipX, shipY, shootFunc);
 }
