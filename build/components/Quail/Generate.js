@@ -13,14 +13,35 @@ var timer = 0;
 
 // Adjustable Variables
 var spawnRateRange = [3300, 3300]; // How quickly should they spawn at first?
-var maxSpawnRate = 1200; // What is the cap for how quickly they can spawn
-var spawnRateIncrease = 0.75; // How fast does the spawn rate increase ( every frame ) ?
+var maxSpawnRate = 500; // What is the cap for how quickly they can spawn
+var spawnRateIncrease = 1.25; // How fast does the spawn rate increase ( every frame ) ?
 var spawnAmountRange = [1, 2]; // How many can spawn at once?
+var stages = [{
+  rate: 1050,
+  multiplier: 0.75
+}, {
+  rate: 885,
+  multiplier: 0.5
+}];
 
 var timerLim = getRandom(spawnRateRange[0], spawnRateRange[1]);
 function generate(world, spawnQuail, dt) {
-  timer += dt;
-  console.log(timerLim);
+  if (timerLim <= stages[0].rate) {
+    for (var i = 0; i < stages.length; i++) {
+      var rate = stages[i].rate;
+      var multiplier = stages[i].multiplier;
+      if (stages[i + 1] !== null) {
+        var nextRate = stages[i + 1].rate;
+        if (timerLim <= rate && timerLim > nextRate) {
+          timer += dt * multiplier;
+        }
+      } else {
+        timer += dt * multipler;
+      }
+    }
+  } else {
+    timer += dt;
+  }
   if (timer >= timerLim) {
     var amount = Math.round(getRandom(spawnAmountRange[0] * 100, spawnAmountRange[1] * 100) / 100);
     for (var i = 0; i < amount; i++) {
