@@ -26,12 +26,12 @@ function generate(world, spawnQuail, dt) {
     }
     timer = 0;
   }
-  if (timerLim > 900) {
+  if (timerLim > 1100) {
     timerLim -= spawnRateIncrease;
   } else if (timerLim > 750) {
-    timerLim -= spawnRateIncrease * 0.25;
+    timerLim -= spawnRateIncrease * 0.15;
   } else if (timerLim > 500) {
-    timerLim -= spawnRateIncrease * 0.05;
+    timerLim -= spawnRateIncrease * 0.025;
   }
   console.log(timerLim);
 }
