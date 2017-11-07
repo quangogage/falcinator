@@ -35,7 +35,7 @@ function getQuail(x, y) {
     var v = _Quail.quails[i];
 
     // init closest
-    if (closest === null) {
+    if (!closest) {
       console.log('Init closest');
       closest = { x: v.x, y: v.y };
     } else {
