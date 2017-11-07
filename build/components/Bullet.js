@@ -45,7 +45,7 @@ function shootBullet(mouseX, mouseY, ship, world) {
     world.append(bulletEl);
 
     // Shake Camera
-    (0, _Camera.ShakeCamera)(20);
+    (0, _Camera.ShakeCamera)(6.66);
   };
   var shipX = ship.offset().left + ship.width() / 2;
   var shipY = ship.offset().top + ship.height() / 2;

@@ -14,6 +14,8 @@ var _Generate = require('./Generate');
 
 var _Generate2 = _interopRequireDefault(_Generate);
 
+var _Camera = require('../Camera/Camera');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var frames = [require('./frames/box1.png'), require('./frames/box2.png'), require('./frames/box3.png')];
@@ -135,4 +137,5 @@ function getRandom(min, max) {
 function killQuail(i) {
   var v = quails[i];
   _jquery2.default.when(v.el.remove()).then(quails.splice(i, 1));
+  SHakeCamera(5);
 }

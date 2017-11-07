@@ -26,7 +26,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var powerupList = exports.powerupList = [{
   name: 'Fast Shooting',
   func: _FastShooting.FastShooting,
-  duration: 4200,
+  duration: 7000,
   active: false,
   timer: 0
 }, {
