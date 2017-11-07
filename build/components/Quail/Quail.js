@@ -137,5 +137,5 @@ function getRandom(min, max) {
 function killQuail(i) {
   var v = quails[i];
   _jquery2.default.when(v.el.remove()).then(quails.splice(i, 1));
-  SHakeCamera(5);
+  (0, _Camera.ShakeCamera)(5);
 }
