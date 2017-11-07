@@ -29,7 +29,7 @@ function generate(world, spawnQuail, dt) {
   if (timerLim > 1100) {
     timerLim -= spawnRateIncrease;
   } else if (timerLim > 750) {
-    timerLim -= spawnRateIncrease * 0.15;
+    timerLim -= spawnRateIncrease * 0.1725;
   } else if (timerLim > 500) {
     timerLim -= spawnRateIncrease * 0.025;
   }
