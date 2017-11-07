@@ -23,7 +23,7 @@ function HandleBurstShot(e, ship, world) {
 
     (0, _Bullet.shootBullet)(newX, newY, ship, world);
 
-    angle = Math.atan2(shipY - e.pageY, shipX - e.pageX) + Math.PI * 0.4;
+    angle = Math.atan2(shipY - e.pageY, shipX - e.pageX) + Math.PI * 0.8;
     newX = shipX + Math.cos(angle) * 50;
     newY = shipY + Math.sin(angle) * 50;
 
