@@ -44,7 +44,7 @@ var powerupList = exports.powerupList = [{
 }, {
   name: 'Burst Shot!',
   func: _BurstShot.BurstShot,
-  duration: 5000,
+  duration: 7500,
   active: false,
   timer: 0
 }, {
