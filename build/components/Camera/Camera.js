@@ -15,7 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var cam = {
   x: 0,
   y: 0,
-  resetSpeed: 0.125
+  resetSpeed: 0.1
 };
 function UpdateCamera(dt) {
   cam.x = cam.x - (cam.x - 0) * cam.resetSpeed * dt;
