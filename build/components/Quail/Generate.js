@@ -26,22 +26,7 @@ var stages = [{
 
 var timerLim = getRandom(spawnRateRange[0], spawnRateRange[1]);
 function generate(world, spawnQuail, dt) {
-  if (timerLim <= stages[0].rate) {
-    for (var i = 0; i < stages.length - 1; i++) {
-      var rate = stages[i].rate;
-      var multiplier = stages[i].multiplier;
-      if (stages[i + 1] !== null) {
-        var nextRate = stages[i + 1].rate;
-        if (timerLim <= rate && timerLim > nextRate) {
-          timer += dt * multiplier;
-        }
-      } else {
-        timer += dt * multipler;
-      }
-    }
-  } else {
-    timer += dt;
-  }
+  timer += dt;
   if (timer >= timerLim) {
     var amount = Math.round(getRandom(spawnAmountRange[0] * 100, spawnAmountRange[1] * 100) / 100);
     for (var i = 0; i < amount; i++) {
