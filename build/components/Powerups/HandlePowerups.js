@@ -25,30 +25,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var powerupList = exports.powerupList = [{
   name: 'Fast Shooting',
+  phrase: 'MAIL dominance!',
   func: _FastShooting.FastShooting,
   duration: 6500,
   active: false,
   timer: 0
 }, {
   name: 'Slow Motion',
+  phrase: 'SNAIL MAIL!',
   func: _SlowMotion.SlowMotion,
   duration: 3750,
   active: false,
   timer: 0
 }, {
   name: 'Seeking Mail!',
+  phrase: 'MAIL, man!',
   func: _Seeking.MailSeek,
   duration: 6500,
   active: false,
   timer: 0
 }, {
   name: 'Burst Shot!',
+  phrase: 'Going POSTAL!',
   func: _BurstShot.BurstShot,
   duration: 7500,
   active: false,
   timer: 0
 }, {
   name: 'Ricochet Bullets!',
+  phrase: 'MAILSTROM!',
   func: _BouncyBullets.BouncyBullets,
   duration: 7500,
   active: false,
@@ -76,7 +81,7 @@ function activatePowerup() {
   // activePowerup = powerupList[4];
   activePowerup.timer = 0;
   activePowerup.active = true;
-  (0, _Notification2.default)(activePowerup.name);
+  (0, _Notification2.default)(activePowerup.phrase, activePowerup.name);
 }
 
 // Get a random number between two values

@@ -24,7 +24,8 @@ var speed = 1;
 
 // ** Global Functions ** \\
 function shootBullet(mouseX, mouseY, ship, world) {
-  var shootFunc = function shootFunc(angle, shipX, shipY) {
+  var shootFunc = function shootFunc(angle, shipX, shipY, shakeIntensity) {
+    var shakeIntensity = shakeIntensity || 3.2;
     var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
     // Add to array of stored bullets
     bullets[bullets.length] = {
