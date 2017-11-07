@@ -17,7 +17,7 @@ function MailSeek(dt) {
     if (!target) {
       v.angle = v.angle;
     } else {
-      var targetAngleRad = Math.atan2(target.y - v.y, target.x - v.x);
+      var targetAngleRad = Math.atan2(v.y - target.y, v.x - target.x);
       var targetAngle = toDegrees(targetAngleRad);
       var bulletAngle = toDegrees(v.angle);
 
@@ -27,16 +27,16 @@ function MailSeek(dt) {
       if (Math.abs(bulletAngle - targetAngle) < 180) {
         // Rotate current directly towards target.
         if (bulletAngle < targetAngle) {
-          bulletAngle++;
+          bulletAngle += turnSpeed * dt;
         } else {
-          bulletAngle--;
+          bulletAngle -= turnSpeed * dt;
         }
       } else {
         // Rotate the other direction towards target.
         if (bulletAngle < targetAngle) {
-          bulletAngle--;
+          bulletAngle -= turnSpeed * dt;
         } else {
-          bulletAngle++;
+          bulletAngle += turnSpeed * dt;
         }
       }
       bulletAngle = (bulletAngle % 360 + 360) % 360;
