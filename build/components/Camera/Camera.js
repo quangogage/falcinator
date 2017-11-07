@@ -28,20 +28,11 @@ function UpdateCamera(dt) {
     });
   }
 }
-function ShakeCamera(amount) {
+function ShakeCamera(shake) {
   var angle = getRandom(-5 * 100, 5 * 100) / 100;
-  if (cam.x >= 25) {
-    cam.x = 25;
-  } else if (cam.x <= -25) {
-    cam.x = -25;
-  }
-  if (cam.y >= 25) {
-    cam.y = 25;
-  } else if (cam.y <= -25) {
-    cam.y = -25;
-  }
-  cam.x += Math.cos(angle) * amount;
-  cam.y += Math.sin(angle) * amount;
+  var amount = getRandom(shake * 0.8, shake * 1.2);
+  cam.x = Math.cos(angle) * amount;
+  cam.y = Math.sin(angle) * amount;
 }
 
 // Get a random number between two values
