@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.quails = undefined;
 exports.updateQuail = updateQuail;
 
 var _jquery = require('jquery');
@@ -17,7 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var frames = [require('./frames/box1.png'), require('./frames/box2.png'), require('./frames/box3.png')];
 var framerate = 90;
-var quails = [];
+var quails = exports.quails = [];
 
 // Customizable Variables
 var speedRange = [0.1, 0.3]; // How fast can a quail go?
