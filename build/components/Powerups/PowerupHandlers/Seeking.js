@@ -9,7 +9,7 @@ var _Bullet = require('../../Bullet');
 
 var _Quail = require('../../Quail/Quail');
 
-var turnSpeed = 1.5;
+var turnSpeed = 0.7;
 function MailSeek(dt) {
   for (var i = 0; i < _Bullet.bullets.length; i++) {
     var v = _Bullet.bullets[i];
@@ -21,6 +21,9 @@ function MailSeek(dt) {
       var targetAngle = toDegrees(targetAngleRad);
       var bulletAngle = toDegrees(v.angle);
 
+      if (bulletAngle - targetAngle == 0) {
+        return;
+      }
       if (Math.abs(bulletAngle - targetAngle) < 180) {
         // Rotate current directly towards target.
         if (bulletAngle < targetAngle) {
