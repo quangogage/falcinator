@@ -1,6 +1,6 @@
 {
   "name": "falcinator",
-  "version": "1.5.1",
+  "version": "1.5.5",
   "description": "Falcinate your app!",
   "main": "build/index.js",
   "scripts": {
