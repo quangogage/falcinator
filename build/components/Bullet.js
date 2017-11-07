@@ -22,7 +22,8 @@ var speed = 1;
 
 // ** Global Functions ** \\
 function shootBullet(mouseX, mouseY, ship, world) {
-  var shootFunc = function shootFunc(bulletEl, angle, shipX, shipY) {
+  var shootFunc = function shootFunc(angle, shipX, shipY) {
+    var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
     // Add to array of stored bullets
     bullets[bullets.length] = {
       el: bulletEl,
@@ -30,6 +31,7 @@ function shootBullet(mouseX, mouseY, ship, world) {
       x: shipX,
       y: shipY
     };
+    console.log('bullet spawned');
 
     // Position and angle
     bulletEl.css({
@@ -44,12 +46,11 @@ function shootBullet(mouseX, mouseY, ship, world) {
     // Shake Camera
     (0, _Camera.ShakeCamera)(20);
   };
-  var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
   var shipX = ship.offset().left + ship.width() / 2;
   var shipY = ship.offset().top + ship.height() / 2;
   var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
-  shootFunc(bulletEl, angle, shipX, shipY);
-  (0, _BurstShot.HandleBurstShot)(bulletEl, angle, shipX, shipY, shootFunc);
+  shootFunc(angle, shipX, shipY);
+  (0, _BurstShot.HandleBurstShot)(angle, shipX, shipY, shootFunc);
 }
 function updateBullets(dt) {
   var i = bullets.length;
