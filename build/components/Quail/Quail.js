@@ -68,6 +68,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         addScore();
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
+        (0, _Camera.ShakeCamera)(5);
       }
     }
   }
@@ -137,5 +138,4 @@ function getRandom(min, max) {
 function killQuail(i) {
   var v = quails[i];
   _jquery2.default.when(v.el.remove()).then(quails.splice(i, 1));
-  (0, _Camera.ShakeCamera)(5);
 }
