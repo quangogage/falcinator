@@ -9,12 +9,14 @@ var _Bullet = require('../../Bullet');
 
 var _Quail = require('../../Quail/Quail');
 
-var turnSpeed = 0.005;
+var turnSpeed = 1.5;
 function MailSeek(dt) {
   for (var i = 0; i < _Bullet.bullets.length; i++) {
     var v = _Bullet.bullets[i];
     var target = getQuail(v.x, v.y);
-    if (target.y) {
+    if (!target) {
+      v.angle = v.angle;
+    } else {
       var targetAngleRad = Math.atan2(target.y - v.y, target.x - v.x);
       var targetAngle = toDegrees(targetAngleRad);
       var bulletAngle = toDegrees(v.angle);
