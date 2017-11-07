@@ -19,9 +19,9 @@ Play the game now on it's [github page!](https://quangogage.github.io/falcinator
 
 
 ## Screenshots
-![Screenshot](/screenshots/new 1.png)
-![Screenshot](/screenshots/new 2.png)
-![Screenshot](/screenshots/new 3.png)
+![Screenshot](/screenshots/new-1.png)
+![Screenshot](/screenshots/new-2.png)
+![Screenshot](/screenshots/new-3.png)
 
 ## Install
 `npm install falcinator`
