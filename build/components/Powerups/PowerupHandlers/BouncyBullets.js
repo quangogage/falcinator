@@ -11,17 +11,17 @@ function BouncyBullets(dt) {
   for (var i = 0; i < _Bullet.bullets.length; i++) {
     var v = _Bullet.bullets[i];
     if (v.x < 10) {
-      v.angle += Math.PI;
+      v.angle = v.angle * -1;
       v.x = 10;
     } else if (v.x > window.innerWidth - 20) {
-      v.angle += Math.PI;
+      v.angle = v.angle * -1;
       v.x = window.innerWidth - 20;
     }
     if (v.y < 10) {
-      v.angle += Math.PI;
+      v.angle = v.angle * -1;
       v.y = 10;
     } else if (v.y > window.innerHeight - 20) {
-      v.angle += Math.PI;
+      v.angle = v.angle * -1;
       v.y = window.innerHeight - 20;
     }
   }
