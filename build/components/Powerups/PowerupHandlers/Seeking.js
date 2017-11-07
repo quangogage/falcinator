@@ -80,11 +80,11 @@ function getDistance(x1, y1, x2, y2) {
 }
 
 // Convert to radians
-toRadians = function toRadians(degrees) {
+function toRadians(degrees) {
   return degrees * Math.PI / 180;
-};
+}
 
 // Converts from radians to degrees.
-toDegrees = function toDegrees(radians) {
+function toDegrees(radians) {
   return radians * 180 / Math.PI;
-};
+}
