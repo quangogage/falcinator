@@ -9,7 +9,7 @@ var _Bullet = require('../../Bullet');
 
 var _Quail = require('../../Quail/Quail');
 
-var turnSpeed = 0.7;
+var turnSpeed = 0.35;
 function MailSeek(dt) {
   for (var i = 0; i < _Bullet.bullets.length; i++) {
     var v = _Bullet.bullets[i];

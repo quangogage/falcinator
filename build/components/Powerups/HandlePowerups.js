@@ -34,7 +34,7 @@ var powerupList = exports.powerupList = [{
 }, {
   name: 'Seeking Mail!',
   func: _Seeking.MailSeek,
-  duration: 3500,
+  duration: 35000,
   active: false,
   timer: 0
 }];
