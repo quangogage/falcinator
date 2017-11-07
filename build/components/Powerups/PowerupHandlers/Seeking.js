@@ -21,7 +21,7 @@ function MailSeek(dt) {
       var targetAngle = toDegrees(targetAngleRad);
       var bulletAngle = toDegrees(v.angle);
 
-      if (bulletAngle - targetAngle == 0) {
+      if (Math.abs(bulletAngle - targetAngle) <= 5) {
         return;
       }
       if (Math.abs(bulletAngle - targetAngle) < 180) {
