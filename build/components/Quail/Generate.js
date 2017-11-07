@@ -27,7 +27,7 @@ var stages = [{
 var timerLim = getRandom(spawnRateRange[0], spawnRateRange[1]);
 function generate(world, spawnQuail, dt) {
   if (timerLim <= stages[0].rate) {
-    for (var i = 0; i < stages.length; i++) {
+    for (var i = 0; i < stages.length - 1; i++) {
       var rate = stages[i].rate;
       var multiplier = stages[i].multiplier;
       if (stages[i + 1] !== null) {
