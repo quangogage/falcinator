@@ -30,7 +30,6 @@ var styles = {
   alignItems: 'center'
 };
 function CreateNotification(phrase, powerupName) {
-  var phrase = catchphrases[Math.floor(getRandom(0, catchphrases.length - 1))];
   var note = (0, _jquery2.default)('<div class="notification">\n    <div class=\'phrase\'>' + phrase + '</div>\n    <div class=\'powerup\' style="font-size:3vw;margin-top:15px;">' + powerupName + '</div>\n  </div>');
   note.css(styles);
   (0, _jquery2.default)('.Game').append(note);

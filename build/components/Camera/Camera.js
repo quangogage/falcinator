@@ -33,6 +33,16 @@ function ShakeCamera(shake) {
   var amount = getRandom(shake * 0.8, shake * 2);
   cam.x = Math.cos(angle) * amount;
   cam.y = Math.sin(angle) * amount;
+  if (cam.x > 45) {
+    cam.x = 45;
+  } else if (cam.x < -45) {
+    cam.x = -45;
+  }
+  if (cam.y > 45) {
+    cam.y = 45;
+  } else if (cam.y < -45) {
+    cam.y = -45;
+  }
 }
 
 // Get a random number between two values
