@@ -10,11 +10,15 @@ Embed the Falcinator anywhere in your React app!
 Play the game now on it's [github page!](https://quangogage.github.io/falcinator/)
 ### V1.5.0
 • Added camera shake
+
+
 • Added powerups
   - Ricochet
   - Fast Shooting
   - Slow Motion
-  - + More
+  - & More
+  
+  
 • More balanced difficulty curve
 
 
