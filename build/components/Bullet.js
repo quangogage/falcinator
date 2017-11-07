@@ -13,6 +13,10 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _Camera = require('./Camera/Camera');
 
+var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
+
+var _HandlePowerups = require('./Powerups/HandlePowerups');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var bullets = exports.bullets = [];
@@ -20,31 +24,34 @@ var speed = 1;
 
 // ** Global Functions ** \\
 function shootBullet(mouseX, mouseY, ship, world) {
-  var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
+  var shootFunc = function shootFunc(angle, shipX, shipY) {
+    var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
+    // Add to array of stored bullets
+    bullets[bullets.length] = {
+      el: bulletEl,
+      angle: angle,
+      x: shipX,
+      y: shipY
+    };
+
+    // Position and angle
+    bulletEl.css({
+      left: shipX,
+      top: shipY,
+      transform: 'rotate(' + angle + 'rad)'
+    });
+
+    // Add to world
+    world.append(bulletEl);
+
+    // Shake Camera
+    (0, _Camera.ShakeCamera)(3.2);
+  };
   var shipX = ship.offset().left + ship.width() / 2;
   var shipY = ship.offset().top + ship.height() / 2;
   var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
-  var index = bullets.length;
-  // Add to array of stored bullets
-  bullets[index] = {
-    el: bulletEl,
-    angle: angle,
-    x: shipX,
-    y: shipY
-  };
-
-  // Position and angle
-  bulletEl.css({
-    left: shipX,
-    top: shipY,
-    transform: 'rotate(' + angle + 'rad)'
-  });
-
-  // Add to world
-  world.append(bulletEl);
-
-  // Shake Camera
-  (0, _Camera.ShakeCamera)(20);
+  shootFunc(angle, shipX, shipY);
+  (0, _BurstShot.HandleBurstShot)(angle, shipX, shipY, shootFunc);
 }
 function updateBullets(dt) {
   var i = bullets.length;
@@ -66,7 +73,12 @@ function updateBullets(dt) {
     // Delete if it has gone offscreen OR
     // if it has hit the quail (collision detection
     // is handled in Quail.js, sets "setToDelete" to true.)
-    if (v.x < 0 || v.y < 0 || v.x > window.innerWidth || v.y > window.innerHeight || v.setToDelete === true) {
+    if (v.x < 0 || v.y < 0 || v.x > window.innerWidth || v.y > window.innerHeight) {
+      if (_HandlePowerups.powerupList[4].active === false) {
+        v.setToDelete = true;
+      }
+    }
+    if (v.setToDelete === true) {
       v.el.remove();
       bullets.splice(i, 1);
     }

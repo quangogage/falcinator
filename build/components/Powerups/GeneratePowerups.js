@@ -5,18 +5,22 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = GeneratePowerups;
 var timer = 0;
-var spawnRate = 1250; // How often should it roll for a powerup?
-var spawnChanceRange = 5; // How likely is it that a powerup spawns ( percentage ) ?
-spawnChanceRange = 100;
+var spawnRate = 100; // How often should it roll for a powerup?
+var spawnChanceRange = 2; // How likely is it that a powerup spawns ( percentage ) ?
+var waitTimer = 0;
+var waitTime = 20000; // How long into playing until powerups start spawning?
 
 function GeneratePowerups(spawnPowerup, dt) {
-  timer += dt;
-  if (timer >= spawnRate) {
-    var roll = getRandom(0, 100);
-    if (roll <= spawnChanceRange) {
-      spawnPowerup();
+  waitTimer += dt;
+  if (waitTimer >= waitTime) {
+    timer += dt;
+    if (timer >= spawnRate) {
+      var roll = getRandom(0, 100);
+      if (roll <= spawnChanceRange) {
+        spawnPowerup();
+      }
+      timer = 0;
     }
-    timer = 0;
   }
 }
 

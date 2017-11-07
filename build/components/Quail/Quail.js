@@ -14,6 +14,8 @@ var _Generate = require('./Generate');
 
 var _Generate2 = _interopRequireDefault(_Generate);
 
+var _Camera = require('../Camera/Camera');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var frames = [require('./frames/box1.png'), require('./frames/box2.png'), require('./frames/box3.png')];
@@ -66,6 +68,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         addScore();
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
+        (0, _Camera.ShakeCamera)(5);
       }
     }
   }

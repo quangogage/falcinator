@@ -9,7 +9,7 @@ var _Bullet = require('../../Bullet');
 
 var _Quail = require('../../Quail/Quail');
 
-var turnSpeed = 0.7;
+var turnSpeed = 0.35;
 function MailSeek(dt) {
   for (var i = 0; i < _Bullet.bullets.length; i++) {
     var v = _Bullet.bullets[i];
@@ -17,11 +17,10 @@ function MailSeek(dt) {
     if (!target) {
       v.angle = v.angle;
     } else {
-      var targetAngleRad = Math.atan2(v.y - target.y, v.x - target.x) - Math.PI / 2;
+      var targetAngleRad = Math.atan2(v.y - target.y, v.x - target.x) + Math.PI / 2;
       var targetAngle = toDegrees(targetAngleRad);
       var bulletAngle = toDegrees(v.angle);
-
-      if (bulletAngle - targetAngle == 0) {
+      if (Math.abs(bulletAngle - targetAngle) <= 5) {
         return;
       }
       if (Math.abs(bulletAngle - targetAngle) < 180) {
@@ -51,7 +50,6 @@ function getQuail(x, y) {
 
   // Return null if there are no living quails
   if (_Quail.quails.length === 0) {
-    console.log('no quails');
     return null;
   }
 
@@ -61,7 +59,7 @@ function getQuail(x, y) {
 
     // init closest
     if (!closest) {
-      closest = { x: v.x, y: v.y };
+      closest = { x: v.x + v.el.width() / 2, y: v.y + v.el.height() / 2 };
     } else {
       var originalDistance = getDistance(closest.x, closest.y, x, y);
       var comparingDistance = getDistance(v.x, v.y, x, y);
@@ -69,7 +67,7 @@ function getQuail(x, y) {
       // If this quail is closer than the previously closest
       // quail, make it the new closest
       if (comparingDistance <= originalDistance) {
-        closest = { x: v.x, y: v.y };
+        closest = { x: v.x + v.el.width() / 2, y: v.y + v.el.height() / 2 };
       }
     }
   }

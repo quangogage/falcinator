@@ -30,6 +30,16 @@ function UpdateCamera(dt) {
 }
 function ShakeCamera(amount) {
   var angle = getRandom(-5 * 100, 5 * 100) / 100;
+  if (cam.x >= 25) {
+    cam.x = 25;
+  } else if (cam.x <= -25) {
+    cam.x = -25;
+  }
+  if (cam.y >= 25) {
+    cam.y = 25;
+  } else if (cam.y <= -25) {
+    cam.y = -25;
+  }
   cam.x += Math.cos(angle) * amount;
   cam.y += Math.sin(angle) * amount;
 }

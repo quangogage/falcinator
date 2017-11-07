@@ -31,6 +31,8 @@ var _User = require('./Firebase/User');
 
 var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
 
+var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
+
 var _Camera = require('./Camera/Camera');
 
 var _crosshair = require('./crosshair.png');
