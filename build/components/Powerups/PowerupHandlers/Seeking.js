@@ -20,8 +20,6 @@ function MailSeek(dt) {
       var targetAngleRad = Math.atan2(v.y - target.y, v.x - target.x) + Math.PI / 2;
       var targetAngle = toDegrees(targetAngleRad);
       var bulletAngle = toDegrees(v.angle);
-      v.angle = targetAngleRad;
-      /*
       if (Math.abs(bulletAngle - targetAngle) <= 5) {
         return;
       }
@@ -42,7 +40,6 @@ function MailSeek(dt) {
       }
       bulletAngle = (bulletAngle % 360 + 360) % 360;
       v.angle = toRadians(bulletAngle);
-      */
     }
   }
 }
