@@ -17,7 +17,7 @@ function MailSeek(dt) {
     if (!target) {
       v.angle = v.angle;
     } else {
-      var targetAngleRad = Math.atan2(v.y - target.y, v.x - target.x) + Math.PI / 2;
+      var targetAngleRad = Math.atan2(v.y - target.y + target.el.width() / 2, v.x - target.x + target.el.height() / 2) + Math.PI / 2;
       var targetAngle = toDegrees(targetAngleRad);
       var bulletAngle = toDegrees(v.angle);
       v.angle = targetAngleRad;
