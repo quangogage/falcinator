@@ -52,9 +52,7 @@ function generate(world, spawnQuail, dt) {
   if (timerLim > maxSpawnRate) {
     timerLim -= spawnRateIncrease;
   }
-}
-if (timerLim > maxSpawnRate) {
-  timerLim -= spawnRateIncrease;
+  console.log(timerLim);
 }
 
 // ** Helper Functions ** \\
