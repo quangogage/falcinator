@@ -21,7 +21,7 @@ function BouncyBullets(dt) {
       v.angle = v.angle * -2;
       v.y = 10;
     } else if (v.y > window.innerHeight - 20) {
-      v.angle = v.angle * -1.5;
+      v.angle = v.angle + Math.PI - v.angle;
       v.y = window.innerHeight - 20;
     }
   }
