@@ -31,7 +31,6 @@ function shootBullet(mouseX, mouseY, ship, world) {
       x: shipX,
       y: shipY
     };
-    console.log('bullet spawned');
 
     // Position and angle
     bulletEl.css({
