@@ -15,6 +15,8 @@ var _Seeking = require('./PowerupHandlers/Seeking');
 
 var _BurstShot = require('./PowerupHandlers/BurstShot');
 
+var _BouncyBullets = require('./PowerupHandlers/BouncyBullets');
+
 var _Notification = require('./Notification/Notification');
 
 var _Notification2 = _interopRequireDefault(_Notification);
@@ -45,6 +47,12 @@ var powerupList = exports.powerupList = [{
   duration: 5000,
   active: false,
   timer: 0
+}, {
+  name: 'Ricochet Bullets!',
+  func: _BouncyBullets.BouncyBullets,
+  duration: 3500,
+  active: false,
+  timer: 0
 }];
 
 function HandlePowerups(dt) {
@@ -68,7 +76,7 @@ function HandlePowerups(dt) {
 // Activate / return new powerup
 function activatePowerup() {
   var activePowerup = powerupList[Math.floor(getRandom(0, powerupList.length - 1))];
-  // activePowerup = powerupList[3];
+  activePowerup = powerupList[4];
   activePowerup.timer = 0;
   activePowerup.active = true;
   (0, _Notification2.default)(activePowerup.name);
