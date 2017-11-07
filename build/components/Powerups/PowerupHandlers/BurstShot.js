@@ -18,14 +18,14 @@ function HandleBurstShot(e, ship, world) {
     var shipX = ship.offset().left + ship.width() / 2;
     var shipY = ship.offset().top + ship.height() / 2;
     var angle = Math.atan2(shipY - e.pageY, shipX - e.pageX) + Math.PI / 2;
-    angle += Math.pi * 0.1;
+    angle += Math.PI * 0.1;
     var newX = shipX + Math.cos(angle) * 50;
     var newY = shipY + Math.sin(angle) * 50;
 
     (0, _Bullet.shootBullet)(newX, newY, ship, world);
 
     angle = Math.atan2(shipY - e.pageY, shipX - e.pageX) + Math.PI / 2;
-    angle -= Math.pi * 0.1;
+    angle -= Math.PI * 0.1;
     newX = shipX + Math.cos(angle) * 50;
     newY = shipY + Math.sin(angle) * 50;
 
