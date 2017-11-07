@@ -27,16 +27,16 @@ function MailSeek(dt) {
       if (Math.abs(bulletAngle - targetAngle) < 180) {
         // Rotate current directly towards target.
         if (bulletAngle < targetAngle) {
-          bulletAngle += turnSpeed * dt;
+          bulletAngle++;
         } else {
-          bulletAngle -= turnSpeed * dt;
+          bulletAngle--;
         }
       } else {
         // Rotate the other direction towards target.
         if (bulletAngle < targetAngle) {
-          bulletAngle -= turnSpeed * dt;
+          bulletAngle--;
         } else {
-          bulletAngle += turnSpeed * dt;
+          bulletAngle++;
         }
       }
       bulletAngle = (bulletAngle % 360 + 360) % 360;
