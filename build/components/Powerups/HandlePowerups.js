@@ -32,7 +32,7 @@ var powerupList = exports.powerupList = [{
 }, {
   name: 'Slow Motion',
   func: _SlowMotion.SlowMotion,
-  duration: 3500,
+  duration: 3750,
   active: false,
   timer: 0
 }, {
