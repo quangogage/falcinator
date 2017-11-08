@@ -77,7 +77,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
           for (var ic = 0; ic < 10; ic++) {
             var x = getRandom(0, window.innerWidth);
             var y = getRandom(0, window.innerHeight);
-            (0, _Bullet.shootBullet)(x, y, _Game.ship.el, (0, _jquery2.default)('.Game'));
+            (0, _Bullet.shootBullet)(x, y, _Game.ship, (0, _jquery2.default)('.Game'));
           }
         }
       }
