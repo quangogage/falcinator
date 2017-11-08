@@ -21,6 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var bullets = exports.bullets = [];
 var speed = 1;
+var cannonball = require('./cannonball.png');
 
 // ** Global Functions ** \\
 function shootBullet(mouseX, mouseY, ship, world) {

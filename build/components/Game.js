@@ -33,8 +33,6 @@ var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
 
 var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
 
-var _CannonBall = require('./CannonBall/CannonBall');
-
 var _Camera = require('./Camera/Camera');
 
 var _crosshair = require('./crosshair.png');
@@ -91,12 +89,11 @@ function updateGame() {
   (0, _Particle.updateParticle)(dt);
   (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
   (0, _Powerups.updatePowerups)(bullets, dt);
-  (0, _CannonBall.UpdateCannonBall)(dt);
+  UpdateCannonBall(dt);
   (0, _Camera.UpdateCamera)(dt);
 }
 
 function gameClick(e) {
-  (0, _CannonBall.ShootCannonBall)(e.pageX, e.pageY, ship);
   (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship, world);
 }
 function gameResize() {
