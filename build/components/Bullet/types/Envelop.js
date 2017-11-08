@@ -47,10 +47,11 @@ var Envelop = {
     };
 
     // Set initial position/rotation of element
+    var cssAngle = angle + Math.PI / 2;
     el.css({
       left: originX,
       top: originY,
-      transform: 'rotate(' + angle + Math.PI / 2 + 'rad)'
+      transform: 'rotate(' + cssAngle + 'rad)'
     });
 
     // Place element on DOM
@@ -62,10 +63,11 @@ var Envelop = {
     v.y += Math.sin(v.angle) * speed * dt;
 
     // Apply to element
+    var newAngle = v.angle + Math.PI / 2;
     v.el.css({
       left: v.x,
       top: v.y,
-      transform: 'rotate(' + v.angle + Math.PI / 2 + 'rad)'
+      transform: 'rotate(' + newAngle + 'rad)'
     });
   }
 };
