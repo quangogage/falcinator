@@ -12,7 +12,7 @@ var _Bullet = require('../Bullet');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var img = require('../envelop.jpg');
+var img = require('../envelope.jpg');
 
 var styles = {
   position: 'absolute'

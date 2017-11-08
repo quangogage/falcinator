@@ -11,11 +11,11 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Camera = require('./Camera/Camera');
+var _Camera = require('../Camera/Camera');
 
-var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
+var _BurstShot = require('../Powerups/PowerupHandlers/BurstShot');
 
-var _HandlePowerups = require('./Powerups/HandlePowerups');
+var _HandlePowerups = require('../Powerups/HandlePowerups');
 
 var _Envelop = require('./types/Envelop');
 
@@ -25,7 +25,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var bullets = exports.bullets = [];
 var speed = 1;
-var cannonball = require('./cannonball.png');
 
 var types = [_Envelop2.default];
 
