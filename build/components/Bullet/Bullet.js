@@ -35,12 +35,12 @@ var types = [_Envelop2.default, _CannonBall2.default];
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
   var bulletFlags = flags || {};
-  var thisType;
+  var bulletType;
 
   if (!type) {
-    thisType = handleType();
+    bulletType = handleType();
   } else {
-    thisType = type;
+    bulletType = type;
   }
   var thisType = getBulletType(bulletType);
 
