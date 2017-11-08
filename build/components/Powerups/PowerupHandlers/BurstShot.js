@@ -17,6 +17,8 @@ function BurstShot(dt) {
       var x1 = v.x + Math.cos(v.angle) * 10;
       var y1 = v.y + Math.sin(v.angle) * 10;
       (0, _Bullet.shootBullet)(v.x, v.y, x1, y1);
+
+      v.burstShot = true;
     }
   }
 }
