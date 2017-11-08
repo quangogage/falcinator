@@ -10,6 +10,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _Bullet = require('../Bullet');
 
+var _Camera = require('../../Camera/Camera');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var img = require('../cannonball.png');
@@ -44,6 +46,7 @@ var CannonBall = {
     obj.x = originX;
     obj.y = originY;
     obj.angle = angle;
+    obj.onDestroy = onDestroy;
 
     // Set initial position/rotation of element
     var cssAngle = angle + Math.PI / 2;
@@ -70,5 +73,21 @@ var CannonBall = {
     });
   }
 };
+
+// Destroying
+function onDestroy(x, y) {
+  (0, _Camera.ShakeCamera)(18);
+  var amount = getRandom(7, 12);
+  for (var ic = 0; ic < amount; ic++) {
+    var tarx = getRandom(-window.innerWidth, window.innerWidth * 2);
+    var tary = getRandom(-window.innerHeight, window.innerHeight * 2);
+    (0, _Bullet.shootBullet)(x, y, tarx, tary, 'envelop');
+  }
+}
+
+// Get a random number between two values
+function getRandom(min, max) {
+  return Math.random() * (max - min + 1) + min;
+}
 
 exports.default = CannonBall;

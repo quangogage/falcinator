@@ -75,14 +75,8 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
         (0, _Camera.ShakeCamera)(5);
-        if (va.type === 'cannonball') {
-          (0, _Camera.ShakeCamera)(18);
-          var amount = getRandom(7, 12);
-          for (var ic = 0; ic < amount; ic++) {
-            var x = getRandom(-window.innerWidth, window.innerWidth * 2);
-            var y = getRandom(-window.innerHeight, window.innerHeight * 2);
-            (0, _Bullet.shootBullet)(deathX, deathY, x, y, 'envelop');
-          }
+        if (va.onDestroy) {
+          va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
         }
       }
     }
