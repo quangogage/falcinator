@@ -24,7 +24,7 @@ var speed = 1;
 
 // ** Global Functions ** \\
 function shootBullet(mouseX, mouseY, ship, world) {
-  if (_HandlePowerups.powerupList[4].active === false) {
+  if (_HandlePowerups.powerupList[5].active === false) {
     var shootFunc = function shootFunc(angle, shipX, shipY, shakeIntensity) {
       var shakeIntensity = shakeIntensity || 3.2;
       var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');

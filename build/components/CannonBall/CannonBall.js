@@ -24,7 +24,7 @@ var speed = 0.666;
 
 // Shoot a cannonball
 function ShootCannonBall(mouseX, mouseY, ship) {
-  if (_HandlePowerups.powerupList[4].active === true) {
+  if (_HandlePowerups.powerupList[5].active === true) {
     var shipX = ship.offset().left + ship.width() / 2;
     var shipY = ship.offset().top + ship.height() / 2;
     var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
@@ -32,6 +32,7 @@ function ShootCannonBall(mouseX, mouseY, ship) {
 
     // Style
     el.css(styles);
+    el.css({ left: shipX, top: shipY });
 
     // Add to array
     cannonballs[cannonballs.length] = {
