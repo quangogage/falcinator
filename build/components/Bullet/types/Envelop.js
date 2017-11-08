@@ -36,7 +36,7 @@ var Envelop = {
 
     // Calculate Direction / Point in that direction
     angle = Math.atan2(targetY - originY, targetX - originX);
-    el.css({ transform: 'rotate(' + angle + 'rad)' });
+    el.css({ transform: 'rotate(' + angle + Math.PI / 2 + 'rad)' });
 
     // Init the object
     _Bullet.bullets[_Bullet.bullets.length] = {
