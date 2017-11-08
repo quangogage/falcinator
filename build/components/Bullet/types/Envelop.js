@@ -50,7 +50,7 @@ var Envelop = {
     el.css({
       left: originX,
       top: originY,
-      transform: 'rotate(' + toDegrees(angle) + ')'
+      transform: 'rotate(' + angle + 'rad)'
     });
 
     // Place element on DOM
@@ -65,7 +65,7 @@ var Envelop = {
     v.el.css({
       left: v.x,
       top: v.y,
-      transform: 'rotate(' + toDegrees(v.angle) + ')'
+      transform: 'rotate(' + v.angle + 'rad)'
     });
   }
 };

@@ -27,7 +27,8 @@ var styles = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
+  userSelect: 'none'
 };
 function CreateNotification(phrase, powerupName) {
   // Remove any previous notification
