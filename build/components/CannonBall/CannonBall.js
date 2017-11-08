@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.cannonballs = undefined;
+exports.ShootCannonBall = ShootCannonBall;
 exports.UpdateCannonBall = UpdateCannonBall;
 
 var _jquery = require('jquery');
@@ -22,7 +23,7 @@ var cannonballs = exports.cannonballs = [];
 
 // Shoot a cannonball
 function ShootCannonBall(mouseX, mouseY) {
-  if (_HandlePowerups.powerupList[4].active) {
+  if (_HandlePowerups.powerupList[4].active === true) {
     var shipX = ship.offset().left + ship.width() / 2;
     var shipY = ship.offset().top + ship.height() / 2;
     var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
