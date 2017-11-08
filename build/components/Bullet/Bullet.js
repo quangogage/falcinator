@@ -30,12 +30,13 @@ var types = [_Envelop2.default];
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
-  var type = type || 'envelop';
-  var thisType = getBulletType(type);
+  var bulletType = type || 'envelop';
+  var bulletFlags = flags || {};
+  var thisType = getBulletType(bulletType);
 
   // Create it
   bullets[bullets.length] = {
-    flags: flags
+    flags: bulletFlags
   };
   thisType.create(originX, originY, targetX, targetY, bullets[bullets.length - 1]);
 }
