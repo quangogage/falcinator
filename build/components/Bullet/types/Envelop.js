@@ -16,7 +16,8 @@ var img = require('../envelope.jpg');
 
 var styles = {
   position: 'absolute',
-  transformOrigin: '50% 50%'
+  transformOrigin: '50% 50%',
+  transform: 'scale(2)'
 };
 
 // Adjustable Variables
@@ -47,8 +48,12 @@ var Envelop = {
     };
   },
   update: function update(i, v, dt) {
+    // Move position
     v.x += Math.cos(v.angle) * speed * dt;
     v.y += Math.sin(v.angle) * speed * dt;
+
+    // Apply to element
+    v.el.css({ left: v.x, top: v.y });
   }
 };
 
