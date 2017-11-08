@@ -89,7 +89,6 @@ function updateGame() {
   (0, _Particle.updateParticle)(dt);
   (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
   (0, _Powerups.updatePowerups)(bullets, dt);
-  UpdateCannonBall(dt);
   (0, _Camera.UpdateCamera)(dt);
 }
 
