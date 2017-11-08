@@ -48,8 +48,8 @@ var Envelop = {
 
     // Set initial position/rotation of element
     el.css({
-      left: x,
-      top: y,
+      left: originX,
+      top: originY,
       transform: 'rotate(' + toDegrees(angle) + ')'
     });
 
