@@ -15,7 +15,7 @@ require('./styles.css');
 
 var _Ship = require('./Ship');
 
-var _Bullet = require('./Bullet');
+var _Bullet = require('./Bullet/Bullet');
 
 var _Quail = require('./Quail/Quail');
 
@@ -57,7 +57,6 @@ var world;
 var gameLoopInterval;
 var mouseX = exports.mouseX = 0;
 var mouseY = exports.mouseY = 0;
-var bullets = [];
 var shipX, shipY;
 
 var username = '';
@@ -84,16 +83,16 @@ function updateGame() {
   var dt = now - lastUpdate;
   dt = (0, _SlowMotion.handleSlowMo)(dt, now, lastUpdate);
   lastUpdate = now;
-  bullets = (0, _Bullet.updateBullets)(dt);
+  (0, _Bullet.updateBullets)(dt);
   (0, _Ship.updateShip)(ship, dt, mouseX, mouseY);
   (0, _Particle.updateParticle)(dt);
-  (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
-  (0, _Powerups.updatePowerups)(bullets, dt);
+  (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), _Bullet.bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
+  (0, _Powerups.updatePowerups)(dt);
   (0, _Camera.UpdateCamera)(dt);
 }
 
 function gameClick(e) {
-  (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship.offset().left + ship.width() / 2, ship.offset().top + ship.height() / 2, world);
+  (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship.offset().left + ship.width() / 2, ship.offset().top + ship.height() / 2);
 }
 function gameResize() {
   (0, _Ship.repositionShip)(ship, shipX, shipY);

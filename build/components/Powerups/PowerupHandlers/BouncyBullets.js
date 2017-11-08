@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.BouncyBullets = BouncyBullets;
 
-var _Bullet = require('../../Bullet');
+var _Bullet = require('../../Bullet/Bullet');
 
 function BouncyBullets(dt) {
   for (var i = 0; i < _Bullet.bullets.length; i++) {

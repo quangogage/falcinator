@@ -19,6 +19,8 @@ var _Dusts2 = _interopRequireDefault(_Dusts);
 
 var _HandlePowerups = require('./HandlePowerups');
 
+var _Bullet = require('../Bullet/Bullet');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var container = [];
@@ -29,7 +31,7 @@ var framerate = 68; // Animation framerate
 var dustAmountRange = [5, 10]; // How much dust spawns when a powerup is hit?
 
 // ** Global Functions ** \\
-function updatePowerups(bullets, dt) {
+function updatePowerups(dt) {
   // Generation
   (0, _GeneratePowerups2.default)(spawnPowerup, dt);
   // Handle these bad bois
@@ -56,8 +58,8 @@ function updatePowerups(bullets, dt) {
     v.el.attr('src', frames[v.frame]);
 
     // Shooting
-    for (var ia = bullets.length - 1; ia >= 0; ia--) {
-      var va = bullets[ia];
+    for (var ia = _Bullet.bullets.length - 1; ia >= 0; ia--) {
+      var va = _Bullet.bullets[ia];
       var quailX = v.x;
       var quailY = v.y;
       var quailWidth = v.el.width();

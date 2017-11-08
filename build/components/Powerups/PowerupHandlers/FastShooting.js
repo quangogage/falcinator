@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.FastShooting = FastShooting;
 
-var _Bullet = require('../../Bullet');
+var _Bullet = require('../../Bullet/Bullet');
 
 var _Game = require('../../Game');
 
@@ -20,7 +20,7 @@ var shootRate = 60;
 function FastShooting(dt) {
   timer += dt;
   if (timer >= shootRate) {
-    (0, _Bullet.shootBullet)(_Game.mouseX, _Game.mouseY, _Game.ship.offset().left + _Game.ship.width() / 2, _Game.ship.offset().top + _Game.ship.height() / 2, (0, _jquery2.default)('.Game'));
+    (0, _Bullet.shootBullet)(_Game.ship.offset().left + _Game.ship.width() / 2, _Game.ship.offset().top + _Game.ship.height() / 2, _Game.mouseX, _Game.mouseY);
     timer = 0;
   }
 }

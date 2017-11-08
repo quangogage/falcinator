@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MailSeek = MailSeek;
 
-var _Bullet = require('../../Bullet');
+var _Bullet = require('../../Bullet/Bullet');
 
 var _Quail = require('../../Quail/Quail');
 
