@@ -20,6 +20,7 @@ var styles = {
   position: 'absolute'
 };
 var cannonballs = exports.cannonballs = [];
+var speed = 0.666;
 
 // Shoot a cannonball
 function ShootCannonBall(mouseX, mouseY, ship) {
@@ -29,6 +30,10 @@ function ShootCannonBall(mouseX, mouseY, ship) {
     var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
     var el = (0, _jquery2.default)('<img src=' + image + ' class="cannonball" />');
 
+    // Style
+    el.css(styles);
+
+    // Add to array
     cannonballs[cannonballs.length] = {
       el: el,
       x: shipX,
@@ -42,4 +47,18 @@ function ShootCannonBall(mouseX, mouseY, ship) {
 }
 
 // Update loop
-function UpdateCannonBall(dt) {}
+function UpdateCannonBall(dt) {
+  for (var i = 0; i < cannonballs.length; i++) {
+    var v = cannonballs[i];
+
+    // Move positions
+    v.x += Math.cos(v.angle) * v.speed * dt;
+    v.y += Math.sin(v.angle) * v.speed * dt;
+
+    // Apply styles
+    v.el.css({
+      left: v.x,
+      top: v.y
+    });
+  }
+}
