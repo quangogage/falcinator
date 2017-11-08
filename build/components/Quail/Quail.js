@@ -81,7 +81,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
           for (var ic = 0; ic < amount; ic++) {
             var x = getRandom(-window.innerWidth, window.innerWidth * 2);
             var y = getRandom(-window.innerHeight, window.innerHeight * 2);
-            (0, _Bullet.shootBullet)(deathX, deathY, x, y);
+            (0, _Bullet.shootBullet)(deathX, deathY, x, y, 'envelop');
           }
         }
       }
