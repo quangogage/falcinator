@@ -16,8 +16,7 @@ var img = require('../envelope.jpg');
 
 var styles = {
   position: 'absolute',
-  transformOrigin: '50% 50%',
-  transform: 'scale(2)'
+  transformOrigin: '50% 50%'
 };
 
 // Adjustable Variables
@@ -46,6 +45,9 @@ var Envelop = {
       y: originY,
       angle: angle
     };
+
+    // Place element on DOM
+    (0, _jquery2.default)('.Game').append(el);
   },
   update: function update(i, v, dt) {
     // Move position
