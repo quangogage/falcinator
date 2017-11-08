@@ -11,10 +11,10 @@ function BouncyBullets(dt) {
   for (var i = 0; i < _Bullet.bullets.length; i++) {
     var v = _Bullet.bullets[i];
     if (v.x < 10) {
-      v.angle = (v.angle - Math.PI / 2) * -1;
+      v.angle = (v.angle - Math.PI) * -1;
       v.x = 10;
     } else if (v.x > window.innerWidth - 20) {
-      v.angle = (v.angle - Math.PI / 2) * -1;
+      v.angle = (v.angle - Math.PI) * -1;
       v.x = window.innerWidth - 20;
     }
     if (v.y < 10) {
