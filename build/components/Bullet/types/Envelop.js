@@ -34,10 +34,6 @@ var Envelop = {
     el = (0, _jquery2.default)('<img src=' + img + ' class="bullet"/>');
     el.css(styles);
 
-    // Calculate Direction / Point in that direction
-    angle = Math.atan2(targetY - originY, targetX - originX);
-    el.css({ transform: 'rotate(' + angle + Math.PI + 'rad)' });
-
     // Init the object
     _Bullet.bullets[_Bullet.bullets.length] = {
       type: 'envelop',
@@ -46,6 +42,16 @@ var Envelop = {
       y: originY,
       angle: angle
     };
+
+    // Calculate Direction / Point in that direction
+    angle = Math.atan2(targetY - originY, targetX - originX);
+
+    // Set initial position/rotation of element
+    el.css({
+      left: x,
+      top: y,
+      transform: 'rotate(' + toDegrees(angle) + ')'
+    });
 
     // Place element on DOM
     (0, _jquery2.default)('.Game').append(el);
@@ -59,9 +65,14 @@ var Envelop = {
     v.el.css({
       left: v.x,
       top: v.y,
-      transform: 'rotate(' + v.angle + Math.PI + 'rad)'
+      transform: 'rotate(' + toDegrees(v.angle) + ')'
     });
   }
 };
+
+// Converts from radians to degrees.
+function toDegrees(radians) {
+  return radians * 180 / Math.PI;
+}
 
 exports.default = Envelop;
