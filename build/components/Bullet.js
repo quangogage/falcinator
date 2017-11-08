@@ -24,14 +24,16 @@ var speed = 1;
 var cannonball = require('./cannonball.png');
 
 // ** Global Functions ** \\
-function shootBullet(mouseX, mouseY, ship, world) {
+function shootBullet(mouseX, mouseY, ship, world, isBullet) {
   var shootFunc = function shootFunc(angle, shipX, shipY, shakeIntensity) {
     var shakeIntensity = shakeIntensity || 3.2;
     var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
-    if (_HandlePowerups.powerupList[5].active === true) {
+    var isCannonball;
+    if (!isBullet && _HandlePowerups.powerupList[5].active) {
       bulletEl = (0, _jquery2.default)('<img src=' + cannonball + ' class="cannonball"/>');
+      isCannonball = true;
     }
-    var isCannonball = _HandlePowerups.powerupList[5].active ? true : false;
+
     // Add to array of stored bullets
     bullets[bullets.length] = {
       el: bulletEl,
