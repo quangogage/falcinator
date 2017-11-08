@@ -33,7 +33,7 @@ var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
 
 var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
 
-var _MailCannon = require('./Powerups/PowerupHandlers/MailCannon');
+var _CannonBall = require('./CannonBall/CannonBall');
 
 var _Camera = require('./Camera/Camera');
 
@@ -95,6 +95,7 @@ function updateGame() {
 }
 
 function gameClick(e) {
+  (0, _CannonBall.ShootCannonBall)(e.pageX, e.pageY, ship);
   (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship, world);
 }
 function gameResize() {
