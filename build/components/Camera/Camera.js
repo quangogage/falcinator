@@ -21,6 +21,18 @@ function UpdateCamera(dt) {
   cam.x = cam.x - (cam.x - 0) * cam.resetSpeed * dt;
   cam.y = cam.y - (cam.y - 0) * cam.resetSpeed * dt;
 
+  // DOn't get TOO crazy!
+  if (cam.x > 20) {
+    cam.x = 20;
+  } else if (cam.x < -20) {
+    cam.x = -20;
+  }
+  if (cam.y > 20) {
+    cam.y = 20;
+  } else if (cam.y < -20) {
+    cam.y = -20;
+  }
+
   if (cam.x !== 0 || cam.y !== 0) {
     (0, _jquery2.default)('.Game').css({
       left: cam.x,
@@ -33,16 +45,6 @@ function ShakeCamera(shake) {
   var amount = getRandom(shake * 0.8, shake * 2);
   cam.x = Math.cos(angle) * amount;
   cam.y = Math.sin(angle) * amount;
-  if (cam.x > 45) {
-    cam.x = 45;
-  } else if (cam.x < -45) {
-    cam.x = -45;
-  }
-  if (cam.y > 45) {
-    cam.y = 45;
-  } else if (cam.y < -45) {
-    cam.y = -45;
-  }
 }
 
 // Get a random number between two values
