@@ -46,7 +46,8 @@ function shootBullet(originX, originY, targetX, targetY, type, flags) {
 
   // Create it
   bullets[bullets.length] = {
-    flags: bulletFlags
+    flags: bulletFlags,
+    timer: 0
   };
   thisType.create(originX, originY, targetX, targetY, bullets[bullets.length - 1]);
 }
@@ -54,6 +55,9 @@ function updateBullets(dt) {
   for (var i = 0; i < bullets.length; i++) {
     var v = bullets[i];
     var thisType = getBulletType(v.type);
+
+    // Timer
+    v.timer += dt;
 
     // Execute the type update function
     thisType.update(i, v, dt);
