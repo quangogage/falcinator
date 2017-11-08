@@ -18,7 +18,7 @@ var _Camera = require('../Camera/Camera');
 
 var _Bullet = require('../Bullet');
 
-var _Ship = require('../Ship');
+var _Game = require('../Game');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -77,7 +77,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
           for (var ic = 0; ic < 10; ic++) {
             var x = getRandom(0, window.innerWidth);
             var y = getRandom(0, window.innerHeight);
-            (0, _Bullet.shootBullet)(x, y, _Ship.ship, (0, _jquery2.default)('.Game'));
+            (0, _Bullet.shootBullet)(x, y, _Game.ship.el, (0, _jquery2.default)('.Game'));
           }
         }
       }
