@@ -34,9 +34,14 @@ var types = [_Envelop2.default, _CannonBall2.default];
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
-  var bulletType = type || 'envelop';
   var bulletFlags = flags || {};
-  bulletType = 'cannonball';
+  var thisType;
+
+  if (!type) {
+    thisType = handleType();
+  } else {
+    thisType = type;
+  }
   var thisType = getBulletType(bulletType);
 
   // Create it
@@ -67,6 +72,18 @@ function updateBullets(dt) {
 }
 
 // ** Helper Functions ** \\
+
+// Check for any specified bullet types (ie cannonball powerup)
+function handleType() {
+  // Cannonball
+  if (_HandlePowerups.powerupList[5].active) {
+    return 'cannonball';
+
+    // Nothing
+  } else {
+    return 'envelop';
+  }
+}
 
 // Get a bullet object by it's name
 function getBulletType(name) {
