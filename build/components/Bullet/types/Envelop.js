@@ -15,8 +15,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var img = require('../envelope.jpg');
 
 var styles = {
-  position: 'absolute'
+  position: 'absolute',
+  transformOrigin: '50% 50%'
 };
+
+// Adjustable Variables
+var speed = 1;
+
 var Envelop = {
   name: 'envelop',
 
@@ -41,7 +46,10 @@ var Envelop = {
       angle: angle
     };
   },
-  update: function update(dt) {}
+  update: function update(i, v, dt) {
+    v.x += Math.cos(v.angle) * speed * dt;
+    v.y += Math.sin(v.angle) * speed * dt;
+  }
 };
 
 exports.default = Envelop;

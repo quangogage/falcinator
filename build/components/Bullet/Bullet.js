@@ -36,7 +36,21 @@ function shootBullet(originX, originY, targetX, targetY, type) {
   // Create it
   thisType.create(originX, originY, targetX, targetY);
 }
-function updateBullets(dt) {}
+function updateBullets(dt) {
+  for (var i = 0; i < bullets.length; i++) {
+    var v = bullets[i];
+    var thisType = getBulletType(v.type);
+
+    // Execute the type update function
+    thisType.update(i, v, dt);
+
+    // Removing it
+    if (v.setToDelete === true) {
+      v.el.remove();
+      bullets.splice(i, 1);
+    }
+  }
+}
 
 // ** Helper Functions ** \\
 
