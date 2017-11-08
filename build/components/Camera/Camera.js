@@ -22,15 +22,15 @@ function UpdateCamera(dt) {
   cam.y = cam.y - (cam.y - 0) * cam.resetSpeed * dt;
 
   // DOn't get TOO crazy!
-  if (cam.x > 20) {
-    cam.x = 20;
-  } else if (cam.x < -20) {
-    cam.x = -20;
+  if (cam.x > 40) {
+    cam.x = 40;
+  } else if (cam.x < -40) {
+    cam.x = -40;
   }
-  if (cam.y > 20) {
-    cam.y = 20;
-  } else if (cam.y < -20) {
-    cam.y = -20;
+  if (cam.y > 40) {
+    cam.y = 40;
+  } else if (cam.y < -40) {
+    cam.y = -40;
   }
 
   if (cam.x !== 0 || cam.y !== 0) {

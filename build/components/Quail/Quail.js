@@ -76,8 +76,8 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         killQuail(i);
         (0, _Camera.ShakeCamera)(5);
         if (va.isCannonball === true) {
-          (0, _Camera.ShakeCamera)(5);
-          var amount = getRandom(7, 20);
+          (0, _Camera.ShakeCamera)(12);
+          var amount = getRandom(7, 12);
           for (var ic = 0; ic < amount; ic++) {
             var x = getRandom(-window.innerWidth, window.innerWidth * 2);
             var y = getRandom(-window.innerHeight, window.innerHeight * 2);

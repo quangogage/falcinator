@@ -73,6 +73,7 @@ function HandlePowerups(dt) {
   for (var i = 0; i < powerupList.length; i++) {
     var v = powerupList[i];
     if (v.active === true) {
+      // Execute the powerup handler function
       v.func(dt);
 
       // Lifetime
