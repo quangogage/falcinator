@@ -16,7 +16,8 @@ var img = require('../envelope.jpg');
 
 var styles = {
   position: 'absolute',
-  transformOrigin: '50% 50%'
+  transformOrigin: '50% 50%',
+  imageRendering: 'pixelated'
 };
 
 // Adjustable Variables
@@ -34,7 +35,7 @@ var Envelop = {
     el.css(styles);
 
     // Calculate Direction / Point in that direction
-    angle = Math.atan2(targetY - originY, targetX - targetX);
+    angle = Math.atan2(targetY - originY, targetX - originX);
     el.css({ transform: 'rotate(' + angle + 'rad)' });
 
     // Init the object
