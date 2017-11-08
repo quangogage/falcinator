@@ -27,7 +27,7 @@ function ShootCannonBall(mouseX, mouseY, ship) {
   if (_HandlePowerups.powerupList[5].active === true) {
     var shipX = ship.offset().left + ship.width() / 2;
     var shipY = ship.offset().top + ship.height() / 2;
-    var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
+    var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI;
     var el = (0, _jquery2.default)('<img src=' + image + ' class="cannonball" />');
 
     // Style
@@ -49,7 +49,8 @@ function ShootCannonBall(mouseX, mouseY, ship) {
 
 // Update loop
 function UpdateCannonBall(dt) {
-  for (var i = 0; i < cannonballs.length; i++) {
+  var i = cannonballs.length;
+  while (i--) {
     var v = cannonballs[i];
 
     // Move positions
@@ -61,5 +62,16 @@ function UpdateCannonBall(dt) {
       left: v.x,
       top: v.y
     });
+
+    // Going offscreen
+    if (v.x < 0 || v.y < 0 || v.x > window.innerWidth || v.y > window.innerHeight) {
+      v.setToRemove = true;
+    }
+
+    // Remove it
+    if (v.setToDelete == true) {
+      v.el.remove();
+      cannonballs.splice(i, 1);
+    }
   }
 }
