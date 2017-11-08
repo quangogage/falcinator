@@ -31,7 +31,7 @@ var styles = {
 };
 function CreateNotification(phrase, powerupName) {
   // Remove any previous notification
-  if ((0, _jquery2.default)('.notification').length === 0) {
+  if ((0, _jquery2.default)('.notification').length !== 0) {
     (0, _jquery2.default)('.notification').remove();
   }
   var note = (0, _jquery2.default)('<div class="notification">\n    <div class=\'phrase\'>' + phrase + '</div>\n    <div class=\'powerup\' style="font-size:3vw;margin-top:15px;">' + powerupName + '</div>\n  </div>');
