@@ -4,18 +4,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.BurstShot = BurstShot;
-exports.HandleBurstShot = HandleBurstShot;
 
-var _HandlePowerups = require('../HandlePowerups');
+var _Bullet = require('../../Bullet/Bullet');
 
-function BurstShot(dt) {}
+var _Game = require('../../Game');
 
-function HandleBurstShot(angle, shipX, shipY, shootFunc) {
-  var isActive = _HandlePowerups.powerupList[3].active;
-  if (isActive) {
-    var newAngle = angle + Math.PI * 0.1;
-    shootFunc(newAngle, shipX, shipY);
-    var newAngle2 = angle + Math.PI * -0.1;
-    shootFunc(newAngle2, shipX, shipY);
+function BurstShot(dt) {
+  for (var i = 0; i < _Bullet.bullets.length; i++) {
+    var v = _Bullet.bullets[i];
+    if (!v.burstShot) {
+      var angle1 = v.angle;
+      var x1 = v.x + Math.cos(v.angle) * 10;
+      var y1 = v.y + Math.sin(v.angle) * 10;
+      (0, _Bullet.shootBullet)(v.x, v.y, x1, y1);
+    }
   }
 }
