@@ -67,6 +67,8 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
       var bulletY = va.y;
 
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
+        var deathX = v.x + v.el.width() / 2;
+        var deathY = v.y + v.el.height() / 2;
         createBlood(quailX + v.el.width() / 2, quailY + v.el.height() / 2, va.angle);
         createParticle(v.x + v.el.width() / 2, v.y + v.el.height() / 2, va.angle);
         addScore();
@@ -77,7 +79,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
           for (var ic = 0; ic < 10; ic++) {
             var x = getRandom(0, window.innerWidth);
             var y = getRandom(0, window.innerHeight);
-            (0, _Bullet.shootBullet)(x, y, v.el, (0, _jquery2.default)('.Game'), true);
+            (0, _Bullet.shootBullet)(x, y, deathX, deathY, (0, _jquery2.default)('.Game'), true);
           }
         }
       }

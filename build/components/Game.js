@@ -93,7 +93,7 @@ function updateGame() {
 }
 
 function gameClick(e) {
-  (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship, world);
+  (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship.offset().left + ship.width() / 2, ship.offset().top + ship.height() / 2, world);
 }
 function gameResize() {
   (0, _Ship.repositionShip)(ship, shipX, shipY);

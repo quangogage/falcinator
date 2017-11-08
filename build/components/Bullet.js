@@ -24,8 +24,8 @@ var speed = 1;
 var cannonball = require('./cannonball.png');
 
 // ** Global Functions ** \\
-function shootBullet(mouseX, mouseY, ship, world, isBullet) {
-  var shootFunc = function shootFunc(angle, shipX, shipY, shakeIntensity) {
+function shootBullet(mouseX, mouseY, startX, startY, world, isBullet) {
+  var shootFunc = function shootFunc(angle, startX, startY, shakeIntensity) {
     var shakeIntensity = shakeIntensity || 3.2;
     var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
     var isCannonball;
@@ -38,16 +38,16 @@ function shootBullet(mouseX, mouseY, ship, world, isBullet) {
     bullets[bullets.length] = {
       el: bulletEl,
       angle: angle,
-      x: shipX,
-      y: shipY,
+      x: startX,
+      y: startY,
       isCannonball: isCannonball
     };
 
     // Position and angle
     bulletEl.css({
       position: 'absolute',
-      left: shipX,
-      top: shipY,
+      left: startX,
+      top: startY,
       transform: 'rotate(' + angle + 'rad)'
     });
 
@@ -57,11 +57,9 @@ function shootBullet(mouseX, mouseY, ship, world, isBullet) {
     // Shake Camera
     (0, _Camera.ShakeCamera)(3.2);
   };
-  var shipX = ship.offset().left + ship.width() / 2;
-  var shipY = ship.offset().top + ship.height() / 2;
-  var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
-  shootFunc(angle, shipX, shipY);
-  (0, _BurstShot.HandleBurstShot)(angle, shipX, shipY, shootFunc);
+  var angle = Math.atan2(startY - mouseY, startX - mouseX) + Math.PI / 2;
+  shootFunc(angle, startX, startY);
+  (0, _BurstShot.HandleBurstShot)(angle, startX, startY, shootFunc);
 }
 function updateBullets(dt) {
   var i = bullets.length;
