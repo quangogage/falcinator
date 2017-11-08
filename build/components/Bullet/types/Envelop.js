@@ -17,7 +17,8 @@ var img = require('../envelope.jpg');
 var styles = {
   position: 'absolute',
   transformOrigin: '50% 50%',
-  imageRendering: 'pixelated'
+  imageRendering: 'pixelated',
+  userSelect: 'none'
 };
 
 // Adjustable Variables
@@ -69,10 +70,5 @@ var Envelop = {
     });
   }
 };
-
-// Converts from radians to degrees.
-function toDegrees(radians) {
-  return radians * 180 / Math.PI;
-}
 
 exports.default = Envelop;

@@ -21,17 +21,22 @@ var _Envelop = require('./types/Envelop');
 
 var _Envelop2 = _interopRequireDefault(_Envelop);
 
+var _CannonBall = require('./types/CannonBall');
+
+var _CannonBall2 = _interopRequireDefault(_CannonBall);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var bullets = exports.bullets = [];
 var speed = 1;
 
-var types = [_Envelop2.default];
+var types = [_Envelop2.default, _CannonBall2.default];
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
   var bulletType = type || 'envelop';
   var bulletFlags = flags || {};
+  bulletType = 'cannonball';
   var thisType = getBulletType(bulletType);
 
   // Create it

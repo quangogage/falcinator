@@ -1,6 +1,18 @@
-import $ from 'jquery';
-import { bullets } from '../Bullet';
-const img = require('../envelope.jpg');
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _Bullet = require('../Bullet');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var img = require('../cannonball.png');
 
 var styles = {
   position: 'absolute',
@@ -10,24 +22,24 @@ var styles = {
 };
 
 // Adjustable Variables
-var speed = 1;
+var speed = 0.5;
 
-var Envelop = {
-  name: 'envelop',
+var CannonBall = {
+  name: 'cannonball',
 
-  // Creating an envelop bullet
-  create: function(originX, originY, targetX, targetY, obj) {
+  // Creating an Cannonball bullet
+  create: function create(originX, originY, targetX, targetY, obj) {
     var el, angle;
 
     // Create element/Basic styles
-    el = $(`<img src=${img} class="bullet"/>`);
+    el = (0, _jquery2.default)('<img src=' + img + ' class="bullet"/>');
     el.css(styles);
 
     // Calculate Direction
     angle = Math.atan2(targetY - originY, targetX - originX);
 
     // Init the object
-    obj.type = 'envelop';
+    obj.type = 'cannonball';
     obj.el = el;
     obj.x = originX;
     obj.y = originY;
@@ -42,9 +54,9 @@ var Envelop = {
     });
 
     // Place element on DOM
-    $('.Game').append(el);
+    (0, _jquery2.default)('.Game').append(el);
   },
-  update: function(i, v, dt) {
+  update: function update(i, v, dt) {
     // Move position
     v.x += Math.cos(v.angle) * speed * dt;
     v.y += Math.sin(v.angle) * speed * dt;
@@ -59,4 +71,4 @@ var Envelop = {
   }
 };
 
-export default Envelop;
+exports.default = CannonBall;
