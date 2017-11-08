@@ -34,8 +34,10 @@ function shootBullet(originX, originY, targetX, targetY, type, flags) {
   var thisType = getBulletType(type);
 
   // Create it
-  thisType.create(originX, originY, targetX, targetY);
-  bullets[bullets.length - 1].flags = flags;
+  bullets[bullets.length] = {
+    flags: flags
+  };
+  thisType.create(originX, originY, targetX, targetY, bullets[bullets.length - 1]);
 }
 function updateBullets(dt) {
   for (var i = 0; i < bullets.length; i++) {
