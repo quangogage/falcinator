@@ -22,7 +22,7 @@ var styles = {
 var cannonballs = exports.cannonballs = [];
 
 // Shoot a cannonball
-function ShootCannonBall(mouseX, mouseY) {
+function ShootCannonBall(mouseX, mouseY, ship) {
   if (_HandlePowerups.powerupList[4].active === true) {
     var shipX = ship.offset().left + ship.width() / 2;
     var shipY = ship.offset().top + ship.height() / 2;
