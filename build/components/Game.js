@@ -33,6 +33,8 @@ var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
 
 var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
 
+var _MailCannon = require('./Powerups/PowerupHandlers/MailCannon');
+
 var _Camera = require('./Camera/Camera');
 
 var _crosshair = require('./crosshair.png');

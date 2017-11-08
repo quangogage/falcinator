@@ -24,35 +24,37 @@ var speed = 1;
 
 // ** Global Functions ** \\
 function shootBullet(mouseX, mouseY, ship, world) {
-  var shootFunc = function shootFunc(angle, shipX, shipY, shakeIntensity) {
-    var shakeIntensity = shakeIntensity || 3.2;
-    var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
-    // Add to array of stored bullets
-    bullets[bullets.length] = {
-      el: bulletEl,
-      angle: angle,
-      x: shipX,
-      y: shipY
+  if (_HandlePowerups.powerupList[4].active === false) {
+    var shootFunc = function shootFunc(angle, shipX, shipY, shakeIntensity) {
+      var shakeIntensity = shakeIntensity || 3.2;
+      var bulletEl = (0, _jquery2.default)('<div class=\'bullet\'></div>');
+      // Add to array of stored bullets
+      bullets[bullets.length] = {
+        el: bulletEl,
+        angle: angle,
+        x: shipX,
+        y: shipY
+      };
+
+      // Position and angle
+      bulletEl.css({
+        left: shipX,
+        top: shipY,
+        transform: 'rotate(' + angle + 'rad)'
+      });
+
+      // Add to world
+      world.append(bulletEl);
+
+      // Shake Camera
+      (0, _Camera.ShakeCamera)(3.2);
     };
-
-    // Position and angle
-    bulletEl.css({
-      left: shipX,
-      top: shipY,
-      transform: 'rotate(' + angle + 'rad)'
-    });
-
-    // Add to world
-    world.append(bulletEl);
-
-    // Shake Camera
-    (0, _Camera.ShakeCamera)(3.2);
-  };
-  var shipX = ship.offset().left + ship.width() / 2;
-  var shipY = ship.offset().top + ship.height() / 2;
-  var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
-  shootFunc(angle, shipX, shipY);
-  (0, _BurstShot.HandleBurstShot)(angle, shipX, shipY, shootFunc);
+    var shipX = ship.offset().left + ship.width() / 2;
+    var shipY = ship.offset().top + ship.height() / 2;
+    var angle = Math.atan2(shipY - mouseY, shipX - mouseX) + Math.PI / 2;
+    shootFunc(angle, shipX, shipY);
+    (0, _BurstShot.HandleBurstShot)(angle, shipX, shipY, shootFunc);
+  }
 }
 function updateBullets(dt) {
   var i = bullets.length;
