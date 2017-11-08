@@ -20,7 +20,7 @@ var shootRate = 60;
 function FastShooting(dt) {
   timer += dt;
   if (timer >= shootRate) {
-    (0, _Bullet.shootBullet)(_Game.mouseX, _Game.mouseY, _Game.ship.offset().left + _Game.ship.width() / 2, _Game.ship.offset().top + _Game.ship.height() / 2, (0, _jquery2.default)('.Game'), 10);
+    (0, _Bullet.shootBullet)(_Game.mouseX, _Game.mouseY, _Game.ship.offset().left + _Game.ship.width() / 2, _Game.ship.offset().top + _Game.ship.height() / 2, (0, _jquery2.default)('.Game'));
     timer = 0;
   }
 }

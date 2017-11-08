@@ -10,6 +10,8 @@ var spawnChanceRange = 2; // How likely is it that a powerup spawns ( percentage
 var waitTimer = 0;
 var waitTime = 20000; // How long into playing until powerups start spawning?
 waitTime = 0;
+spawnChanceRange = 100;
+spawnRate = 1250;
 
 function GeneratePowerups(spawnPowerup, dt) {
   waitTimer += dt;
