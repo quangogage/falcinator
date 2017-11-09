@@ -67,6 +67,13 @@ var powerupList = exports.powerupList = [{
   duration: 10000,
   active: false,
   timer: 0
+}, {
+  name: 'Missiles!!',
+  phrase: 'Missiles!!',
+  func: console.log(),
+  duration: 2500,
+  active: false,
+  timer: 0
 }];
 
 function HandlePowerups(dt) {
