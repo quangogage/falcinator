@@ -26,7 +26,8 @@ var styles = {
   height: '100%',
   transition: '4s',
   opacity: 0,
-  userSelect: 'none'
+  userSelect: 'none',
+  pointerEvents: 'none'
 };
 var zoomSet = false;
 
@@ -47,7 +48,7 @@ function handleSlowMo(dt, now, lastUpdate) {
 
     // Zoom in
     if (zoomSet === false) {
-      (0, _jquery2.default)('.Game').css({ transform: 'scale(1.25)' });
+      (0, _jquery2.default)('.Game').css({ transform: 'scale(1.05)' });
       zoomSet = true;
     }
 
