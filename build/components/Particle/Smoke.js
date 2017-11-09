@@ -77,10 +77,11 @@ var Smoke = function () {
         // Shrinking
         v.size -= sizeFadeSpeed * dt;
 
-        // Color fade
+        /* Color fade
         for (var ib = 0; ib < 3; ib++) {
           v.color[ib] -= colorFadeSpeed * dt;
         }
+        */
 
         // Applying to element
         v.el.css({
