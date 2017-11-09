@@ -92,7 +92,7 @@ function updateBeam(dt) {
 
 // Depth markers
 var depthWidth = '18%';
-var depthOpacity = 0.5;
+var depthOpacity = 0.3;
 function createDepth(el) {
   var left = (0, _jquery2.default)('<div class="beam-depth"></div>');
   left.css({
@@ -117,4 +117,6 @@ function createDepth(el) {
     background: 'black',
     opacity: depthOpacity
   });
+
+  el.append(right);
 }
