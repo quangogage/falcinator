@@ -30,6 +30,8 @@ var styles = {
 var speed = 1.1;
 var turnSpeedRange = [0.2, 0.35];
 var smokeSpawnRate = 50;
+var lifetime = 5000;
+var fallSpeed = 0.5;
 
 var Missile = {
   name: 'missile',
@@ -53,6 +55,8 @@ var Missile = {
     obj.angle = angle;
     obj.smokeTimer = 0;
     obj.turnSpeed = getRandom(turnSpeedRange[0] * 100, turnSpeedRange[1] * 100) / 100;
+    obj.timer = 0;
+    obj.addY = 0;
 
     // Set initial position/rotation of element
     var cssAngle = angle + Math.PI / 2;
@@ -71,7 +75,7 @@ var Missile = {
     v.y += Math.sin(v.angle) * speed * dt;
 
     // Aiming at the mouse
-    v.angle = aim(v.angle, v.x, v.y, v.turnSpeed, dt);
+    v.angle = aim(v.angle, v.x, v.y, v.turnSpeed, v.addY, dt);
 
     // Generating the smoke trail
     // generateSmoke(v, dt);
@@ -87,8 +91,8 @@ var Missile = {
 };
 
 // Turning towards the mouse
-function aim(angle, x, y, turnSpeed, dt) {
-  var target = { x: _Game.mouseX, y: _Game.mouseY };
+function aim(angle, x, y, turnSpeed, addY, dt) {
+  var target = { x: _Game.mouseX, y: _Game.mouseY + addY };
   var targetAngleRad = Math.atan2(y - target.y, x - target.x) + Math.PI; // Where the bullet wants to aim
   var targetAngle = toDegrees(targetAngleRad); // Convert them both to degrees ( from radians )
   var bulletAngle = toDegrees(angle);
@@ -115,22 +119,13 @@ function aim(angle, x, y, turnSpeed, dt) {
   return toRadians(bulletAngle);
 }
 
-// Creating the smoke trail
-function generateSmoke(v, dt) {
-  v.smokeTimer += dt;
-  if (v.smokeTimer >= smokeSpawnRate) {
-    for (var i = 0; i < 5; i++) {
-      var x = v.x + v.el.width() / 2 + Math.cos(v.angle + Math.PI) * v.el.width();
-      var y = v.y + v.el.height() / 2 + Math.sin(v.angle + Math.PI) * v.el.width();
-      var bottomPos = getRandom(0, v.el.width() / 2);
-      x += Math.cos(v.angle + Math.PI / 2) * bottomPos;
-      y += Math.sin(v.angle + Math.PI / 2) * bottomPos;
-      _Smoke2.default.play(x, y);
-      v.smokeTimer = 0;
-    }
+// Live
+function live(v, dt) {
+  v.timer += dt;
+  if (v.timer >= lifetime) {
+    v.addY += fallSpeed * dt;
   }
 }
-
 // ** Helper Functions ** \\
 
 // Get a random number between two values
