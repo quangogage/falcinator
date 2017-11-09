@@ -31,9 +31,11 @@ var _User = require('./Firebase/User');
 
 var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
 
-var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
-
 var _Camera = require('./Camera/Camera');
+
+var _WeaponHandler = require('./WeaponHandler');
+
+var _WeaponHandler2 = _interopRequireDefault(_WeaponHandler);
 
 var _crosshair = require('./crosshair.png');
 
@@ -92,7 +94,7 @@ function updateGame() {
 }
 
 function gameClick(e) {
-  (0, _Bullet.shootBullet)(ship.offset().left + ship.width() / 2, ship.offset().top + ship.height() / 2, e.pageX, e.pageY);
+  (0, _WeaponHandler2.default)(e.pageX, e.pageY);
 }
 function gameResize() {
   (0, _Ship.repositionShip)(ship, shipX, shipY);
