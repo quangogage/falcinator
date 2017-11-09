@@ -105,8 +105,9 @@ var Dust = function () {
       var image = type.images[Math.floor(getRandom(0, type.images.length - 1))];
       var el = (0, _jquery2.default)('<img class="dust ' + type.name + '" src=' + image + ' draggable="false"></div>');
       var xvel, yvel;
+      angle += Math.PI;
       var xSpeed = Math.cos(angle + Math.PI * 1) * getRandom(type.initialXSpeed[0] * 100, type.initialXSpeed[1] * 100) / 100;
-      var ySpeed = Math.sin(angle - Math.PI * 1) * getRandom(type.initialYSpeed[0] * 100, type.initialYSpeed[1] * 100) / 100;
+      var ySpeed = Math.sin(angle) * getRandom(type.initialYSpeed[0] * 100, type.initialYSpeed[1] * 100) / 100;
       var rotSpeed = getRandom(type.rotSpeed[0] * 100, type.rotSpeed[1] * 100) / 100;
       var rotation = getRandom(-360, 360);
       var scale = 10;
