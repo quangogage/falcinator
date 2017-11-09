@@ -90,17 +90,31 @@ function updateBeam(dt) {
   }
 }
 
-// Flashes
+// Depth markers
+var depthWidth = '18%';
+var depthOpacity = 0.5;
 function createDepth(el) {
   var left = (0, _jquery2.default)('<div class="beam-depth"></div>');
   left.css({
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '25%',
+    width: depthWidth,
     height: '100%',
-    background: 'black'
+    background: 'black',
+    opacity: depthOpacity
   });
 
   el.append(left);
+
+  var right = (0, _jquery2.default)('<div class="beam-depth"></div>');
+  right.css({
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: depthWidth,
+    height: '100%',
+    background: 'black',
+    opacity: depthOpacity
+  });
 }
