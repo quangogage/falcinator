@@ -26,8 +26,9 @@ var styles = {
 
 // Adjustable variables
 var growSpeed = 0.5; // How quickly does it's width grow?
-var lifetime = 750; // How long does it live for?
 var maxWidth = 50; // How wide does it get?
+var sustain = 750; // How long does it stay at full width?
+var shrinkSpeed = 2; // How quickly does it shrink after it's sustained full width?
 
 function shootBeam(mouseX, flags) {
   var el = (0, _jquery2.default)('<div class+="beam"></div>');
@@ -57,8 +58,23 @@ function updateBeam(dt) {
     var v = beams[i];
 
     // Grow
-    if (v.width < maxWidth) {
+    if (v.width < maxWidth && !v.fullWidth) {
       v.width += growSpeed * dt;
+    }
+
+    // Shrink
+    if (v.width >= maxWidth) {
+      v.fullWidth = true;
+    }
+    if (v.fullWidth) {
+      v.timer += dt;
+      if (v.timer >= sustain) {
+        v.width -= shrinkSpeed * dt;
+        if (v.width <= 0) {
+          v.el.remove();
+          beams.splice(i, 1);
+        }
+      }
     }
 
     // Apply to element
@@ -66,12 +82,5 @@ function updateBeam(dt) {
       width: v.width,
       transform: 'translateX(-' + v.width / 2 + 'px)'
     });
-
-    // Livin' life
-    v.timer += dt;
-    if (v.timer >= lifetime) {
-      v.el.remove();
-      beams.splice(i, 1);
-    }
   }
 }
