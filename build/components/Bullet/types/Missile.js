@@ -33,7 +33,7 @@ var speed = 1.1;
 var turnSpeedRange = [0.2, 0.35];
 var smokeSpawnRate = 50;
 var lifetime = 15000;
-var fallSpeed = 0.5;
+var slowSpeed = 0.5;
 
 var Missile = {
   name: 'missile',
@@ -58,6 +58,7 @@ var Missile = {
     obj.smokeTimer = 0;
     obj.turnSpeed = getRandom(turnSpeedRange[0] * 100, turnSpeedRange[1] * 100) / 100;
     obj.timer = 0;
+    obj.speed = speed;
 
     // Set initial position/rotation of element
     var cssAngle = angle + Math.PI / 2;
@@ -72,8 +73,8 @@ var Missile = {
   },
   update: function update(i, v, dt) {
     // Move position
-    v.x += Math.cos(v.angle) * speed * dt;
-    v.y += Math.sin(v.angle) * speed * dt;
+    v.x += Math.cos(v.angle) * v.speed * dt;
+    v.y += Math.sin(v.angle) * v.speed * dt;
 
     // Aiming at the mouse
     v.angle = aim(v.angle, v.x, v.y, v.turnSpeed, dt);
@@ -93,8 +94,11 @@ var Missile = {
 function live(v, dt) {
   v.timer += dt;
   if (v.timer >= lifetime) {
-    (0, _Particle.createParticle)(v.x, v.y, v.angle);
-    v.setToDelete = true;
+    v.speed -= slowSpeed * dt;
+    if (v.speed <= 0) {
+      (0, _Particle.createParticle)(v.x, v.y, v.angle);
+      v.setToDelete = true;
+    }
   }
 }
 
