@@ -88,6 +88,12 @@ var Smoke = function () {
           height: v.size,
           backgroundColor: 'RGB(' + v.color[0] + ',' + v.color[1] + ',' + v.color[2] + ')'
         });
+
+        // Removing
+        if (v.size <= 0) {
+          v.el.remove();
+          container.splice(i, 1);
+        }
       }
     }
   }]);
