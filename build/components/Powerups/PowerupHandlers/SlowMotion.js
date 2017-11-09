@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function SlowMotion(dt) {}
 
 // Overlay
-var image = require('./intense.png');
+var image = require('../intense.png');
 var styles = {
   position: 'absolute',
   top: 0,
