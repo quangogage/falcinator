@@ -62,7 +62,9 @@ function shootBullet(originX, originY, targetX, targetY, type, flags) {
   if (type || checkForSpecialBullet() === false) {
     shootFunc(originX, originY, targetX, targetY, type, flags);
   } else {
-    handlePowerupShot();
+    handlePowerupShot(function (powerupType) {
+      shootFunc(originX, originY, targetX, targetY, powerupType, flags);
+    });
   }
 }
 function updateBullets(dt) {
@@ -105,7 +107,25 @@ function checkForSpecialBullet() {
   }
 }
 
-function handlePowerupShot() {}
+var bulletPowerups = [{
+  name: 'cannonball',
+  index: 5
+}, {
+  name: 'missile',
+  index: 6
+}];
+function handlePowerupShot(shoot) {
+  var active = [];
+  for (var i = 0; i < bulletPowerups.length; i++) {
+    if (_HandlePowerups.powerupList[bulletPowerups[i].index].active) {
+      active[active.length] = bulletPowerups[i].name;
+    }
+  }
+
+  if (active.length === 1) {
+    shoot(active[0]);
+  }
+}
 
 // ** Helper Functions ** \\
 
