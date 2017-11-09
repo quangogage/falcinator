@@ -19,7 +19,7 @@ var container = [];
 // Adjustable variables
 var size = 25; // How big does is it upon creation?
 var colorFadeSpeed = 0.1; // How quickly does it fade to black?
-var sizeFadeSpeed = 0.05; // How quickly does it shrink?
+var sizeFadeSpeed = 0.005; // How quickly does it shrink?
 var initialColor = [244, 125, 66]; // What color is it upon creation? (RGB)
 
 // Default styles
@@ -89,12 +89,11 @@ var Smoke = function () {
           backgroundColor: 'RGB(' + v.color[0] + ',' + v.color[1] + ',' + v.color[2] + ')'
         });
 
-        /* Removing
+        // Removing
         if (v.size <= 0) {
           v.el.remove();
           container.splice(i, 1);
         }
-        */
       }
     }
   }]);
