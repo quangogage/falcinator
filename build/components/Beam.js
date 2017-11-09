@@ -48,6 +48,9 @@ function shootBeam(mouseX, flags) {
     flags: beamFlags
   };
 
+  // Flash effect
+  createFlash(mouseX);
+
   // Place on DOM
   (0, _jquery2.default)('.Game').append(el);
 }
