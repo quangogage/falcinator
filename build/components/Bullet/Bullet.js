@@ -36,7 +36,6 @@ var bullets = exports.bullets = [];
 var types = [_Envelop2.default, _CannonBall2.default, _Missile2.default];
 
 var maxAmount = 50; // How many can exist at one time?
-var activeTypes = [];
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
@@ -60,10 +59,10 @@ function shootBullet(originX, originY, targetX, targetY, type, flags) {
   };
 
   // If a type was specified, don't do any fancy jazz
-  if (type || activeTypes.length === 0) {
+  if (type || checkForSpecialBullet == false) {
     shootFunc(originX, originY, targetX, targetY, type, flags);
   } else {
-    console.log(activeTypes);
+    handlePowerupShot();
   }
 }
 function updateBullets(dt) {
@@ -94,34 +93,21 @@ function updateBullets(dt) {
   if (bullets.length >= maxAmount) {
     bullets[bullets.length - 1].setToRemove = true;
   }
-
-  // Keep track of currently active bullet types
-  handleType();
 }
+
+function checkForSpecialBullet() {
+  if (_HandlePowerups.powerupList[5].active) {
+    return true;
+  } else if (_HandlePowerups.powerupList[6].active) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function handlePowerupShot() {}
 
 // ** Helper Functions ** \\
-
-// Check for any specified bullet types (ie cannonball powerup)
-function handleType() {
-  if (_HandlePowerups.powerupList[5].active) {
-    if (checkForType('cannonball') === false) {
-      activeTypes[activeTypes.length] = 'cannonball';
-    }
-  } else if (_HandlePowerups.powerupList[6].active) {
-    if (checkForType('missile') === false) {
-      activeTypes[activeTypes.length] = 'missile';
-    }
-  }
-}
-function checkForType(name) {
-  for (var i = 0; i < activeTypes.length; i++) {
-    if (activeTypes[i] === name) {
-      return true;
-    } else if (i === activeTypes.length - 1) {
-      return false;
-    }
-  }
-}
 
 // Get a bullet object by it's name
 function getBulletType(name) {
