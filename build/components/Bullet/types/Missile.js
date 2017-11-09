@@ -33,7 +33,7 @@ var speed = 1.1;
 var turnSpeedRange = [0.2, 0.35];
 var smokeSpawnRate = 50;
 var lifetime = 15000;
-var slowSpeed = 0.5;
+var slowSpeed = 0.01;
 
 var Missile = {
   name: 'missile',
