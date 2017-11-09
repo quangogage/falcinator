@@ -79,6 +79,9 @@ var Smoke = function () {
         v.size -= sizeFadeSpeed * dt;
 
         // Color fade
+        v.color[0] -= colorFadeSpeed * dt;
+        v.color[1] -= colorFadeSpeed * dt;
+        v.color[2] -= colorFadeSpeed * dt;
 
         // Applying to element
         v.el.css({
