@@ -38,7 +38,7 @@ function createBlood(x, y, angle) {
   image.css({
     left: x,
     top: y,
-    transform: 'rotate(' + (angle + Math.PI) + 'rad) scale(' + scale + ')'
+    transform: 'rotate(' + (angle + Math.PI / 2) + 'rad) scale(' + scale + ')'
   });
   container.append(image);
 }
