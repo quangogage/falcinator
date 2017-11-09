@@ -35,7 +35,7 @@ var bullets = exports.bullets = [];
 
 var types = [_Envelop2.default, _CannonBall2.default, _Missile2.default];
 
-var maxAmount = 50; // How many can exist at one time?
+var maxAmount = 100; // How many can exist at one time?
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
@@ -82,7 +82,7 @@ function updateBullets(dt) {
   }
   // Limit the amount that can exist at once
   if (bullets.length >= maxAmount) {
-    bullets.splice(bullets.length - 1, 1);
+    bullets[bullets.length - 1].setToRemove = true;
   }
 }
 
