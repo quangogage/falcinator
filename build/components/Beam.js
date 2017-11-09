@@ -99,7 +99,7 @@ function createFlash(x) {
   flash.css({ background: 'blue' });
 
   flash.animate({
-    width: fullWidth * 2
+    width: maxWidth * 2
   }, {
     duration: 350,
     queue: false,
