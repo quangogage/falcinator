@@ -10,6 +10,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _Game = require('../../Game');
 
+var _Smoke = require('../../Particle/Smoke');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var img = require('../missile.png');
@@ -20,12 +22,13 @@ var styles = {
   transformOrigin: '50% 50%',
   imageRendering: 'pixelated',
   userSelect: 'none',
-  transform: 'scaleX(0.8)'
+  transform: 'scaleX(0.666)'
 };
 
 // Adjustable Variables
 var speed = 0.7;
 var turnSpeed = 0.4;
+var smokeSpawnRate = 50;
 
 var Missile = {
   name: 'missile',
@@ -47,6 +50,7 @@ var Missile = {
     obj.x = originX;
     obj.y = originY;
     obj.angle = angle;
+    obj.smokeTimer = 0;
 
     // Set initial position/rotation of element
     var cssAngle = angle + Math.PI / 2;
@@ -67,6 +71,9 @@ var Missile = {
     // Aiming at the mouse
     v.angle = aim(v.angle, v.x, v.y, dt);
 
+    // Generating the smoke trail
+    generateSmoke(v, dt);
+
     // Apply to element
     var cssAngle = v.angle + Math.PI / 2;
     v.el.css({
@@ -77,6 +84,7 @@ var Missile = {
   }
 };
 
+// Turning towards the mouse
 function aim(angle, x, y, dt) {
   var target = { x: _Game.mouseX, y: _Game.mouseY };
   var targetAngleRad = Math.atan2(y - target.y, x - target.x) + Math.PI; // Where the bullet wants to aim
@@ -103,6 +111,17 @@ function aim(angle, x, y, dt) {
   }
   bulletAngle = (bulletAngle % 360 + 360) % 360;
   return toRadians(bulletAngle);
+}
+
+// Creating the smoke trail
+function generateSmoke(v, dt) {
+  v.smokeTimer += dt;
+  if (v.smokeTimer >= smokeSpawnRate) {
+    var x = v.x + Math.cos(v.angle) * v.el.width();
+    var y = v.y + Math.sin(v.angle) * v.el.width();
+    _Smoke.Smoke.play(x, y);
+    v.smokeTimer = 0;
+  }
 }
 
 // ** Helper Functions ** \\
