@@ -54,11 +54,12 @@ function shootBeam(mouseX, flags) {
 }
 
 function updateBeam(dt) {
-  for (var i = 0; i < beams.length; i++) {
+  var i = beams.length;
+  while (i--) {
     var v = beams[i];
 
     // Grow
-    if (v.width < maxWidth && !v.fullWidth) {
+    if (v.width <= maxWidth && !v.fullWidth) {
       v.width += growSpeed * dt;
     }
 
