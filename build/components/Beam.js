@@ -70,7 +70,7 @@ function updateBeam(dt) {
       v.timer += dt;
       if (v.timer >= sustain) {
         v.width -= shrinkSpeed * dt;
-        if (v.width <= -25) {
+        if (v.width <= -500) {
           v.el.remove();
           beams.splice(i, 1);
         }
