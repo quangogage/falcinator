@@ -27,7 +27,7 @@ var styles = {
 
 // Adjustable variables
 var growSpeed = 0.5; // How quickly does it's width grow?
-var lifetime = 250; // How long does it live for?
+var lifetime = 750; // How long does it live for?
 var maxWidth = 50; // How wide does it get?
 
 function shootBeam(mouseX) {
