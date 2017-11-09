@@ -103,13 +103,13 @@ var Smoke = function () {
 
 
 function fadeColor(v, dt) {
+  var colors = v.color;
   for (var i = 0; i < 3; i++) {
-    var color = v.color[i];
-    if (color > 0) {
-      color -= colorFadeSpeed * dt;
+    if (colors[i] > 0) {
+      colors[i] -= colorFadeSpeed * dt;
     }
   }
-  return color;
+  return colors;
 }
 
 exports.default = new Smoke();
