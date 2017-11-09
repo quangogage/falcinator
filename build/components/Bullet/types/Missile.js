@@ -10,6 +10,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _Game = require('../../Game');
 
+var _Particle = require('../../Particle/Particle');
+
 var _Smoke = require('../../Particle/Smoke');
 
 var _Smoke2 = _interopRequireDefault(_Smoke);
@@ -30,7 +32,7 @@ var styles = {
 var speed = 1.1;
 var turnSpeedRange = [0.2, 0.35];
 var smokeSpawnRate = 50;
-var lifetime = 5000;
+var lifetime = 15000;
 var fallSpeed = 0.5;
 
 var Missile = {
@@ -56,7 +58,6 @@ var Missile = {
     obj.smokeTimer = 0;
     obj.turnSpeed = getRandom(turnSpeedRange[0] * 100, turnSpeedRange[1] * 100) / 100;
     obj.timer = 0;
-    obj.addY = 0;
 
     // Set initial position/rotation of element
     var cssAngle = angle + Math.PI / 2;
@@ -75,9 +76,8 @@ var Missile = {
     v.y += Math.sin(v.angle) * speed * dt;
 
     // Aiming at the mouse
-    v.angle = aim(v.angle, v.x, v.y, v.turnSpeed, v.addY, dt);
+    v.angle = aim(v.angle, v.x, v.y, v.turnSpeed, dt);
 
-    // Falling after a certain amount of time
     live(v, dt);
 
     // Apply to element
@@ -90,9 +90,17 @@ var Missile = {
   }
 };
 
+function live(v, dt) {
+  v.timer += dt;
+  if (v.timer >= lifetime) {
+    (0, _Particle.createParticle)(v.x, v.y, v.angle);
+    v.setToDelete = true;
+  }
+}
+
 // Turning towards the mouse
-function aim(angle, x, y, turnSpeed, addY, dt) {
-  var target = { x: _Game.mouseX, y: _Game.mouseY + addY };
+function aim(angle, x, y, turnSpeed, dt) {
+  var target = { x: _Game.mouseX, y: _Game.mouseY };
   var targetAngleRad = Math.atan2(y - target.y, x - target.x) + Math.PI; // Where the bullet wants to aim
   var targetAngle = toDegrees(targetAngleRad); // Convert them both to degrees ( from radians )
   var bulletAngle = toDegrees(angle);
@@ -117,14 +125,6 @@ function aim(angle, x, y, turnSpeed, addY, dt) {
   }
   bulletAngle = (bulletAngle % 360 + 360) % 360;
   return toRadians(bulletAngle);
-}
-
-// Live
-function live(v, dt) {
-  v.timer += dt;
-  if (v.timer >= lifetime) {
-    v.addY += fallSpeed * dt;
-  }
 }
 // ** Helper Functions ** \\
 
