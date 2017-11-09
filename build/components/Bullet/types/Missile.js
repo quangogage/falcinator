@@ -118,7 +118,7 @@ function aim(angle, x, y, dt) {
 function generateSmoke(v, dt) {
   v.smokeTimer += dt;
   if (v.smokeTimer >= smokeSpawnRate) {
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 5; i++) {
       var x = v.x + v.el.width() / 2 + Math.cos(v.angle + Math.PI) * v.el.width();
       var y = v.y + v.el.height() / 2 + Math.sin(v.angle + Math.PI) * v.el.width();
       var bottomPos = getRandom(0, v.el.width() / 2);
