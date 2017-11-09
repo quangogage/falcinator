@@ -59,7 +59,7 @@ function shootBullet(originX, originY, targetX, targetY, type, flags) {
   };
 
   // If a type was specified, don't do any fancy jazz
-  if (type || checkForSpecialBullet == false) {
+  if (type || checkForSpecialBullet() === false) {
     shootFunc(originX, originY, targetX, targetY, type, flags);
   } else {
     handlePowerupShot();
