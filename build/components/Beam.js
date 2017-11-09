@@ -28,7 +28,7 @@ var styles = {
 var growSpeed = 0.5; // How quickly does it's width grow?
 var maxWidth = 50; // How wide does it get?
 var sustain = 750; // How long does it stay at full width?
-var shrinkSpeed = 0.5; // How quickly does it shrink after it's sustained full width?
+var shrinkSpeed = 0.005; // How quickly does it shrink after it's sustained full width?
 
 function shootBeam(mouseX, flags) {
   var el = (0, _jquery2.default)('<div class+="beam"></div>');
