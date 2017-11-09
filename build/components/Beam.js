@@ -29,8 +29,9 @@ var growSpeed = 0.5; // How quickly does it's width grow?
 var lifetime = 750; // How long does it live for?
 var maxWidth = 50; // How wide does it get?
 
-function shootBeam(mouseX) {
+function shootBeam(mouseX, flags) {
   var el = (0, _jquery2.default)('<div class+="beam"></div>');
+  var beamFlags = flags || {};
 
   // Element styles
   el.css(styles);
@@ -43,7 +44,8 @@ function shootBeam(mouseX) {
     x: mouseX,
     width: 0,
     el: el,
-    timer: 0
+    timer: 0,
+    flags: beamFlags
   };
 
   // Place on DOM
@@ -62,7 +64,7 @@ function updateBeam(dt) {
     // Apply to element
     v.el.css({
       width: v.width,
-      transformOrigin: '100% 50%'
+      transform: 'translateX(' + v.width / 2 + 'px)'
     });
 
     // Livin' life
