@@ -26,11 +26,11 @@ var styles = {
 // Adjustable variables
 var growSpeed = 0.35; // How quickly does it's width grow?
 var maxWidth = 50; // How wide does it get?
-var sustain = 750; // How long does it stay at full width?
+var sustain = 500; // How long does it stay at full width?
 var shrinkSpeed = 1; // How quickly does it shrink after it's sustained full width?
 
 function shootBeam(mouseX, flags) {
-  var el = (0, _jquery2.default)('<div class+="beam"></div>');
+  var el = (0, _jquery2.default)('<div class="beam"></div>');
   var beamFlags = flags || {};
 
   // Element styles
@@ -85,4 +85,25 @@ function updateBeam(dt) {
       beams.splice(i, 1);
     }
   }
+}
+
+// Flashes
+function createFlash(x) {
+  var flash = (0, _jquery2.default)('<div class="beam-flash"></div>');
+
+  // Basic styles
+  flash.css(styles);
+  flash.css({ background: 'blue' });
+
+  flash.animate({
+    width: fullWidth * 2
+  }, {
+    duration: 350,
+    queue: false,
+    complete: function complete() {
+      flash.remove();
+    }
+  });
+
+  (0, _jquery2.default)('.Game').append(flash);
 }
