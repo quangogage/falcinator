@@ -52,7 +52,7 @@ var Missile = {
     obj.y = originY;
     obj.angle = angle;
     obj.smokeTimer = 0;
-    obj.turnSpeed = getRandom(turnSpeedRange[0], turnSpeedRange[1]);
+    obj.turnSpeed = getRandom(turnSpeedRange[0] * 100, turnSpeedRange[1] * 100) / 100;
 
     // Set initial position/rotation of element
     var cssAngle = angle + Math.PI / 2;
