@@ -34,6 +34,7 @@ function shootBeam(mouseX) {
   var el = (0, _jquery2.default)('<div class+="beam"></div>');
 
   // Element styles
+  el.css(styles);
   el.css({
     left: mouseX
   });
