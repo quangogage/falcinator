@@ -96,7 +96,7 @@ function createFlash(x) {
 
   // Basic styles
   flash.css(styles);
-  flash.css({ background: 'blue', left: x, transformOrigin: '50% 50%' });
+  flash.css({ background: 'blue', left: x, transformOrigin: '100%' });
 
   flash.animate({
     width: maxWidth * 2
