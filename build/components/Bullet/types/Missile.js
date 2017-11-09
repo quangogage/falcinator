@@ -12,6 +12,8 @@ var _Game = require('../../Game');
 
 var _Smoke = require('../../Particle/Smoke');
 
+var _Smoke2 = _interopRequireDefault(_Smoke);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var img = require('../missile.png');
@@ -119,7 +121,7 @@ function generateSmoke(v, dt) {
   if (v.smokeTimer >= smokeSpawnRate) {
     var x = v.x + Math.cos(v.angle) * v.el.width();
     var y = v.y + Math.sin(v.angle) * v.el.width();
-    _Smoke.Smoke.play(x, y);
+    _Smoke2.default.play(x, y);
     v.smokeTimer = 0;
   }
 }
