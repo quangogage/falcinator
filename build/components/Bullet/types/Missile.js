@@ -79,7 +79,7 @@ var Missile = {
 
 function aim(angle, x, y, dt) {
   var target = { x: _Game.mouseX, y: _Game.mouseY };
-  var targetAngleRad = Math.atan2(y - target.y, x - target.x); // Where the bullet wants to aim
+  var targetAngleRad = Math.atan2(y - target.y, x - target.x) + Math.PI; // Where the bullet wants to aim
   var targetAngle = toDegrees(targetAngleRad); // Convert them both to degrees ( from radians )
   var bulletAngle = toDegrees(angle);
   return targetAngleRad;
