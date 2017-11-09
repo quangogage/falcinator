@@ -64,7 +64,7 @@ function updateBeam(dt) {
     // Apply to element
     v.el.css({
       width: v.width,
-      transform: 'translateX(' + v.width / 2 + 'px)'
+      transform: 'translateX(-' + v.width / 2 + 'px)'
     });
 
     // Livin' life
