@@ -78,11 +78,7 @@ var Smoke = function () {
         v.size -= sizeFadeSpeed * dt;
 
         // Color fade
-        for (var ib = 0; ib < 3; ib++) {
-          if (v.color[ib] > 0) {
-            v.color[ib] -= colorFadeSpeed * dt;
-          }
-        }
+        v.color = fadeColor(v);
 
         // Applying to element
         v.el.css({
@@ -102,5 +98,18 @@ var Smoke = function () {
 
   return Smoke;
 }();
+
+// Color fading
+
+
+function fadeColor(v) {
+  for (var i = 0; i < 3; i++) {
+    var color = v.color[i];
+    if (color > 0) {
+      color -= colorFadeSpeed * dt;
+    }
+  }
+  return color;
+}
 
 exports.default = new Smoke();
