@@ -70,7 +70,7 @@ var powerupList = exports.powerupList = [{
 }, {
   name: 'Missiles!!',
   phrase: 'Missiles!!',
-  func: console.log(),
+  func: function func() {},
   duration: 2500,
   active: false,
   timer: 0
