@@ -57,7 +57,7 @@ var Smoke = function () {
         el: el,
         x: x,
         y: y,
-        color: initialColor,
+        color: [initialColor[0], initialColor[1], initialColor[2]],
         size: thisSize,
         shrinkSpeed: getRandom(sizeFadeSpeed[0] * 100, sizeFadeSpeed[1] * 100) / 100,
         colorSpeed: getRandom(colorFadeSpeed[0] * 100, colorFadeSpeed[1] * 100) / 100
