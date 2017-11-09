@@ -59,7 +59,7 @@ var Smoke = function () {
 
       // Initial color
       el.css({
-        background: 'RGB(' + (initialColor[0], initialColor[1], initialColor[2]) + ')'
+        backgroundColor: 'RGB(' + initialColor[0] + ',' + initialColor[1] + ',' + initialColor[2] + ')'
       });
 
       // Add to DOM
