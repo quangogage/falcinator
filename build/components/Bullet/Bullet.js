@@ -114,6 +114,7 @@ var bulletPowerups = [{
   name: 'missile',
   index: 6
 }];
+var currentShot = 0;
 function handlePowerupShot(shoot) {
   var active = [];
   for (var i = 0; i < bulletPowerups.length; i++) {
@@ -124,6 +125,16 @@ function handlePowerupShot(shoot) {
 
   if (active.length === 1) {
     shoot(active[0]);
+  } else {
+    if (currentShot >= active.length) {
+      currentShot = 0;
+    }
+    shoot(active[currentShot]);
+    if (currentShot === active.length) {
+      currentShot = 0;
+    } else {
+      currentShot++;
+    }
   }
 }
 
