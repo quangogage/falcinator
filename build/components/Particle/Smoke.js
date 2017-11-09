@@ -18,8 +18,8 @@ var container = [];
 
 // Adjustable variables
 var size = 25; // How big does is it upon creation?
-var colorFadeSpeed = 1; // How quickly does it fade to black?
-var sizeFadeSpeed = 0.75; // How quickly does it shrink?
+var colorFadeSpeed = 0.5; // How quickly does it fade to black?
+var sizeFadeSpeed = 0.25; // How quickly does it shrink?
 var initialColor = [244, 125, 66]; // What color is it upon creation? (RGB)
 
 // Default styles
@@ -27,6 +27,7 @@ var styles = {
   position: 'absolute',
   imageRender: 'pixelated',
   userSelect: 'none',
+  transformOrigin: '50% 50%',
   width: size,
   height: size
 };
@@ -54,7 +55,8 @@ var Smoke = function () {
         el: el,
         x: x,
         y: y,
-        color: initialColor
+        color: initialColor,
+        size: size
       };
 
       // Initial color
@@ -67,7 +69,27 @@ var Smoke = function () {
     }
   }, {
     key: 'update',
-    value: function update(dt) {}
+    value: function update(dt) {
+      var i = container.length;
+      while (i--) {
+        var v = container[i];
+
+        // Shrinking
+        v.size -= sizeFadeSpeed * dt;
+
+        // Color fade
+        for (var ib = 0; ib < 3; ib++) {
+          v.color[ib] -= colorFadeSpeed * dt;
+        }
+
+        // Applying to element
+        v.el.css({
+          width: v.size,
+          height: v.size,
+          backgroundColor: 'RGB(' + v.color[0] + ',' + v.color[1] + ',' + v.color[2] + ')'
+        });
+      }
+    }
   }]);
 
   return Smoke;
