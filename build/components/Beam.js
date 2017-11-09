@@ -68,14 +68,9 @@ function updateBeam(dt) {
     }
     if (v.fullWidth) {
       v.timer += dt;
-      if (v.timer >= sustain) {
-        v.width -= shrinkSpeed * dt;
-        console.log(v.width);
-        if (v.width <= 0) {
-          v.el.remove();
-          beams.splice(i, 1);
-        }
-      }
+    }
+    if (v.fullWidth && v.timer >= sustain) {
+      v.width -= shrinkSpeed * dt;
     }
 
     // Apply to element
@@ -83,5 +78,11 @@ function updateBeam(dt) {
       width: v.width,
       transform: 'translateX(-' + v.width / 2 + 'px)'
     });
+
+    // Remove after sustain and shrink
+    if (v.fullWidth && v.timer >= sustain && v.width <= 0) {
+      v.el.remove();
+      beams.splice(i, 1);
+    }
   }
 }
