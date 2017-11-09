@@ -82,7 +82,6 @@ function aim(angle, x, y, dt) {
   var targetAngleRad = Math.atan2(y - target.y, x - target.x) + Math.PI; // Where the bullet wants to aim
   var targetAngle = toDegrees(targetAngleRad); // Convert them both to degrees ( from radians )
   var bulletAngle = toDegrees(angle);
-  return targetAngleRad;
   if (Math.abs(bulletAngle - targetAngle) <= 5) {
     // If the angle is basically where it wants to be then do nothing
     return;
