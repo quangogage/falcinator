@@ -79,13 +79,12 @@ var Smoke = function () {
         v.size -= sizeFadeSpeed * dt;
 
         // Color fade
-        newColor = fadeColor(v, dt);
 
         // Applying to element
         v.el.css({
           width: v.size,
           height: v.size,
-          backgroundColor: 'RGB(' + newColor[0] + ',' + newColor[1] + ',' + newColor[2] + ')'
+          backgroundColor: 'RGB(' + v.color[0] + ',' + v.color[1] + ',' + v.color[2] + ')'
         });
 
         // Removing
@@ -99,19 +98,5 @@ var Smoke = function () {
 
   return Smoke;
 }();
-
-// Color fading
-
-
-function fadeColor(v, dt) {
-  var colors = v.color;
-  for (var i = 0; i < 3; i++) {
-    if (colors[i] > 0) {
-      console.log(colors[i]);
-      colors[i] -= colorFadeSpeed * dt;
-    }
-  }
-  return colors;
-}
 
 exports.default = new Smoke();
