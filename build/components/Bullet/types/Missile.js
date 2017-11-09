@@ -77,8 +77,8 @@ var Missile = {
     // Aiming at the mouse
     v.angle = aim(v.angle, v.x, v.y, v.turnSpeed, v.addY, dt);
 
-    // Generating the smoke trail
-    // generateSmoke(v, dt);
+    // Falling after a certain amount of time
+    live(v, dt);
 
     // Apply to element
     var cssAngle = v.angle + Math.PI / 2;
