@@ -20,7 +20,6 @@ var styles = {
   top: 0,
   width: 0,
   height: '100%',
-  transition: '0.5s',
   background: 'red'
 };
 
