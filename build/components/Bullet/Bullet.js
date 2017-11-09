@@ -25,12 +25,16 @@ var _CannonBall = require('./types/CannonBall');
 
 var _CannonBall2 = _interopRequireDefault(_CannonBall);
 
+var _Missile = require('./types/Missile');
+
+var _Missile2 = _interopRequireDefault(_Missile);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var bullets = exports.bullets = [];
 var speed = 1;
 
-var types = [_Envelop2.default, _CannonBall2.default];
+var types = [_Envelop2.default, _CannonBall2.default, _Missile2.default];
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
