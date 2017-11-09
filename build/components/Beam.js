@@ -16,7 +16,7 @@ var beams = [];
 
 // Initial styles
 var styles = {
-  position: 'absolute',
+  position: 'relative',
   top: 0,
   width: 0,
   height: '100%',
@@ -91,25 +91,16 @@ function updateBeam(dt) {
 }
 
 // Flashes
-function createFlash(x) {
-  var flash = (0, _jquery2.default)('<div class="beam-flash"></div>');
-
-  // Basic styles
-  flash.css(styles);
-  flash.css({ background: 'white', left: x, zIndex: 5, opacity: 0.8 });
-
-  flash.animate({
-    width: maxWidth * 2
-  }, {
-    duration: 350,
-    queue: false,
-    step: function step(now) {
-      flash.css({ transform: 'translateX(' + -now / 2 + 'px)' });
-    },
-    complete: function complete() {
-      flash.remove();
-    }
+function createDepth(el) {
+  var left = (0, _jquery2.default)('<div class="beam-depth"></div>');
+  left.css({
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '25%',
+    height: '100%',
+    background: 'black'
   });
 
-  (0, _jquery2.default)('.Game').append(flash);
+  el.append(left);
 }
