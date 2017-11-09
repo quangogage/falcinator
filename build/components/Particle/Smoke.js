@@ -17,9 +17,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var container = [];
 
 // Adjustable variables
-var size = 25; // How big does is it upon creation?
-var colorFadeSpeed = 0.001; // How quickly does it fade to black?
-var sizeFadeSpeed = 0.005; // How quickly does it shrink?
+var size = 10; // How big does is it upon creation?
+var colorFadeSpeed = 0.01; // How quickly does it fade to black?
+var sizeFadeSpeed = 0.05; // How quickly does it shrink?
 var initialColor = [244, 125, 66]; // What color is it upon creation? (RGB)
 
 // Default styles
