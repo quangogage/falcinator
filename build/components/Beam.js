@@ -96,13 +96,16 @@ function createFlash(x) {
 
   // Basic styles
   flash.css(styles);
-  flash.css({ background: 'blue', left: x, transformOrigin: '100%' });
+  flash.css({ background: 'blue', left: x });
 
   flash.animate({
     width: maxWidth * 2
   }, {
     duration: 350,
     queue: false,
+    step: function step(now) {
+      flash.css({ transform: 'translateX(' + -now / 2 + 'px)' });
+    },
     complete: function complete() {
       flash.remove();
     }
