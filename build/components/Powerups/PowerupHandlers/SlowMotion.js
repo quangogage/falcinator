@@ -47,7 +47,7 @@ function handleSlowMo(dt, now, lastUpdate) {
 
     // Zoom in
     if (zoomSet === false) {
-      (0, _jquery2.default)('.Game').css({ transform: 'scale(2)' });
+      (0, _jquery2.default)('.Game').css({ transform: 'scale(1.25)' });
       zoomSet = true;
     }
 
