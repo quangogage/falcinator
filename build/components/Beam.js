@@ -21,7 +21,6 @@ var styles = {
   width: 0,
   height: '100%',
   transition: '0.5s',
-  transformOrigin: '50% 50%',
   background: 'red'
 };
 
@@ -62,7 +61,8 @@ function updateBeam(dt) {
 
     // Apply to element
     v.el.css({
-      width: v.width
+      width: v.width,
+      transform: 'translateX(-50%)'
     });
 
     // Livin' life
