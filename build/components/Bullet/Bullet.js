@@ -79,6 +79,7 @@ function updateBullets(dt) {
 
 // Check for any specified bullet types (ie cannonball powerup)
 function handleType() {
+  return 'missile';
   // Cannonball
   if (_HandlePowerups.powerupList[5].active) {
     return 'cannonball';

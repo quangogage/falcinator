@@ -35,6 +35,8 @@ var _Camera = require('./Camera/Camera');
 
 var _Beam = require('./Beam');
 
+var _Missile = require('./Missile');
+
 var _WeaponHandler = require('./WeaponHandler');
 
 var _WeaponHandler2 = _interopRequireDefault(_WeaponHandler);
@@ -88,6 +90,7 @@ function updateGame() {
   dt = (0, _SlowMotion.handleSlowMo)(dt, now, lastUpdate);
   lastUpdate = now;
   (0, _Bullet.updateBullets)(dt);
+  (0, _Missile.updateMissiles)(dt);
   (0, _Beam.updateBeam)(dt);
   (0, _Ship.updateShip)(ship, dt, mouseX, mouseY);
   (0, _Particle.updateParticle)(dt);
