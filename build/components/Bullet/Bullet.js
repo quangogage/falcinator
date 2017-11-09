@@ -32,9 +32,10 @@ var _Missile2 = _interopRequireDefault(_Missile);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var bullets = exports.bullets = [];
-var speed = 1;
 
 var types = [_Envelop2.default, _CannonBall2.default, _Missile2.default];
+
+var maxAmount = 50; // How many can exist at one time?
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
@@ -78,6 +79,10 @@ function updateBullets(dt) {
       v.el.remove();
       bullets.splice(i, 1);
     }
+  }
+  // Limit the amount that can exist at once
+  if (bullets.length >= maxAmount) {
+    bullets.splice(bullets.length - 1, 1);
   }
 }
 
