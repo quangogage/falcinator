@@ -84,7 +84,7 @@ function aim(angle, x, y, dt) {
   var bulletAngle = toDegrees(angle);
   if (Math.abs(bulletAngle - targetAngle) <= 5) {
     // If the angle is basically where it wants to be then do nothing
-    return;
+    return angle;
   }
   if (Math.abs(bulletAngle - targetAngle) < 180) {
     // Rotate current directly towards target.
