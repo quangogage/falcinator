@@ -119,8 +119,8 @@ function aim(angle, x, y, dt) {
 function generateSmoke(v, dt) {
   v.smokeTimer += dt;
   if (v.smokeTimer >= smokeSpawnRate) {
-    var x = v.x + v.el.width() / 2 + Math.cos(v.angle + Math.PI) * v.el.width();
-    var y = v.y + v.el.height() / 2 + Math.sin(v.angle + Math.PI) * v.el.width();
+    var x = v.x + v.el.width() / 2 + Math.cos(v.angle + Math.PI) * v.el.width() / 2;
+    var y = v.y + v.el.height() / 2 + Math.sin(v.angle + Math.PI) * v.el.width() / 2;
     _Smoke2.default.play(x, y);
     v.smokeTimer = 0;
   }
