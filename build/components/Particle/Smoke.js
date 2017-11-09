@@ -17,9 +17,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var container = [];
 
 // Adjustable variables
-var size = 10; // How big does is it upon creation?
-var colorFadeSpeed = 0.005; // How quickly does it fade to black?
-var sizeFadeSpeed = 0.03; // How quickly does it shrink?
+var size = [10, 20]; // How big does is it upon creation?
+var colorFadeSpeed = [0.025, 0.005]; // How quickly does it fade to black?
+var sizeFadeSpeed = [0.01, 0.03]; // How quickly does it shrink?
 var initialColor = [244, 125, 66]; // What color is it upon creation? (RGB)
 
 // Default styles
@@ -44,6 +44,7 @@ var Smoke = function () {
     // Create it
     value: function play(x, y, angle) {
       var el = (0, _jquery2.default)('<div class="particle-smoke"></div>');
+      var thisSize = getRandom(size[0], size[1]);
 
       // Default styles
       el.css(styles);
@@ -57,7 +58,9 @@ var Smoke = function () {
         x: x,
         y: y,
         color: initialColor,
-        size: size
+        size: thisSize,
+        shrinkSpeed: getRandom(sizeFadeSpeed[0], sizeFadeSpeed[1]),
+        colorSpeed: getRandom(colorFadeSpeed[0], colorFadeSpeed[1])
       };
 
       // Initial color
@@ -76,17 +79,17 @@ var Smoke = function () {
         var v = container[i];
 
         // Shrinking
-        v.size -= sizeFadeSpeed * dt;
+        v.size -= v.shrinkSpeed * dt;
 
         // Color fade
         if (v.color[0] > 0) {
-          v.color[0] -= colorFadeSpeed * dt;
+          v.color[0] -= v.colorSpeed * dt;
         }
         if (v.color[1] > 0) {
-          v.color[1] -= colorFadeSpeed * dt;
+          v.color[1] -= v.colorSpeed * dt;
         }
         if (v.color[2] > 0) {
-          v.color[2] -= colorFadeSpeed * dt;
+          v.color[2] -= v.colorSpeed * dt;
         }
 
         // Applying to element
@@ -107,5 +110,13 @@ var Smoke = function () {
 
   return Smoke;
 }();
+
+// ** Helper Functions ** \\
+// Get a random number between two values
+
+
+function getRandom(min, max) {
+  return Math.random() * (max - min + 1) + min;
+}
 
 exports.default = new Smoke();
