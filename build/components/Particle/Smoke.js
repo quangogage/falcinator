@@ -18,7 +18,7 @@ var container = [];
 
 // Adjustable variables
 var size = [10, 20]; // How big does is it upon creation?
-var colorFadeSpeed = [0.025, 0.005]; // How quickly does it fade to black?
+var colorFadeSpeed = [0.0025, 0.005]; // How quickly does it fade to black?
 var sizeFadeSpeed = [0.01, 0.03]; // How quickly does it shrink?
 var initialColor = [244, 125, 66]; // What color is it upon creation? (RGB)
 
