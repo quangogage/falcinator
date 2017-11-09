@@ -94,7 +94,7 @@ var Smoke = function () {
         v.el.css({
           width: v.size,
           height: v.size,
-          backgroundColor: 'RGB(' + v.color[0] + ',' + v.color[1] + ',' + v.color[2] + ')'
+          backgroundColor: 'RGB(' + Math.floor(v.color[0]) + ',' + Math.floor(v.color[1]) + ',' + Math.floor(v.color[2]) + ')'
         });
 
         // Removing
