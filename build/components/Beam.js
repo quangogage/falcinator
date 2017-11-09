@@ -49,7 +49,7 @@ function shootBeam(mouseX, flags) {
   };
 
   // Flash effect
-  createFlash(mouseX);
+  createDepth(el);
 
   // Place on DOM
   (0, _jquery2.default)('.Game').append(el);
