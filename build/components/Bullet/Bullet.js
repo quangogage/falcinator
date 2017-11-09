@@ -68,7 +68,9 @@ function updateBullets(dt) {
 
     // Going off screen
     if (v.x < 0 || v.y < 0 || v.x > window.innerWidth || v.y > window.innerHeight) {
-      v.setToDelete = true;
+      if (v.type !== 'missile') {
+        v.setToDelete = true;
+      }
     }
 
     // Removing it
