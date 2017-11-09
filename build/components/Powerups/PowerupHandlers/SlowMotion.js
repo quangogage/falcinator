@@ -24,9 +24,11 @@ var styles = {
   left: 0,
   width: '100%',
   height: '100%',
-  transition: '1s',
-  opacity: 0
+  transition: '4s',
+  opacity: 0,
+  userSelect: 'none'
 };
+var zoomSet = false;
 
 function handleSlowMo(dt, now, lastUpdate) {
   var isActive = _HandlePowerups.powerupList[1].active;
@@ -34,6 +36,7 @@ function handleSlowMo(dt, now, lastUpdate) {
     // Slow down delta time
     var newDt = (now - lastUpdate) / 2;
 
+    // Overlay
     if ((0, _jquery2.default)('.intense').length === 0) {
       var el = (0, _jquery2.default)('<img src=' + image + ' class="intense" />');
       el.css(styles);
@@ -41,10 +44,20 @@ function handleSlowMo(dt, now, lastUpdate) {
     } else {
       (0, _jquery2.default)('.intense').css({ opacity: 1 });
     }
-    // Intensity effect
+
+    // Zoom in
+    if (zoomSet === false) {
+      (0, _jquery2.default)('.Game').css({ transform: 'scale(2)' });
+      zoomSet = true;
+    }
+
     return newDt;
   } else {
     (0, _jquery2.default)('.intense').css({ opacity: 0 });
+    if (zoomSet === true) {
+      (0, _jquery2.default)('.Game').css({ transform: 'scale(1)' });
+    }
+
     return now - lastUpdate;
   }
 }
