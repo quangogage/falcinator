@@ -18,7 +18,7 @@ var container = [];
 
 // Adjustable variables
 var size = 25; // How big does is it upon creation?
-var colorFadeSpeed = 0.1; // How quickly does it fade to black?
+var colorFadeSpeed = 0.001; // How quickly does it fade to black?
 var sizeFadeSpeed = 0.005; // How quickly does it shrink?
 var initialColor = [244, 125, 66]; // What color is it upon creation? (RGB)
 
@@ -79,9 +79,15 @@ var Smoke = function () {
         v.size -= sizeFadeSpeed * dt;
 
         // Color fade
-        v.color[0] -= colorFadeSpeed * dt;
-        v.color[1] -= colorFadeSpeed * dt;
-        v.color[2] -= colorFadeSpeed * dt;
+        if (v.color[0] > 0) {
+          v.color[0] -= colorFadeSpeed * dt;
+        }
+        if (v.color[1] > 0) {
+          v.color[1] -= colorFadeSpeed * dt;
+        }
+        if (v.color[2] > 0) {
+          v.color[2] -= colorFadeSpeed * dt;
+        }
         console.log(v.color);
 
         // Applying to element
