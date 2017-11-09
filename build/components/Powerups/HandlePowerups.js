@@ -96,7 +96,6 @@ function HandlePowerups(dt) {
 function activatePowerup() {
   var activePowerup = powerupList[Math.floor(getRandom(0, powerupList.length - 1))];
   // activePowerup = powerupList[3];
-  activePowerup = powerupList[Math.floor(getRandom(5, 6))];
   activePowerup.timer = 0;
   activePowerup.active = true;
   (0, _Notification2.default)(activePowerup.phrase, activePowerup.name);
