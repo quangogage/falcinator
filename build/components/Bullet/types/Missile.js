@@ -28,7 +28,7 @@ var styles = {
 
 // Adjustable Variables
 var speed = 1.1;
-var turnSpeed = 0.4;
+var turnSpeedRange = [0.3, 0.6];
 var smokeSpawnRate = 50;
 
 var Missile = {
@@ -52,6 +52,7 @@ var Missile = {
     obj.y = originY;
     obj.angle = angle;
     obj.smokeTimer = 0;
+    obj.turnSpeed = getRandom(turnSpeedRange[0], turnSpeedRange[1]);
 
     // Set initial position/rotation of element
     var cssAngle = angle + Math.PI / 2;
@@ -70,7 +71,7 @@ var Missile = {
     v.y += Math.sin(v.angle) * speed * dt;
 
     // Aiming at the mouse
-    v.angle = aim(v.angle, v.x, v.y, dt);
+    v.angle = aim(v.angle, v.x, v.y, v.turnSpeed, dt);
 
     // Generating the smoke trail
     // generateSmoke(v, dt);
@@ -86,7 +87,7 @@ var Missile = {
 };
 
 // Turning towards the mouse
-function aim(angle, x, y, dt) {
+function aim(angle, x, y, turnSpeed, dt) {
   var target = { x: _Game.mouseX, y: _Game.mouseY };
   var targetAngleRad = Math.atan2(y - target.y, x - target.x) + Math.PI; // Where the bullet wants to aim
   var targetAngle = toDegrees(targetAngleRad); // Convert them both to degrees ( from radians )
