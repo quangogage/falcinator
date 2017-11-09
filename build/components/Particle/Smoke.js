@@ -73,18 +73,19 @@ var Smoke = function () {
       var i = container.length;
       while (i--) {
         var v = container[i];
+        var newColor;
 
         // Shrinking
         v.size -= sizeFadeSpeed * dt;
 
         // Color fade
-        v.color = fadeColor(v, dt);
+        newColor = fadeColor(v, dt);
 
         // Applying to element
         v.el.css({
           width: v.size,
           height: v.size,
-          backgroundColor: 'RGB(' + v.color[0] + ',' + v.color[1] + ',' + v.color[2] + ')'
+          backgroundColor: 'RGB(' + newColor[0] + ',' + newColor[1] + ',' + newColor[2] + ')'
         });
 
         // Removing
