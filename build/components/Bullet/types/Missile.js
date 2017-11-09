@@ -23,8 +23,7 @@ var styles = {
   position: 'absolute',
   transformOrigin: '50% 50%',
   imageRendering: 'pixelated',
-  userSelect: 'none',
-  transform: 'scaleX(0.666)'
+  userSelect: 'none'
 };
 
 // Adjustable Variables
@@ -59,7 +58,7 @@ var Missile = {
     el.css({
       left: originX,
       top: originY,
-      transform: 'rotate(' + cssAngle + 'rad)'
+      transform: 'rotate(' + cssAngle + 'rad) scaleX(0.666)'
     });
 
     // Place element on DOM

@@ -88,7 +88,6 @@ var Smoke = function () {
         if (v.color[2] > 0) {
           v.color[2] -= colorFadeSpeed * dt;
         }
-        console.log(v.color);
 
         // Applying to element
         v.el.css({
