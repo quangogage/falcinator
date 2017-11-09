@@ -27,7 +27,7 @@ var styles = {
 };
 
 // Adjustable Variables
-var speed = 0.7;
+var speed = 1.1;
 var turnSpeed = 0.4;
 var smokeSpawnRate = 50;
 
@@ -120,6 +120,9 @@ function generateSmoke(v, dt) {
   if (v.smokeTimer >= smokeSpawnRate) {
     var x = v.x + v.el.width() / 2 + Math.cos(v.angle + Math.PI) * v.el.width();
     var y = v.y + v.el.height() / 2 + Math.sin(v.angle + Math.PI) * v.el.width();
+    var bottomPos = getRandom(0, v.el.width());
+    x += Math.cos(v.angle + Math.PI / 2) * bottomPos;
+    y += Math.sin(v.angle + Math.PI / 2) * bottomPos;
     _Smoke2.default.play(x, y);
     v.smokeTimer = 0;
   }
