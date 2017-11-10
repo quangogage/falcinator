@@ -12,6 +12,8 @@ var _Game = require('../../Game');
 
 var _Particle = require('../../Particle/Particle');
 
+var _Camera = require('../../Camera');
+
 var _Smoke = require('../../Particle/Smoke');
 
 var _Smoke2 = _interopRequireDefault(_Smoke);
@@ -34,6 +36,7 @@ var turnSpeedRange = [0.2, 0.35];
 var smokeSpawnRate = 50;
 var lifetime = 15000;
 var slowSpeed = 0.001;
+var camShake = 7;
 
 var Missile = {
   name: 'missile',
@@ -70,6 +73,9 @@ var Missile = {
 
     // Place element on DOM
     (0, _jquery2.default)('.Game').append(el);
+
+    // Shake the camera
+    (0, _Camera.ShakeCamera)(camShake);
   },
   update: function update(i, v, dt) {
     // Move position

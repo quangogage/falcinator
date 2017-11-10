@@ -10,6 +10,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _Bullet = require('../Bullet');
 
+var _Camera = require('../../Camera');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var img = require('../envelope.jpg');
@@ -23,6 +25,7 @@ var styles = {
 
 // Adjustable Variables
 var speed = 1;
+var camShake = 5;
 
 var Envelop = {
   name: 'envelop',
@@ -55,6 +58,9 @@ var Envelop = {
 
     // Place element on DOM
     (0, _jquery2.default)('.Game').append(el);
+
+    // Shake the camera
+    (0, _Camera.ShakeCamera)(camShake);
   },
   update: function update(i, v, dt) {
     // Move position

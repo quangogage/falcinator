@@ -25,6 +25,7 @@ var styles = {
 
 // Adjustable Variables
 var speed = 0.5;
+var camShake = 6;
 
 var CannonBall = {
   name: 'cannonball',
@@ -58,6 +59,9 @@ var CannonBall = {
 
     // Place element on DOM
     (0, _jquery2.default)('.Game').append(el);
+
+    // Shake the camera
+    (0, _Camera.ShakeCamera)(camShake);
   },
   update: function update(i, v, dt) {
     // Move position
