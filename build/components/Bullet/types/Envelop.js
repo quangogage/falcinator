@@ -10,7 +10,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _Bullet = require('../Bullet');
 
-var _Camera = require('../../Camera');
+var _Camera = require('../../Camera/Camera');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

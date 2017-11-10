@@ -12,7 +12,7 @@ var _Game = require('../../Game');
 
 var _Particle = require('../../Particle/Particle');
 
-var _Camera = require('../../Camera');
+var _Camera = require('../../Camera/Camera');
 
 var _Smoke = require('../../Particle/Smoke');
 
