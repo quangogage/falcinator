@@ -71,7 +71,7 @@ var powerupList = exports.powerupList = [{
   name: 'Missiles!!',
   phrase: 'Missiles!!',
   func: function func() {},
-  duration: 5000,
+  duration: 5500,
   active: false,
   timer: 0
 }];
