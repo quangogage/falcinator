@@ -14,7 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var frames = [require('./images/explosion/1.png'), require('./images/explosion/2.png'), require('./images/explosion/3.png'), require('./images/explosion/4.png'), require('./images/explosion/5.png')];
+var frames = [require('./images/explosion/1.png'), require('./images/explosion/2.png'), require('./images/explosion/3.png'), require('./images/explosion/4.png'), require('./images/explosion/5.png'), require('./images/explosion/6.png'), require('./images/explosion/7.png')];
 
 // Adjustable variables
 var framerate = 67.666; // How long is each animation frame?
@@ -36,7 +36,8 @@ var Explosion = function () {
         left: x,
         top: y,
         transform: 'translateX(-50%) translateY(-50%) rotate(' + rotation + 'deg)',
-        scale: scale
+        scale: scale,
+        imageRendering: 'pixelated'
       });
       (0, _jquery2.default)('.Game').append(div);
       var animation = setInterval(function () {
