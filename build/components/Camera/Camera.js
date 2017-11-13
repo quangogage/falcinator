@@ -47,7 +47,7 @@ function UpdateCamera(dt) {
 }
 function ShakeCamera(shake) {
   var angle = getRandom(-5 * 100, 5 * 100) / 100;
-  var amount = getRandom(shake * 80, shake * 120) / 100;
+  var amount = Math.floor(getRandom(shake * 80, shake * 120) / 100);
   cam.x = Math.cos(angle) * amount;
   cam.y = Math.sin(angle) * amount;
   console.log('camera shake with a power of ' + amount);
