@@ -17,7 +17,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var frames = [require('./images/explosion/1.png'), require('./images/explosion/2.png'), require('./images/explosion/3.png'), require('./images/explosion/4.png'), require('./images/explosion/5.png')];
 
 // Adjustable variables
-var framerate = 75; // How long is each animation frame?
+var framerate = 200; // How long is each animation frame?
 var scaleRange = [1.35, 2]; // How big is the element?
 
 var Explosion = function () {
