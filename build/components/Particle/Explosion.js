@@ -31,11 +31,11 @@ var Explosion = function () {
       var frame = 0;
       var div = (0, _jquery2.default)('<img src=' + frames[0] + ' class="explosion" draggable="false" />');
       var scale = getRandom(scaleRange[0] * 100, scaleRange[1] * 100) / 100;
+      console.log(scale);
       div.css({
         left: x,
         top: y,
-        transform: 'translateX(-50%) translateY(-50%) rotate(' + (angle + Math.PI / 2) + 'rad)',
-        scale: scale,
+        transform: 'translateX(-50%) translateY(-50%) rotate(' + (angle + Math.PI / 2) + 'rad) scale(' + scale + ')',
         imageRendering: 'pixelated'
       });
       (0, _jquery2.default)('.Game').append(div);
