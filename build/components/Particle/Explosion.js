@@ -34,7 +34,7 @@ var Explosion = function () {
       div.css({
         left: x,
         top: y,
-        transform: 'translateX(-50%) translateY(-50%) rotate(' + angle + 'rad)',
+        transform: 'translateX(-50%) translateY(-50%) rotate(' + (angle + Math.PI / 2) + 'rad)',
         scale: scale,
         imageRendering: 'pixelated'
       });
