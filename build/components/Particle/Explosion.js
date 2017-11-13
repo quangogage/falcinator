@@ -18,7 +18,7 @@ var frames = [require('./images/explosion/1.png'), require('./images/explosion/2
 
 // Adjustable variables
 var framerate = 67.666; // How long is each animation frame?
-var scaleRange = [0.2, 0.25]; // How big is the element?
+var scaleRange = [0.5, 0.51]; // How big is the element?
 
 var Explosion = function () {
   function Explosion() {
