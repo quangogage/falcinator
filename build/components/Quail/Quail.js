@@ -18,6 +18,8 @@ var _Camera = require('../Camera/Camera');
 
 var _Bullet = require('../Bullet/Bullet');
 
+var _Flash = require('../Flash');
+
 var _Game = require('../Game');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -76,6 +78,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
         (0, _Camera.ShakeCamera)(camShake);
+        (0, _Flash.CreateFlash)(va.x, va.y);
         if (va.onDestroy) {
           va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
         }

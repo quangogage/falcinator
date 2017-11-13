@@ -64,7 +64,7 @@ var powerupList = exports.powerupList = [{
   name: '...Cannon Balls',
   phrase: 'Mail Cannon!',
   func: _MailCannon.MailCannon,
-  duration: 10000,
+  duration: 8250,
   active: false,
   timer: 0
 }, {

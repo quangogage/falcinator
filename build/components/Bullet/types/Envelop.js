@@ -25,7 +25,7 @@ var styles = {
 
 // Adjustable Variables
 var speed = 1;
-var camShake = 15;
+var camShake = 5;
 
 var Envelop = {
   name: 'envelop',
