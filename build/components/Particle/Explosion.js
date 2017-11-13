@@ -33,7 +33,7 @@ var Explosion = function () {
       div.css({
         left: x,
         top: y,
-        transform: 'translateX(-50%) translateY(-50%)',
+        transform: 'translateX(-50%) translateY(-50%) rotate(' + getRandom(0, 360) + 'deg)',
         scale: scale
       });
       (0, _jquery2.default)('.Game').append(div);
@@ -50,5 +50,9 @@ var Explosion = function () {
 
   return Explosion;
 }();
+
+function getRandom(min, max) {
+  return Math.random() * (max - min + 1) + min;
+}
 
 exports.default = new Explosion();
