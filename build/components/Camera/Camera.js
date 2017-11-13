@@ -21,7 +21,7 @@ function UpdateCamera(dt) {
   cam.x = cam.x - (cam.x - 0) * cam.resetSpeed * dt;
   cam.y = cam.y - (cam.y - 0) * cam.resetSpeed * dt;
 
-  // DOn't get TOO crazy!
+  /* DOn't get TOO crazy!
   if (cam.x > 40) {
     cam.x = 40;
   } else if (cam.x < -40) {
@@ -32,6 +32,7 @@ function UpdateCamera(dt) {
   } else if (cam.y < -40) {
     cam.y = -40;
   }
+  */
 
   if (cam.x !== 0 || cam.y !== 0) {
     (0, _jquery2.default)('.Game').css({
