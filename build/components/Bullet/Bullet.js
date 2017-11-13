@@ -11,8 +11,6 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Camera = require('../Camera/Camera');
-
 var _BurstShot = require('../Powerups/PowerupHandlers/BurstShot');
 
 var _HandlePowerups = require('../Powerups/HandlePowerups');
@@ -37,7 +35,6 @@ var types = [_Envelop2.default, _CannonBall2.default, _Missile2.default];
 
 // Adjustable Variables
 var maxAmount = 50; // How many can exist at one time?
-var camShake = 50; // How much does the camera shake when you shoot?
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
@@ -58,9 +55,6 @@ function shootBullet(originX, originY, targetX, targetY, type, flags) {
       timer: 0
     };
     thisType.create(originX, originY, targetX, targetY, bullets[bullets.length - 1]);
-
-    // Shake the camera
-    (0, _Camera.ShakeCamera)(camShake);
   };
 
   // If a type was specified, don't do any fancy jazz

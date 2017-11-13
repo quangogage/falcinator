@@ -25,7 +25,7 @@ var styles = {
 
 // Adjustable Variables
 var speed = 1;
-var camShake = 5;
+var camShake = 15;
 
 var Envelop = {
   name: 'envelop',
@@ -33,6 +33,9 @@ var Envelop = {
   // Creating an envelop bullet
   create: function create(originX, originY, targetX, targetY, obj) {
     var el, angle;
+
+    // Shake the camera
+    (0, _Camera.ShakeCamera)(camShake);
 
     // Create element/Basic styles
     el = (0, _jquery2.default)('<img src=' + img + ' class="bullet"/>');
@@ -58,9 +61,6 @@ var Envelop = {
 
     // Place element on DOM
     (0, _jquery2.default)('.Game').append(el);
-
-    // Shake the camera
-    (0, _Camera.ShakeCamera)(camShake);
   },
   update: function update(i, v, dt) {
     // Move position

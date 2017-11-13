@@ -80,7 +80,6 @@ var CannonBall = {
 
 // Destroying
 function onDestroy(x, y) {
-  (0, _Camera.ShakeCamera)(18);
   var amount = getRandom(7, 12);
   for (var ic = 0; ic < amount; ic++) {
     var tarx = getRandom(-window.innerWidth, window.innerWidth * 2);
