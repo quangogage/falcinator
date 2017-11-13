@@ -75,9 +75,7 @@ function updatePowerups(dt) {
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         var deathX = v.x + v.el.width() / 2;
         var deathY = v.y + v.el.height() / 2;
-        var bulletFlashX = va.x;
-        var bulletFlashY = va.y;
-        (0, _Flash.CreateFlash)(bulletFlashX + (deathX - bulletFlashX) * 0.5, bulletFlashY + (deathY - bulletFlashY) * 0.5);
+        (0, _Flash.CreateFlash)(va.x + Math.cos(va.angle) * va.el.height() / 2, va.y + Math.sin(va.angle) * va.el.height() / 2);
         (0, _HandlePowerups.activatePowerup)();
       }
     }
