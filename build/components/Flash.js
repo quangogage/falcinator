@@ -12,7 +12,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var image = require('./flash.png');
-var lifetime = 100;
+var lifetime = 50;
 var scale = 1.5;
 var styles = {
   position: 'absolute',
