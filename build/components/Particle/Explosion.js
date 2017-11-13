@@ -27,6 +27,7 @@ var Explosion = function () {
     key: 'play',
     value: function play(x, y) {
       var frame = 0;
+      var turned = false;
       var div = (0, _jquery2.default)('<img src=' + frames[0] + ' class="explosion" draggable="false" />');
       div.css({
         left: x,
@@ -35,11 +36,22 @@ var Explosion = function () {
       });
       (0, _jquery2.default)('.Game').append(div);
       var animation = setInterval(function () {
-        frame += 1;
-        div.attr('src', frames[frame]);
-        if (frame >= frames.length - 1) {
-          div.remove();
-          clearInterval(animation);
+        if (turned === false) {
+          if (frame === frames.length - 1) {
+            turned = true;
+          } else {
+            frame += 1;
+          }
+        } else {
+          if (frame !== 0) {
+            frame -= 1;
+          } else {
+            div.attr('src', frames[frame]);
+            if (frame >= frames.length - 1) {
+              div.remove();
+              clearInterval(animation);
+            }
+          }
         }
       }, framerate);
     }
