@@ -29,6 +29,7 @@ var frames = [require('./frames/1.png'), require('./frames/2.png'), require('./f
 var speed = 0.5; // Zoom zoom.
 var framerate = 68; // Animation framerate
 var dustAmountRange = [5, 10]; // How much dust spawns when a powerup is hit?
+var scale = 0.666; // How large is the powerup quail compared to the normal quail?
 
 // ** Global Functions ** \\
 function updatePowerups(dt) {
@@ -104,7 +105,8 @@ function spawnPowerup() {
     userSelect: 'none',
     width: '45px',
     height: '45px',
-    filter: 'drop-shadow(2px 2px RGBA(0,0,0,0.4))'
+    filter: 'drop-shadow(2px 2px RGBA(0,0,0,0.4))',
+    transform: 'scale(' + scale + ')'
   });
 
   // Create object
