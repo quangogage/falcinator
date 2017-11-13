@@ -46,13 +46,13 @@ var Explosion = function () {
           if (frame !== 0) {
             frame -= 1;
           } else {
-            div.attr('src', frames[frame]);
             if (frame >= frames.length - 1) {
               div.remove();
               clearInterval(animation);
             }
           }
         }
+        div.attr('src', frames[frame]);
       }, framerate);
     }
   }]);
