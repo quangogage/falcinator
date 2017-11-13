@@ -35,13 +35,18 @@ function UpdateCamera(dt) {
   */
 
   if (cam.x !== 0 || cam.y !== 0) {
-    _jquery2.default.when((0, _jquery2.default)('.Game').css({ transition: '0.01s' }), (0, _jquery2.default)('.Game').css({
+    (0, _jquery2.default)('.Game').css({ transition: '0.01s' });
+    (0, _jquery2.default)('.Game').css({
       left: cam.x,
       top: cam.y
-    })).done((0, _jquery2.default)('.Game').css({ transition: '0.5s' }), (0, _jquery2.default)('.Game').css({
-      left: 0,
-      top: 0
-    }));
+    });
+    setTimeout(function () {
+      (0, _jquery2.default)('.Game').css({ transition: '0.5s' });
+      (0, _jquery2.default)('.Game').css({
+        left: 0,
+        top: 0
+      });
+    }, 50);
   }
 }
 function ShakeCamera(shake) {
