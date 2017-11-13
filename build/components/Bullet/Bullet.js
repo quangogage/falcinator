@@ -37,7 +37,7 @@ var types = [_Envelop2.default, _CannonBall2.default, _Missile2.default];
 
 // Adjustable Variables
 var maxAmount = 50; // How many can exist at one time?
-var camShake = 5; // How much does the camera shake when you shoot?
+var camShake = 50; // How much does the camera shake when you shoot?
 
 // ** Global Functions ** \\
 function shootBullet(originX, originY, targetX, targetY, type, flags) {
