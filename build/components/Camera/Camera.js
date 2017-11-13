@@ -35,16 +35,17 @@ function UpdateCamera(dt) {
   */
 
   if (cam.x !== 0 || cam.y !== 0) {
-    (0, _jquery2.default)('.Game').css({ transition: '0s' });
+    (0, _jquery2.default)('.Game').css({ transition: '0.1s' });
     (0, _jquery2.default)('.Game').css({
       left: cam.x,
       top: cam.y
     });
-
-    (0, _jquery2.default)('.Game').css({ transition: '0.5s' });
-    (0, _jquery2.default)('.Game').css({
-      left: 0,
-      top: 0
+    (0, _jquery2.default)('.Game').on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function (e) {
+      (0, _jquery2.default)('.Game').css({ transition: '0.5s' });
+      (0, _jquery2.default)('.Game').css({
+        left: 0,
+        top: 0
+      });
     });
   }
 }
