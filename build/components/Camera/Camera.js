@@ -50,7 +50,7 @@ function ShakeCamera(shake) {
   var amount = getRandom(shake * 80, shake * 120) / 100;
   cam.x = Math.cos(angle) * amount;
   cam.y = Math.sin(angle) * amount;
-  console.log('camera shake with a power of ' + shake);
+  console.log('camera shake with a power of ' + amount);
 }
 
 // Get a random number between two values
