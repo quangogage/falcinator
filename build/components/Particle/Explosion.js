@@ -40,9 +40,10 @@ var Explosion = function () {
       });
       (0, _jquery2.default)('.Game').append(div);
       var animation = setInterval(function () {
-        frame += 1;
-        div.attr('src', frames[frame]);
-        if (frame >= frames.length - 1) {
+        if (frame !== frames.length - 1) {
+          frame += 1;
+          div.attr('src', frames[frame]);
+        } else {
           div.remove();
           clearInterval(animation);
         }
