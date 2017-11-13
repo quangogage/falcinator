@@ -17,6 +17,8 @@ var _Dusts = require('../Particle/Dusts');
 
 var _Dusts2 = _interopRequireDefault(_Dusts);
 
+var _Flash = require('../Flash');
+
 var _HandlePowerups = require('./HandlePowerups');
 
 var _Bullet = require('../Bullet/Bullet');
@@ -71,6 +73,7 @@ function updatePowerups(dt) {
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
         v.setToDelete = true;
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
+        (0, _Flash.CreateFlash)(va.x + va.el.width() / 2 + Math.cos(va.angle) * 20, va.y + va.el.height() / 2 + Math.sin(va.angle) * 20);
         (0, _HandlePowerups.activatePowerup)();
       }
     }

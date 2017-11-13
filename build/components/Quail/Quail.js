@@ -70,15 +70,13 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
       var bulletY = va.y;
 
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
-        var deathX = v.x + v.el.width() / 2;
-        var deathY = v.y + v.el.height() / 2;
         createBlood(quailX + v.el.width() / 2, quailY + v.el.height() / 2, va.angle);
         createParticle(v.x + v.el.width() / 2, v.y + v.el.height() / 2, va.angle);
         addScore();
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
         (0, _Camera.ShakeCamera)(camShake);
-        (0, _Flash.CreateFlash)(va.x + Math.cos(va.angle) * 20, va.y + Math.sin(va.angle) * 20);
+        (0, _Flash.CreateFlash)(va.x + va.el.width() / 2 + Math.cos(va.angle) * 20, va.y + va.el.height() / 2 + Math.sin(va.angle) * 20);
         if (va.onDestroy) {
           va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
         }
