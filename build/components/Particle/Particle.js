@@ -23,7 +23,7 @@ var _Smoke2 = _interopRequireDefault(_Smoke);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function createParticle(x, y, angle, type) {
-  _Explosion2.default.play(x, y);
+  _Explosion2.default.play(x, y, angle);
   _Dusts2.default.play(x, y, angle);
 }
 

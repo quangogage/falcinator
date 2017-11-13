@@ -18,7 +18,7 @@ var frames = [require('./images/explosion/1.png'), require('./images/explosion/2
 
 // Adjustable variables
 var framerate = 67.666; // How long is each animation frame?
-var scaleRange = [1.35, 2]; // How big is the element?
+var scaleRange = [0.5, 0.5]; // How big is the element?
 
 var Explosion = function () {
   function Explosion() {
@@ -27,15 +27,14 @@ var Explosion = function () {
 
   _createClass(Explosion, [{
     key: 'play',
-    value: function play(x, y) {
+    value: function play(x, y, angle) {
       var frame = 0;
       var div = (0, _jquery2.default)('<img src=' + frames[0] + ' class="explosion" draggable="false" />');
-      var rotation = getRandom(0, 360);
       var scale = getRandom(scaleRange[0] * 100, scaleRange[1] * 100) / 100;
       div.css({
         left: x,
         top: y,
-        transform: 'translateX(-50%) translateY(-50%) rotate(' + rotation + 'deg)',
+        transform: 'translateX(-50%) translateY(-50%) rotate(' + angle + 'rad)',
         scale: scale,
         imageRendering: 'pixelated'
       });
