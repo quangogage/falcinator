@@ -78,8 +78,8 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         (0, _Camera.ShakeCamera)(camShake);
         var deathX = v.x + v.el.width() / 2;
         var deathY = v.y + v.el.height() / 2;
-        var bulletFlashX = va.x + va.el.width() / 2;
-        var bulletFlashY = va.y + va.el.height() / 2;
+        var bulletFlashX = va.x;
+        var bulletFlashY = va.y;
         (0, _Flash.CreateFlash)(bulletFlashX + (deathX - bulletFlashX) * 0.5, bulletFlashY + (deathY - bulletFlashY) * 0.5);
         if (va.onDestroy) {
           va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
