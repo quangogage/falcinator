@@ -28,7 +28,8 @@ var quails = exports.quails = [];
 
 // Customizable Variables
 var speedRange = [0.1, 0.3]; // How fast can a quail go?
-var lastUpdate = Date.now();
+var camShake = 5; // How much does the camera shake when you kill a quail?
+
 // ** Global Functions ** \\
 function updateQuail(world, bullets, createBlood, createParticle, addScore, subtractScore, dt) {
   (0, _Generate2.default)(world, spawnQuail, dt); // Create them.
@@ -74,7 +75,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         addScore();
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
-        (0, _Camera.ShakeCamera)(5);
+        (0, _Camera.ShakeCamera)(camShake);
         if (va.onDestroy) {
           va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
         }
