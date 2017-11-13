@@ -16,7 +16,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var frames = [require('./images/explosion/1.png'), require('./images/explosion/2.png'), require('./images/explosion/3.png'), require('./images/explosion/4.png'), require('./images/explosion/5.png')];
 
-var framerate = 75;
+var framerate = 50;
 
 var Explosion = function () {
   function Explosion() {
@@ -46,10 +46,8 @@ var Explosion = function () {
           if (frame !== 0) {
             frame -= 1;
           } else {
-            if (frame >= frames.length - 1) {
-              div.remove();
-              clearInterval(animation);
-            }
+            div.remove();
+            clearInterval(animation);
           }
         }
         div.attr('src', frames[frame]);
