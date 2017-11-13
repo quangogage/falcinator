@@ -40,7 +40,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
     var el = v.el;
 
     // Move
-    v.x = v.x + v.speed * v.dir * dt;
+    v.x += v.speed * v.dir * dt;
 
     //Animate
     animQuail(v, dt);
@@ -78,7 +78,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
         (0, _Camera.ShakeCamera)(camShake);
-        (0, _Flash.CreateFlash)(va.x, va.y);
+        (0, _Flash.CreateFlash)(va.x + (v.x - va.x) * 0.5, va.y + (v.y - va.y) * 0.5);
         if (va.onDestroy) {
           va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
         }

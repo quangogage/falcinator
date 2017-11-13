@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var image = require('./flash.png');
 var lifetime = 100;
-var scale = 2;
+var scale = 1.5;
 var styles = {
   position: 'absolute',
   userSelect: 'none',
