@@ -77,7 +77,7 @@ function updatePowerups(dt) {
         var deathY = v.y + v.el.height() / 2;
         var bulletFlashX = va.x + va.el.width() / 2;
         var bulletFlashY = va.y + va.el.height() / 2;
-        (0, _Flash.CreateFlash)(bulletFlashX + (deathX - bulletFlashX), bulletFlashY + (deathY - bulletFlashY));
+        (0, _Flash.CreateFlash)(bulletFlashX + (deathX - bulletFlashX) * 0.5, bulletFlashY + (deathY - bulletFlashY) * 0.5);
         (0, _HandlePowerups.activatePowerup)();
       }
     }
