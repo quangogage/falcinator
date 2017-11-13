@@ -21,6 +21,13 @@ function UpdateCamera(dt) {
   cam.x = cam.x - (cam.x - 0) * cam.resetSpeed * dt;
   cam.y = cam.y - (cam.y - 0) * cam.resetSpeed * dt;
 
+  if (Math.abs(cam.x - 0) <= 1) {
+    cam.x = 0;
+  }
+  if (Math.abs(cam.y - 0) <= 1) {
+    cam.y = 0;
+  }
+
   // Don't get TOO crazy!
   if (cam.x > 40) {
     cam.x = 40;
