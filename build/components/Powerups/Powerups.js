@@ -73,9 +73,7 @@ function updatePowerups(dt) {
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
         v.setToDelete = true;
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
-        var deathX = v.x + v.el.width() / 2;
-        var deathY = v.y + v.el.height() / 2;
-        (0, _Flash.CreateFlash)(va.x + Math.cos(va.angle) * va.el.height() / 2, va.y + Math.sin(va.angle) * va.el.height() / 2);
+        (0, _Flash.CreateFlash)(va.x + Math.cos(va.angle) * va.el.height() / 2, va.y + va.el.height() / 2 + Math.sin(va.angle) * va.el.height() / 2);
         (0, _HandlePowerups.activatePowerup)();
       }
     }
