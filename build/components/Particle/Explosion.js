@@ -39,7 +39,8 @@ var Explosion = function () {
         left: x,
         top: y,
         transform: 'translateX(-50%) translateY(-50%) rotate(' + (angle + Math.PI / 2) + 'rad) scale(' + scale + ')',
-        imageRendering: 'pixelated'
+        imageRendering: 'pixelated',
+        zIndex: 2
       });
       (0, _jquery2.default)('.Game').append(div);
       var animation = setInterval(function () {
