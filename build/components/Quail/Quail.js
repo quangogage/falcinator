@@ -78,7 +78,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
         (0, _Camera.ShakeCamera)(camShake);
-        (0, _Flash.CreateFlash)(va.x + (v.x - va.x) * 0.5, va.y + (v.y - va.y) * 0.5);
+        (0, _Flash.CreateFlash)(va.x + Math.cos(va.angle) * 100, va.y + Math.sin(va.angle) * 100);
         if (va.onDestroy) {
           va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
         }
