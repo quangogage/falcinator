@@ -15,7 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var cam = {
   x: 0,
   y: 0,
-  resetSpeed: 0.1
+  resetSpeed: 1
 };
 function UpdateCamera(dt) {
   cam.x = cam.x - (cam.x - 0) * cam.resetSpeed * dt;
@@ -41,8 +41,8 @@ function UpdateCamera(dt) {
     });
   }
   (0, _jquery2.default)('.Game').css({
-    left: cam.x,
-    top: cam.y
+    left: Math.floor(cam.x),
+    top: Math.floor(cam.y)
   });
 }
 function ShakeCamera(shake) {
