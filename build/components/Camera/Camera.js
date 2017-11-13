@@ -40,10 +40,14 @@ function UpdateCamera(dt) {
       top: cam.y
     });
   }
+  (0, _jquery2.default)('.Game').css({
+    left: cam.x,
+    top: cam.y
+  });
 }
 function ShakeCamera(shake) {
   var angle = getRandom(-5 * 100, 5 * 100) / 100;
-  var amount = getRandom(shake * 0.8, shake * 1.2);
+  var amount = getRandom(shake * 80, shake * 120) / 100;
   cam.x = Math.cos(angle) * amount;
   cam.y = Math.sin(angle) * amount;
 }
