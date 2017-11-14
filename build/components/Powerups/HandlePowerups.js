@@ -77,10 +77,10 @@ var powerupList = exports.powerupList = [{
   active: false,
   timer: 0
 }, {
-  name: 'Air Delivery!',
-  phrase: 'Jet?!',
+  name: 'Jet?!',
+  phrase: 'Air Delivery!',
   func: function func() {},
-  loadFun: _Jet.CreateJet,
+  loadFunc: _Jet.CreateJet,
   duration: 1000,
   active: false,
   timer: 0
