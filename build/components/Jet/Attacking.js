@@ -9,8 +9,8 @@ var _Quail = require('../Quail/Quail');
 
 var _Bullet = require('../Bullet/Bullet');
 
-var burstTime = 250;
-var shootTime = 65;
+var burstTime = 500;
+var shootTime = 100;
 
 function UpdateAttacking(v, dt) {
   var targetQuail = _Quail.quails[_Quail.quails.length - 1];
@@ -24,7 +24,7 @@ function UpdateAttacking(v, dt) {
   if (v.burstTimer >= burstTime) {
     v.shootTimer += dt;
     if (v.shootTimer >= shootTime) {
-      if (v.shotCount < 2) {
+      if (v.shotCount < 3) {
         (0, _Bullet.shootBullet)(v.x, v.y, v.x + Math.cos(v.angle) * 10, v.y + Math.sin(v.angle) * 10);
         v.shotCount += 1;
       } else {
