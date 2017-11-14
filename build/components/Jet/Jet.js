@@ -39,7 +39,7 @@ var image = {
   up: require('./images/up.png'),
   down: require('./images/down.png')
 };
-var speed = 1; // How fast does the jet go?
+var speed = 0.2; // How fast does the jet go?
 var turnSpeed = 0.15; // How quickly can the jet aim at it's target?
 
 // ** Global Functions ** \\
@@ -64,6 +64,7 @@ function CreateJet() {
     x: pos.x,
     y: pos.y,
     target: initialTarget,
+    frame: 'straight',
     angle: 0.5,
     status: 'roaming',
     timer: 0
@@ -103,6 +104,15 @@ function UpdateJet(dt) {
     v.status = getStatus();
     status[v.status](v, dt);
 
+    // Aiming down or up
+    var targetAngle = Math.atan2(v.target.y - v.y, v.target.x - v.x);
+    var angleDiff = targetAngle - v.angle;
+    if (angleDiff < 0) {
+      v.frame = 'up';
+    } else {
+      v.frame = 'down';
+    }
+
     // Apply styles
     v.el.css({
       left: v.x,
@@ -110,6 +120,7 @@ function UpdateJet(dt) {
       transform: 'translateX(-50%) translateY(-50%) rotate(' + v.angle + 'rad) scaleX(' + scaleX + ') scaleY(' + scaleY + ')',
       timer: 0
     });
+    v.el.attr('src', image[v.frame]);
   }
 }
 
