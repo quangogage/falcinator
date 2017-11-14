@@ -65,7 +65,8 @@ function CreateJet() {
     y: pos.y,
     target: initialTarget,
     angle: getTargetAngle(pos, initialTarget),
-    status: "roaming"
+    status: "roaming",
+    timer: 0
   };
 
   // Place on DOM
