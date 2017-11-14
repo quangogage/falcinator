@@ -32,15 +32,15 @@ function UpdateAttacking(v, dt) {
   //Shooting
   var targetAngle = Math.atan2(v.y - v.target.y, v.x - v.target.x) + Math.PI;
   var angleDiff = targetAngle - v.angle;
-  if (Math.abs(angleDiff) <= shootAngleRange) {
-    if (_HandlePowerups.powerupList[0].active) {
-      v.shootTimer += dt;
-      if (v.shootTimer >= fastShootRate) {
-        (0, _Bullet.shootBullet)(v.x + Math.cos(v.angle) * v.el.width() * 0.6, v.y + Math.sin(v.angle) * v.el.width() * 0.6, v.x + Math.cos(v.angle) * v.el.width(), v.y + Math.sin(v.angle) * v.el.width());
-        (0, _Flash.CreateFlash)(v.x + Math.cos(v.angle) * v.el.width(), v.y + Math.sin(v.angle) * v.el.width());
-        v.shootTimer = 0;
-      }
-    } else {
+  if (_HandlePowerups.powerupList[0].active) {
+    v.shootTimer += dt;
+    if (v.shootTimer >= fastShootRate) {
+      (0, _Bullet.shootBullet)(v.x + Math.cos(v.angle) * v.el.width() * 0.6, v.y + Math.sin(v.angle) * v.el.width() * 0.6, v.x + Math.cos(v.angle) * v.el.width(), v.y + Math.sin(v.angle) * v.el.width());
+      (0, _Flash.CreateFlash)(v.x + Math.cos(v.angle) * v.el.width(), v.y + Math.sin(v.angle) * v.el.width());
+      v.shootTimer = 0;
+    }
+  } else {
+    if (Math.abs(angleDiff) <= shootAngleRange) {
       v.burstTimer += dt;
       if (v.burstTimer >= burstTime) {
         v.shootTimer += dt;
