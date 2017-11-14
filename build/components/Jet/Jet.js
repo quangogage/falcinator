@@ -83,6 +83,7 @@ function UpdateJet(dt) {
 
     // Aim towards target
     v.angle = getTargetAngle(v, v.target);
+    console.log(v.angle);
 
     // Facing the right direction
     var scaleX, scaleY;
