@@ -88,7 +88,7 @@ function UpdateJet(dt) {
     var scaleX, scaleY;
     var degrees = toDegrees(v.angle);
     console.log(degrees);
-    if (90 + degrees <= 90 + 180) {
+    if (degrees >= 90 && degrees <= 180) {
       scaleX = 1;
       scaleY = 1;
     } else {
