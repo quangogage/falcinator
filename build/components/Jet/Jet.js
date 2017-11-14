@@ -31,7 +31,7 @@ var image = {
 };
 
 // Adjustable variables
-var speed = 0.5; // How fast does the jet go?
+var speed = 0.1; // How fast does the jet go?
 var turnSpeed = 0.25; // How quickly can the jet aim at it's target?
 
 // ** Global Functions ** \\
@@ -102,6 +102,7 @@ function initPosition() {
     x = window.innerWidth / 2;
     y = window.innerHeight + 100;
   }
+  return { x: 100, y: 100 };
   return { x: x, y: y };
 }
 
