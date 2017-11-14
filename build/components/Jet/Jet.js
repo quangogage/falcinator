@@ -135,7 +135,7 @@ function UpdateJet(dt) {
     // Dying
     v.lifetimer += dt;
     if (v.lifetimer >= lifetime) {
-      v.speed -= 0.005 * dt;
+      v.speed -= 0.001 * dt;
       if (v.speed <= 0) {
         (0, _Particle.createParticle)(v.x, v.y, v.angle);
         v.el.remove();
