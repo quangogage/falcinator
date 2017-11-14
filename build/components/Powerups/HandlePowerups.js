@@ -36,7 +36,7 @@ var powerupList = exports.powerupList = [{
   name: 'Slow Motion',
   phrase: 'SNAIL MAIL!',
   func: _SlowMotion.SlowMotion,
-  duration: 3750,
+  duration: 3525,
   active: false,
   timer: 0
 }, {
