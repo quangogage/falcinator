@@ -1,20 +1,16 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = UpdateAttacking;
-var changeTimeRange = [750, 1250];
-var changeTime = getRandom(changeTimeRange[0], changeTimeRange[1]);
+
+var _Quail = require('../Quail/Quail');
 
 function UpdateAttacking(v, dt) {
-  v.timer += dt;
-  if (v.timer >= changeTime) {
-    v.target.x = getRandom(0, window.innerWidth);
-    v.target.y = getRandom(0, window.innerHeight);
-    v.timer = 0;
-    changeTime = getRandom(changeTimeRange[0], changeTimeRange[1]);
-  }
+  var targetQuail = _Quail.quails[_Quail.quails.length - 1];
+  v.target.x = targetQuail.x + targetQuail.el.width() / 2;
+  v.target.y = targetQuail.y + targetQuail.el.height() / 2;
 }
 
 // Get a random number between two values
