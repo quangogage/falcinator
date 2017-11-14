@@ -113,6 +113,8 @@ function UpdateJet(dt) {
       } else {
         v.frame = 'down';
       }
+    } else {
+      v.frame = 'straight';
     }
 
     // Apply styles
