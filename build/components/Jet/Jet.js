@@ -23,8 +23,6 @@ var _Attacking2 = _interopRequireDefault(_Attacking);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var jets = [];
-
-// Default styles
 var styles = {
   position: "absolute",
   imageRendering: "pixelated",
@@ -32,25 +30,20 @@ var styles = {
   userSelect: "none",
   pointerEvents: "none"
 };
-
-// Status updating
 var status = {
   roaming: _Roaming2.default,
   attacking: _Attacking2.default
 };
-
-// Images
 var image = {
   straight: require("./images/straight.png"),
   up: require("./images/up.png"),
   down: require("./images/down.png")
 };
-
-// Adjustable variables
 var speed = 0.1; // How fast does the jet go?
 var turnSpeed = 0.25; // How quickly can the jet aim at it's target?
 
 // ** Global Functions ** \\
+// Create a jet
 function CreateJet() {
   var pos = initPosition();
   var el = (0, _jquery2.default)("<img src=" + image["straight"] + " class=\"jet\" draggable=false />");
@@ -96,6 +89,7 @@ function UpdateJet(dt) {
 
     // Get / act-on the current action status
     v.status = getStatus();
+    status[v.status](dt);
 
     // Apply styles
     v.el.css({

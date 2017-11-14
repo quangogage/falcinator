@@ -4,4 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = UpdateRoaming;
-function UpdateRoaming() {}
+function UpdateRoaming(dt) {
+  console.log("status functions working");
+}
