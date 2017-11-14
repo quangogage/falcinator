@@ -28,7 +28,7 @@ function UpdateAttacking(v, dt) {
     if (v.shootTimer >= shootTime) {
       if (v.shotCount < 3) {
         (0, _Bullet.shootBullet)(v.x + Math.cos(v.angle) * v.el.width() * 0.6, v.y + Math.sin(v.angle) * v.el.width() * 0.6, v.x + Math.cos(v.angle) * v.el.width(), v.y + Math.sin(v.angle) * v.el.width());
-        (0, _Flash.CreateFlash)(v.x + Math.cos(v.angle) * v.el.width() * 0.6, v.y + Math.sin(v.angle) * v.el.width() * 0.6);
+        (0, _Flash.CreateFlash)(v.x + Math.cos(v.angle) * v.el.width() * 0.75, v.y + Math.sin(v.angle) * v.el.width() * 0.75);
         v.shotCount += 1;
       } else {
         v.shotCount = 0;
