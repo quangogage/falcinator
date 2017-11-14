@@ -147,7 +147,6 @@ function initPosition() {
     x = window.innerWidth / 2;
     y = window.innerHeight + 100;
   }
-  return { x: 100, y: 100 };
   return { x: x, y: y };
 }
 
