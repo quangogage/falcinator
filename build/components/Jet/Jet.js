@@ -93,7 +93,7 @@ function UpdateJet(dt) {
       scaleX = 1;
       scaleY = -1;
     }
-    console.log(v.angle);
+    v.angle = Math.PI * 1.5;
 
     // Move towards current angle
     v.x += Math.cos(v.angle) * speed * dt;
