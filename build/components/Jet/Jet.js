@@ -50,7 +50,7 @@ function CreateJet() {
 
   // Create object
   var initialTarget = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-  jets[jets.length - 1] = {
+  jets[jets.length] = {
     el: el,
     x: pos.x,
     y: pos.y,
