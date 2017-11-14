@@ -41,6 +41,7 @@ var image = {
 };
 var speed = 0.65; // How fast does the jet go?
 var turnSpeed = 0.15; // How quickly can the jet aim at it's target?
+var scale = 1.5; // How large is the jet?
 
 // ** Global Functions ** \\
 // Create a jet
@@ -54,7 +55,8 @@ function CreateJet() {
   // Set initial position
   el.css({
     left: pos.x,
-    top: pos.y
+    top: pos.y,
+    scale: scale
   });
 
   // Create object
