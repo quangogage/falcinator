@@ -105,7 +105,7 @@ function UpdateJet(dt) {
     status[v.status](v, dt);
 
     // Aiming down or up
-    var targetAngle = Math.atan2(v.target.y - v.y, v.target.x - v.x);
+    var targetAngle = Math.atan2(y - target.y, x - target.x) + Math.PI;
     var angleDiff = targetAngle - v.angle;
     if (angleDiff < 0) {
       v.frame = 'up';
