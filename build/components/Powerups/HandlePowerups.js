@@ -105,7 +105,7 @@ function HandlePowerups(dt) {
 // Activate / return new powerup
 function activatePowerup() {
   var activePowerup = powerupList[Math.floor(getRandom(0, powerupList.length - 1))];
-  activePowerup = powerupList[7];
+  // activePowerup = powerupList[7];
   activePowerup.timer = 0;
   activePowerup.active = true;
   if (activePowerup.loadFunc) {
