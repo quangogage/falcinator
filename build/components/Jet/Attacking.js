@@ -42,7 +42,11 @@ function UpdateAttacking(v, dt) {
       v.shootTimer += dt;
       if (v.shootTimer >= shootTime) {
         if (v.shotCount < 3) {
-          (0, _Bullet.shootBullet)(v.x + Math.cos(v.angle) * v.el.width() * 0.6, v.y + Math.sin(v.angle) * v.el.width() * 0.6, v.x + Math.cos(v.angle) * v.el.width(), v.y + Math.sin(v.angle) * v.el.width());
+          var orX = v.x + Math.cos(v.angle) * v.el.width() * 0.6;
+          var orY = v.y + Math.sin(v.angle) * v.el.width() * 0.6;
+          var bulletX = orX + Math.cos(-Math.PI / 2) * 10;
+          var bulletY = orY + Math.sin(-Math.PI / 2) * 10;
+          (0, _Bullet.shootBullet)(bulletX, bulletY, v.x + Math.cos(v.angle) * v.el.width(), v.y + Math.sin(v.angle) * v.el.width());
           (0, _Flash.CreateFlash)(v.x + Math.cos(v.angle) * v.el.width(), v.y + Math.sin(v.angle) * v.el.width());
           v.shotCount += 1;
         } else {
