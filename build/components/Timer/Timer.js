@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var timer = 0;
 var el;
-styles = {
+var styles = {
   fontFamily: 'Barlow Condensed',
   fontSize: '3vw',
   position: 'absolute',
