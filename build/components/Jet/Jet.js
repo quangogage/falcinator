@@ -185,3 +185,13 @@ function aim(angle, x, y, targetX, targetY, turnSpeed, dt) {
 function getRandom(min, max) {
   return Math.random() * (max - min + 1) + min;
 }
+
+// Convert to radians
+function toRadians(degrees) {
+  return degrees * Math.PI / 180;
+}
+
+// Converts from radians to degrees.
+function toDegrees(radians) {
+  return radians * 180 / Math.PI;
+}
