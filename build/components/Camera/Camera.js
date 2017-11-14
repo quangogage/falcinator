@@ -23,9 +23,11 @@ function UpdateCamera(dt) {
 
   if (Math.abs(cam.x - 0) <= 1) {
     cam.x = 0;
+    (0, _jquery2.default)('.Game').css({ left: 0 });
   }
   if (Math.abs(cam.y - 0) <= 1) {
     cam.y = 0;
+    (0, _jquery2.default)('.Game').css({ top: 0 });
   }
 
   // Don't get TOO crazy!
