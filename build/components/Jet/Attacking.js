@@ -24,7 +24,7 @@ function UpdateAttacking(v, dt) {
   if (targetQuail.dir === 1) {
     v.target.x = targetQuail.x + targetQuail.el.width() * 0.75;
   } else {
-    v.target.x = targetQuail.x - targetQuail.el.width() * 0.75;
+    v.target.x = targetQuail.x - targetQuail.el.width() * 0.25;
   }
   v.target.y = targetQuail.y + targetQuail.el.height() / 2;
 
