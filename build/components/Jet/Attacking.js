@@ -28,6 +28,7 @@ function UpdateAttacking(v, dt) {
         (0, _Bullet.shootBullet)(v.x, v.y, v.x + Math.cos(v.angle) * 10, v.y + Math.sin(v.angle) * 10);
         v.shotCount += 1;
       } else {
+        v.shotCount = 0;
         v.burstTimer = 0;
       }
       v.shootTimer = 0;
