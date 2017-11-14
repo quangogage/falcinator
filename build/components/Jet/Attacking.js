@@ -8,6 +8,7 @@ var changeTimeRange = [150, 350];
 var changeTime = getRandom(changeTimeRange[0], changeTimeRange[1]);
 
 function UpdateAttacking(v, dt) {
+  console.log("updating attacking status");
   v.timer += dt;
   if (v.timer >= changeTime) {
     v.target.x = getRandom(0, window.innerWidth);
