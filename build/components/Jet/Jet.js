@@ -86,14 +86,13 @@ function UpdateJet(dt) {
 
     // Facing the right direction
     var scaleX, scaleY;
-    if (v.angle <= Math.PI / 2) {
+    if (Math.abs(v.angle) <= Math.PI / 2) {
       scaleX = 1;
       scaleY = 1;
     } else {
       scaleX = 1;
       scaleY = -1;
     }
-    v.angle = Math.PI * 1.5;
 
     // Move towards current angle
     v.x += Math.cos(v.angle) * speed * dt;
