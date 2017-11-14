@@ -14,6 +14,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var jets = [];
 
+// Default styles
+var styles = {
+  position: 'absolute',
+  imageRendering: 'pixelated',
+  transform: 'translateX(-50%) translateY(-50%)',
+  userSelect: 'none',
+  pointerEvents: 'none'
+};
+
 // Images
 var image = {
   straight: require('./images/straight.png'),

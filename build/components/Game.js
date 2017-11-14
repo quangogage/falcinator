@@ -35,6 +35,8 @@ var _Camera = require('./Camera/Camera');
 
 var _Beam = require('./Beam');
 
+var _Jet = require('./Jet/Jet');
+
 var _WeaponHandler = require('./WeaponHandler');
 
 var _WeaponHandler2 = _interopRequireDefault(_WeaponHandler);
@@ -90,6 +92,7 @@ function updateGame() {
   (0, _Bullet.updateBullets)(dt);
   (0, _Beam.updateBeam)(dt);
   (0, _Ship.updateShip)(ship, dt, mouseX, mouseY);
+  (0, _Jet.UpdateJet)(dt);
   (0, _Particle.updateParticle)(dt);
   (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), _Bullet.bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
   (0, _Powerups.updatePowerups)(dt);
