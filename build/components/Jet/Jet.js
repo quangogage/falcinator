@@ -132,6 +132,8 @@ function UpdateJet(dt) {
     });
     v.el.attr('src', image[v.frame]);
 
+    console.log(jets.length);
+
     // Dying
     v.lifetimer += dt;
     if (v.lifetimer >= lifetime) {
