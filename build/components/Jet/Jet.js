@@ -83,6 +83,7 @@ function UpdateJet(dt) {
 
     // Aim towards target
     v.angle = aim(v.angle, v.x, v.y, v.target.x, v.target.y, turnSpeed, dt);
+    v.angle = toRadians(180);
 
     // Facing the right direction
     var scaleX, scaleY;
