@@ -19,7 +19,7 @@ var _BouncyBullets = require('./PowerupHandlers/BouncyBullets');
 
 var _MailCannon = require('./PowerupHandlers/MailCannon');
 
-var _Jet = require('./PowerupHandlers/Jet');
+var _Jet = require('../Jet/Jet');
 
 var _Notification = require('./Notification/Notification');
 
@@ -80,7 +80,7 @@ var powerupList = exports.powerupList = [{
   name: 'Air Delivery!',
   phrase: 'Jet?!',
   func: function func() {},
-  loadFun: _Jet.GenJet,
+  loadFun: _Jet.CreateJet,
   duration: 1000,
   active: false,
   timer: 0
