@@ -40,7 +40,7 @@ var image = {
   down: require('./images/down.png')
 };
 var speed = 0.65; // How fast does the jet go?
-var turnSpeed = 0.15; // How quickly can the jet aim at it's target?
+var turnSpeed = 0.3; // How quickly can the jet aim at it's target?
 var scale = 1.225; // How large is the jet?
 
 // ** Global Functions ** \\
