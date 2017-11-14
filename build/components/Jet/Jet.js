@@ -86,7 +86,8 @@ function UpdateJet(dt) {
 
     // Facing the right direction
     var scaleX, scaleY;
-    if (Math.abs(v.angle - Math.PI) <= Math.PI) {
+    var degrees = toDegrees(v.angle);
+    if (degrees <= 180) {
       scaleX = 1;
       scaleY = 1;
     } else {
