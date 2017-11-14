@@ -18,7 +18,7 @@ var splatters = [require('./images/splatter 1.png'), require('./images/splatter 
 
 // Adjustable variables
 var scaleRange = [2.25, 3.5]; // How large can the blood be?
-var lifetime = 200000; // How long does the blood remain visible?
+var lifetime = 85000; // How long does the blood remain visible?
 
 function loadBlood() {
   container = (0, _jquery2.default)('<div class="blood-container"></div>');
