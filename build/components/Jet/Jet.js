@@ -87,7 +87,7 @@ function UpdateJet(dt) {
     // Facing the right direction
     var scaleX, scaleY;
     if (v.angle > Math.PI / 2) {
-      scaleX = -1;
+      scaleX = 1;
       scaleY = -1;
     } else {
       scaleX = 1;
