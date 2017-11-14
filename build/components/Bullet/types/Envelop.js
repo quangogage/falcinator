@@ -24,7 +24,7 @@ var styles = {
 };
 
 // Adjustable Variables
-var speed = 1;
+var speed = 1.5;
 var camShake = 5;
 
 var Envelop = {
