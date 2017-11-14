@@ -19,6 +19,8 @@ var _BouncyBullets = require('./PowerupHandlers/BouncyBullets');
 
 var _MailCannon = require('./PowerupHandlers/MailCannon');
 
+var _Jet = require('./PowerupHandlers/Jet');
+
 var _Notification = require('./Notification/Notification');
 
 var _Notification2 = _interopRequireDefault(_Notification);
@@ -74,6 +76,14 @@ var powerupList = exports.powerupList = [{
   duration: 5500,
   active: false,
   timer: 0
+}, {
+  name: 'Air Delivery!',
+  phrase: 'Jet?!',
+  func: function func() {},
+  loadFun: _Jet.GenJet,
+  duration: 1000,
+  active: false,
+  timer: 0
 }];
 
 function HandlePowerups(dt) {
@@ -98,6 +108,9 @@ function activatePowerup() {
   // activePowerup = powerupList[6];
   activePowerup.timer = 0;
   activePowerup.active = true;
+  if (activePowerup.loadFunc !== null) {
+    activePowerup.loadFunc();
+  }
   (0, _Notification2.default)(activePowerup.phrase, activePowerup.name);
 }
 

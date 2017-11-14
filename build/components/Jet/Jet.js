@@ -20,6 +20,8 @@ var _Attacking = require('./Attacking');
 
 var _Attacking2 = _interopRequireDefault(_Attacking);
 
+var _Particle = require('../Particle/Particle');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var jets = [];
@@ -42,6 +44,7 @@ var image = {
 var speed = 0.65; // How fast does the jet go?
 var turnSpeed = 0.3; // How quickly can the jet aim at it's target?
 var scale = 1.225; // How large is the jet?
+var lifetime = 20000; // How long does it stay alive?
 
 // ** Global Functions ** \\
 // Create a jet
@@ -71,15 +74,14 @@ function CreateJet() {
     timer: 0,
     burstTimer: 0,
     shootTimer: 0,
-    shotCount: 0
+    shotCount: 0,
+    lifetimer: 0,
+    speed: speed
   };
 
   // Place on DOM
   (0, _jquery2.default)('.Game').append(el);
 }
-setTimeout(function () {
-  CreateJet();
-}, 1000);
 
 function UpdateJet(dt) {
   var i = jets.length;
@@ -101,8 +103,8 @@ function UpdateJet(dt) {
     }
 
     // Move towards current angle
-    v.x += Math.cos(v.angle) * speed * dt;
-    v.y += Math.sin(v.angle) * speed * dt;
+    v.x += Math.cos(v.angle) * v.speed * dt;
+    v.y += Math.sin(v.angle) * v.speed * dt;
 
     // Get / act-on the current action status
     v.status = getStatus();
@@ -129,6 +131,17 @@ function UpdateJet(dt) {
       timer: 0
     });
     v.el.attr('src', image[v.frame]);
+
+    // Dying
+    v.lifetimer += dt;
+    if (v.lifetimer >= lifetime) {
+      v.speed -= 0.5 * dt;
+      if (v.speed <= 0) {
+        (0, _Particle.createParticle)(v.x, v.y, v.angle);
+        v.el.remove();
+        jets.splice(i, 1);
+      }
+    }
   }
 }
 
