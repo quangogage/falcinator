@@ -55,8 +55,7 @@ function CreateJet() {
   // Set initial position
   el.css({
     left: pos.x,
-    top: pos.y,
-    scale: scale
+    top: pos.y
   });
 
   // Create object
@@ -91,11 +90,11 @@ function UpdateJet(dt) {
     var scaleX, scaleY;
     var degrees = toDegrees(v.angle);
     if (degrees >= 270 || degrees <= 90) {
-      scaleX = 1;
-      scaleY = 1;
+      scaleX = scale;
+      scaleY = scale;
     } else {
-      scaleX = 1;
-      scaleY = -1;
+      scaleX = scale;
+      scaleY = -scale;
     }
 
     // Move towards current angle
