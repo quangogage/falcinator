@@ -16,7 +16,7 @@ var _HandlePowerups = require('../Powerups/HandlePowerups');
 var burstTime = 500;
 var shootTime = 100;
 var fastShootRate = 50;
-var shootAngleRange = 0.3;
+var shootAngleRange = 0.6;
 
 function UpdateAttacking(v, dt) {
   var targetQuail = _Quail.quails[_Quail.quails.length - 1];
