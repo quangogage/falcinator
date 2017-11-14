@@ -39,7 +39,7 @@ var image = {
   up: require('./images/up.png'),
   down: require('./images/down.png')
 };
-var speed = 0.25; // How fast does the jet go?
+var speed = 0.1; // How fast does the jet go?
 var turnSpeed = 0.25; // How quickly can the jet aim at it's target?
 
 // ** Global Functions ** \\
@@ -64,7 +64,7 @@ function CreateJet() {
     x: pos.x,
     y: pos.y,
     target: initialTarget,
-    angle: getTargetAngle(pos, initialTarget),
+    angle: 0.5,
     status: 'roaming',
     timer: 0
   };
