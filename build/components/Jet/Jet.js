@@ -37,7 +37,7 @@ var turnSpeed = 0.25; // How quickly can the jet aim at it's target?
 // ** Global Functions ** \\
 function CreateJet() {
   var pos = initPosition();
-  var el = (0, _jquery2.default)('<img src=' + straight + ' class="jet" draggable=false />');
+  var el = (0, _jquery2.default)('<img src=' + image['straight'] + ' class="jet" draggable=false />');
 
   // Apply default styles
   el.css(styles);
