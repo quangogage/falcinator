@@ -57,3 +57,14 @@ body {
   font-family: actionman;
   src: url('./fonts/action man.ttf');
 }
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Barlow Condensed Regular'), local('BarlowCondensed-Regular'),
+    url(https://fonts.gstatic.com/s/barlowcondensed/v1/cKj4a3uS3MxclVhpADml2dKDSU5nPdoBdru70FiVyb0.woff2)
+      format('woff2');
+  unicode-range: U+0100-024f, U+1-1eff, U+20a0-20ab, U+20ad-20cf, U+2c60-2c7f,
+    U+A720-A7FF;
+}

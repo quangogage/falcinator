@@ -37,6 +37,8 @@ var _Beam = require('./Beam');
 
 var _Jet = require('./Jet/Jet');
 
+var _Timer = require('./Timer/Timer');
+
 var _WeaponHandler = require('./WeaponHandler');
 
 var _WeaponHandler2 = _interopRequireDefault(_WeaponHandler);
@@ -82,6 +84,7 @@ function loadGame() {
 
   world.append(ship);
   // username = loadUser();
+  (0, _Timer.LoadTimer)();
 }
 
 function updateGame() {
