@@ -20,11 +20,10 @@ function UpdateAttacking(v, dt) {
   // Targeting
   if (targetQuail.dir === 1) {
     v.target.x = targetQuail.x + targetQuail.el.width();
-    v.target.y = targetQuail.y + targetQuail.el.height();
   } else {
     v.target.x = targetQuail.x - targetQuail.el.width();
-    v.target.y = targetQuail.y - targetQuail.el.height();
   }
+  v.target.y = targetQuail.y - targetQuail.el.height() / 2;
 
   //Shooting
   v.burstTimer += dt;
