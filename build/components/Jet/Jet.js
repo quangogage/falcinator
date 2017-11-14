@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6,17 +6,17 @@ Object.defineProperty(exports, "__esModule", {
 exports.CreateJet = CreateJet;
 exports.UpdateJet = UpdateJet;
 
-var _jquery = require("jquery");
+var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Quail = require("../Quail/Quail");
+var _Quail = require('../Quail/Quail');
 
-var _Roaming = require("./Roaming");
+var _Roaming = require('./Roaming');
 
 var _Roaming2 = _interopRequireDefault(_Roaming);
 
-var _Attacking = require("./Attacking");
+var _Attacking = require('./Attacking');
 
 var _Attacking2 = _interopRequireDefault(_Attacking);
 
@@ -24,20 +24,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var jets = [];
 var styles = {
-  position: "absolute",
-  imageRendering: "pixelated",
-  transform: "translateX(-50%) translateY(-50%)",
-  userSelect: "none",
-  pointerEvents: "none"
+  position: 'absolute',
+  imageRendering: 'pixelated',
+  transform: 'translateX(-50%) translateY(-50%)',
+  userSelect: 'none',
+  pointerEvents: 'none'
 };
 var status = {
   roaming: _Roaming2.default,
   attacking: _Attacking2.default
 };
 var image = {
-  straight: require("./images/straight.png"),
-  up: require("./images/up.png"),
-  down: require("./images/down.png")
+  straight: require('./images/straight.png'),
+  up: require('./images/up.png'),
+  down: require('./images/down.png')
 };
 var speed = 0.1; // How fast does the jet go?
 var turnSpeed = 0.25; // How quickly can the jet aim at it's target?
@@ -46,7 +46,7 @@ var turnSpeed = 0.25; // How quickly can the jet aim at it's target?
 // Create a jet
 function CreateJet() {
   var pos = initPosition();
-  var el = (0, _jquery2.default)("<img src=" + image["straight"] + " class=\"jet\" draggable=false />");
+  var el = (0, _jquery2.default)('<img src=' + image['straight'] + ' class="jet" draggable=false />');
 
   // Apply default styles
   el.css(styles);
@@ -65,12 +65,12 @@ function CreateJet() {
     y: pos.y,
     target: initialTarget,
     angle: getTargetAngle(pos, initialTarget),
-    status: "roaming",
+    status: 'roaming',
     timer: 0
   };
 
   // Place on DOM
-  (0, _jquery2.default)(".Game").append(el);
+  (0, _jquery2.default)('.Game').append(el);
 }
 setTimeout(function () {
   CreateJet();
@@ -83,6 +83,7 @@ function UpdateJet(dt) {
 
     // Aim towards target
     v.angle = getTargetAngle(v, v.target);
+    v.angle = Math.PI / 2;
 
     // Move towards current angle
     v.x += Math.cos(v.angle) * speed * dt;
@@ -96,8 +97,9 @@ function UpdateJet(dt) {
     v.el.css({
       left: v.x,
       top: v.y,
-      transform: "translateX(-50%) translateY(-50%) rotate(" + v.angle + "rad)",
-      timer: 0
+      transform: 'translateX(-50%) translateY(-50%) rotate(' + v.angle + 'rad) scaleX(1)',
+      timer: 0,
+      scaleX: 1
     });
   }
 }
@@ -135,9 +137,9 @@ function getTargetAngle(jet, target) {
 // Attacking - At least one enemy, targeted manouvers
 function getStatus() {
   if (_Quail.quails.length === 0) {
-    return "roaming";
+    return 'roaming';
   } else {
-    return "attacking";
+    return 'attacking';
   }
 }
 
