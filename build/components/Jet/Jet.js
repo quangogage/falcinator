@@ -63,6 +63,7 @@ function CreateJet() {
     el: el,
     x: pos.x,
     y: pos.y,
+    scaleX: 1,
     target: initialTarget,
     angle: getTargetAngle(pos, initialTarget),
     status: 'roaming',
@@ -83,7 +84,13 @@ function UpdateJet(dt) {
 
     // Aim towards target
     v.angle = getTargetAngle(v, v.target);
-    v.angle = Math.PI / 2;
+
+    // Facing the right direction
+    if (v.angle > Math.PI / 2) {
+      v.scaleX = -1;
+    } else {
+      v.scaleX = 1;
+    }
 
     // Move towards current angle
     v.x += Math.cos(v.angle) * speed * dt;
@@ -97,9 +104,8 @@ function UpdateJet(dt) {
     v.el.css({
       left: v.x,
       top: v.y,
-      transform: 'translateX(-50%) translateY(-50%) rotate(' + v.angle + 'rad) scaleX(1)',
-      timer: 0,
-      scaleX: 1
+      transform: 'translateX(-50%) translateY(-50%) rotate(' + v.angle + 'rad) scaleX(' + v.scaleX + ')',
+      timer: 0
     });
   }
 }
