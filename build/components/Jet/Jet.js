@@ -83,6 +83,7 @@ function UpdateJet(dt) {
 
     // Aim towards target
     v.angle = getTargetAngle(v, v.target);
+    aim(v.angle, v.x, v.y, v.target.x, v.target.y, turnSpeed, dt);
 
     // Facing the right direction
     var scaleX, scaleY;
@@ -149,6 +150,35 @@ function getStatus() {
   } else {
     return 'attacking';
   }
+}
+
+// Turning towards the mouse
+function aim(angle, x, y, targetX, targetY, turnSpeed, dt) {
+  var target = { x: targetX, y: targetY };
+  var targetAngleRad = Math.atan2(y - target.y, x - target.x) + Math.PI; // Where the bullet wants to aim
+  var targetAngle = toDegrees(targetAngleRad); // Convert them both to degrees ( from radians )
+  var bulletAngle = toDegrees(angle);
+  if (Math.abs(bulletAngle - targetAngle) <= 5) {
+    // If the angle is basically where it wants to be then do nothing
+    return angle;
+  }
+  if (Math.abs(bulletAngle - targetAngle) < 180) {
+    // Rotate current directly towards target.
+    if (bulletAngle < targetAngle) {
+      bulletAngle += turnSpeed * dt;
+    } else {
+      bulletAngle -= turnSpeed * dt;
+    }
+  } else {
+    // Rotate the other direction towards target.
+    if (bulletAngle < targetAngle) {
+      bulletAngle -= turnSpeed * dt;
+    } else {
+      bulletAngle += turnSpeed * dt;
+    }
+  }
+  bulletAngle = (bulletAngle % 360 + 360) % 360;
+  return toRadians(bulletAngle);
 }
 
 // Get a random number between two values
