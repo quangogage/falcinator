@@ -82,7 +82,7 @@ function UpdateJet(dt) {
     var v = jets[i];
 
     // Aim towards target
-    aim(v.angle, v.x, v.y, v.target.x, v.target.y, turnSpeed, dt);
+    v.angle = aim(v.angle, v.x, v.y, v.target.x, v.target.y, turnSpeed, dt);
 
     // Facing the right direction
     var scaleX, scaleY;
