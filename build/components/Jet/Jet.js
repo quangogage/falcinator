@@ -82,7 +82,6 @@ function UpdateJet(dt) {
     var v = jets[i];
 
     // Aim towards target
-    v.angle = getTargetAngle(v, v.target);
     aim(v.angle, v.x, v.y, v.target.x, v.target.y, turnSpeed, dt);
 
     // Facing the right direction
@@ -134,11 +133,6 @@ function initPosition() {
   }
   return { x: 100, y: 100 };
   return { x: x, y: y };
-}
-
-// Return the angle to a set position
-function getTargetAngle(jet, target) {
-  return Math.atan2(target.y - jet.y, target.x - jet.x);
 }
 
 // Return the current action status of the jet
