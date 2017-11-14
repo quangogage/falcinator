@@ -68,7 +68,10 @@ function CreateJet() {
     frame: 'straight',
     angle: 0.5,
     status: 'roaming',
-    timer: 0
+    timer: 0,
+    burstTimer: 0,
+    shootTimer: 0,
+    shotCount: 0
   };
 
   // Place on DOM
