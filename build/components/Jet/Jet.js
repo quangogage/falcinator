@@ -88,10 +88,10 @@ function UpdateJet(dt) {
     var scaleX, scaleY;
     if (v.target.x >= v.x) {
       scaleX = 1;
-      scaleY = -1;
+      scaleY = 1;
     } else {
       scaleX = 1;
-      scaleY = 1;
+      scaleY = -1;
     }
 
     // Move towards current angle
