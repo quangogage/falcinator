@@ -61,7 +61,9 @@ function CreateJet() {
   // Place on DOM
   (0, _jquery2.default)('.Game').append(el);
 }
-CreateJet();
+setTimeout(function () {
+  CreateJet();
+}, 1000);
 
 function UpdateJet(dt) {
   var i = jets.length;
