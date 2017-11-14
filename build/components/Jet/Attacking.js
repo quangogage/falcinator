@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = UpdateAttacking;
-var changeTimeRange = [150, 350];
+var changeTimeRange = [750, 1250];
 var changeTime = getRandom(changeTimeRange[0], changeTimeRange[1]);
 
 function UpdateAttacking(v, dt) {
