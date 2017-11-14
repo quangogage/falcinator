@@ -57,7 +57,7 @@ var powerupList = exports.powerupList = [{
   name: 'Ricochet Bullets!',
   phrase: 'MAILSTROM!',
   func: _BouncyBullets.BouncyBullets,
-  duration: 7500,
+  duration: 7750,
   active: false,
   timer: 0
 }, {
