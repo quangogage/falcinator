@@ -18,8 +18,13 @@ function UpdateAttacking(v, dt) {
   var targetQuail = _Quail.quails[_Quail.quails.length - 1];
 
   // Targeting
-  v.target.x = targetQuail.x + targetQuail.el.width() / 2;
-  v.target.y = targetQuail.y + targetQuail.el.height() / 2;
+  if (targetQuail.dir === 1) {
+    v.target.x = targetQuail.x + targetQuail.el.width();
+    v.target.y = targetQuail.y + targetQuail.el.height();
+  } else {
+    v.target.x = targetQuail.x - targetQuail.el.width();
+    v.target.y = targetQuail.y - targetQuail.el.height();
+  }
 
   //Shooting
   v.burstTimer += dt;
