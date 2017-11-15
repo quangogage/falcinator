@@ -16,7 +16,7 @@ var timer = 500000;
 var el;
 var styles = {
   fontFamily: 'Barlow Condensed',
-  fontWeight: 'bold',
+  fontWeight: '200',
   fontSize: '4vw',
   position: 'absolute',
   bottom: '5px',
