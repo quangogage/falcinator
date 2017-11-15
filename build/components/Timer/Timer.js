@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.LoadTimer = LoadTimer;
+exports.UpdateTimer = UpdateTimer;
 
 var _jquery = require('jquery');
 
@@ -11,7 +12,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var timer = 0;
+var timer = 100000;
 var el;
 var styles = {
   fontFamily: 'Barlow Condensed',
@@ -24,9 +25,13 @@ var styles = {
 
 function LoadTimer() {
   timer = 0;
-  el = (0, _jquery2.default)('<div class="timer">' + timer.toHHMMSS + '</div>');
+  el = (0, _jquery2.default)('<div class="timer">' + timer.toHHMMSS() + '</div>');
   el.css(styles);
   (0, _jquery2.default)('.Game').append(el);
+}
+function UpdateTimer(dt) {
+  timer -= dt;
+  el.html(timer.toHHMMSS());
 }
 
 // Format string to HHMMSS
