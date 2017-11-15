@@ -23,6 +23,7 @@ function LoadLose() {
 function UpdateLose(dt) {
   if (!hasLost && _Timer.timer <= 0) {
     TriggerLose();
+    exports.hasLost = hasLost = true;
   }
 }
 
