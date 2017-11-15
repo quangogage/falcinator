@@ -30,7 +30,7 @@ function LoadTimer() {
   (0, _jquery2.default)('.Game').append(el);
 }
 function UpdateTimer(dt) {
-  timer -= 50 / dt;
+  timer -= 1;
   el.html(toHHMMSS(timer));
 }
 
