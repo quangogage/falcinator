@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.hasLost = exports.mouseY = exports.mouseX = exports.ship = undefined;
+exports.mouseY = exports.mouseX = exports.ship = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -68,7 +68,6 @@ var gameLoopInterval;
 var mouseX = exports.mouseX = 0;
 var mouseY = exports.mouseY = 0;
 var shipX, shipY;
-var hasLost = exports.hasLost = false;
 
 var username = '';
 
@@ -80,8 +79,6 @@ function loadGame() {
   });
   (0, _jquery2.default)(window).resize(gameResize);
 
-  exports.hasLost = hasLost = false;
-
   world = (0, _jquery2.default)('.Game');
   exports.ship = ship = (0, _Ship.loadShip)();
   (0, _Blood.loadBlood)();
@@ -90,6 +87,7 @@ function loadGame() {
   world.append(ship);
   // username = loadUser();
   (0, _Timer.LoadTimer)();
+  (0, _Lose.LoadLose)();
 }
 
 function updateGame() {
