@@ -27,7 +27,7 @@ var styles = {
 };
 
 function LoadTimer() {
-  exports.timer = timer = 580;
+  exports.timer = timer = 600;
   el = (0, _jquery2.default)('<div class="timer">' + toHHMMSS(timer) + '</div>');
   el.css(styles);
   (0, _jquery2.default)('.Game').append(el);
@@ -38,6 +38,7 @@ function UpdateTimer(dt) {
     exports.timer = timer = 0;
   }
   el.html(toHHMMSS(timer));
+  intensity();
 }
 
 // Format string to HHMMSS
@@ -57,4 +58,14 @@ function toHHMMSS(time) {
     seconds = '0' + seconds;
   }
   return hours + ':' + minutes + ':' + seconds;
+}
+
+// Get intense when time is running out!
+function intensity() {
+  if (timer <= 600) {
+    var redness = timer / 255;
+    el.css({
+      color: 'RGB(' + redness + ',0,0)'
+    });
+  }
 }
