@@ -41,10 +41,10 @@ function TriggerLose() {
 }
 
 function animateGame() {
-  (0, _jquery2.default)('.Game').css({ transition: 'background 0.5s' });
+  (0, _jquery2.default)('.Game').css({ transition: 'background 1.25s' });
   (0, _jquery2.default)('.Game').css({ backgroundColor: 'RGB(50,50,50)' });
   setTimeout(function () {
     (0, _jquery2.default)('.Game').css({ transition: 'background 4s' });
     (0, _jquery2.default)('.Game').css({ backgroundColor: '' });
-  }, 500);
+  }, 1250);
 }
