@@ -52,5 +52,5 @@ function toHHMMSS(time) {
   if (seconds < 10) {
     seconds = '0' + seconds;
   }
-  return minutes + ':' + seconds + ':' + milli;
+  return minutes + ':' + seconds;
 }
