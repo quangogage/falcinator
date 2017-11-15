@@ -28,6 +28,6 @@ function UpdateLose(dt) {
 
 // Trigger losing stuff
 function TriggerLose() {
-  (0, _LoseExplosion.TriggerLoseExplosion)(_Game.ship.el.offset().left + _Game.ship.el.width() / 2, _Game.ship.el.offset().top + _Game.ship.el.height() / 2);
+  (0, _LoseExplosion.TriggerLoseExplosion)(_Game.ship.offset().left + _Game.ship.width() / 2, _Game.ship.offset().top + _Game.ship.height() / 2);
   _Game.ship.el.remove();
 }
