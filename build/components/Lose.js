@@ -13,10 +13,6 @@ var _LoseExplosion = require('./Particle/LoseExplosion');
 
 var _Game = require('./Game');
 
-var _Game2 = _interopRequireDefault(_Game);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var hasLost = exports.hasLost = false;
 
 function LoadLose() {
@@ -32,6 +28,6 @@ function UpdateLose(dt) {
 
 // Trigger losing stuff
 function TriggerLose() {
-  (0, _LoseExplosion.TriggerLoseExplosion)(_Game2.default.el.offset().left + _Game2.default.el.width() / 2, _Game2.default.el.offset().top + _Game2.default.el.height() / 2);
-  _Game2.default.el.remove();
+  (0, _LoseExplosion.TriggerLoseExplosion)(_Game.ship.el.offset().left + _Game.ship.el.width() / 2, _Game.ship.el.offset().top + _Game.ship.el.height() / 2);
+  _Game.ship.el.remove();
 }
