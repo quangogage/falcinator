@@ -31,6 +31,7 @@ function TriggerLoseExplosion(x, y) {
     top: y,
     transform: 'translateX(-50%) translateY(-50%) scale(' + scale + ')'
   });
+  (0, _jquery2.default)('.Game').append(el);
 }
 function UpdateLoseExplosion(dt) {
   if (el) {
