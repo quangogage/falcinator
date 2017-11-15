@@ -64,7 +64,7 @@ function toHHMMSS(time) {
 function intensity() {
   if (timer <= 600) {
     var redness = 100 + Math.abs(timer - 600) / 255 * 100;
-    var fontSize = 100 + Math.abs(timer - 600) / 10 * 100;
+    var fontSize = 100 + Math.abs(timer - 600) / 600 * 100;
     el.css({
       color: 'RGB(' + redness + ',0,0)',
       fontSize: fontSize + 'px'
