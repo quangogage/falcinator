@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var timer = exports.timer = 10000;
 var el;
 var styles = {
-  fontFamily: 'Barlow Condensed',
+  fontFamily: 'alarm clock',
   fontWeight: '200',
   fontSize: '4vw',
   position: 'absolute',
@@ -27,7 +27,7 @@ var styles = {
 };
 
 function LoadTimer() {
-  exports.timer = timer = 1000;
+  exports.timer = timer = 750;
   el = (0, _jquery2.default)('<div class="timer">' + toHHMMSS(timer) + '</div>');
   el.css(styles);
   (0, _jquery2.default)('.Game').append(el);
