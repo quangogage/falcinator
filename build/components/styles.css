@@ -6,6 +6,7 @@
   height: 100%;
   overflow: hidden;
   z-index: -5;
+  transition: background 0.5s;
 }
 .ship {
   position: absolute;
