@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mouseY = exports.mouseX = exports.ship = undefined;
+exports.hasLost = exports.mouseY = exports.mouseX = exports.ship = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -39,6 +39,8 @@ var _Jet = require('./Jet/Jet');
 
 var _Timer = require('./Timer/Timer');
 
+var _Lose = require('./Lose');
+
 var _WeaponHandler = require('./WeaponHandler');
 
 var _WeaponHandler2 = _interopRequireDefault(_WeaponHandler);
@@ -66,6 +68,7 @@ var gameLoopInterval;
 var mouseX = exports.mouseX = 0;
 var mouseY = exports.mouseY = 0;
 var shipX, shipY;
+var hasLost = exports.hasLost = false;
 
 var username = '';
 
@@ -76,6 +79,8 @@ function loadGame() {
     exports.mouseY = mouseY = e.pageY;
   });
   (0, _jquery2.default)(window).resize(gameResize);
+
+  exports.hasLost = hasLost = false;
 
   world = (0, _jquery2.default)('.Game');
   exports.ship = ship = (0, _Ship.loadShip)();
@@ -101,6 +106,7 @@ function updateGame() {
   (0, _Powerups.updatePowerups)(dt);
   (0, _Camera.UpdateCamera)(dt);
   (0, _Timer.UpdateTimer)(dt);
+  (0, _Lose.UpdateLose)(dt);
 }
 
 function gameClick(e) {

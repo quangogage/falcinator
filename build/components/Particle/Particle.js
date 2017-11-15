@@ -20,6 +20,8 @@ var _Smoke = require('./Smoke');
 
 var _Smoke2 = _interopRequireDefault(_Smoke);
 
+var _LoseExplosion = require('./LoseExplosion');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function createParticle(x, y, angle, type) {
@@ -30,4 +32,5 @@ function createParticle(x, y, angle, type) {
 function updateParticle(dt) {
   _Dusts2.default.update(dt);
   _Smoke2.default.update(dt);
+  (0, _LoseExplosion.UpdateLoseExplosion)(dt);
 }

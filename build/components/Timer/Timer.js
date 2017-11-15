@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.timer = undefined;
 exports.LoadTimer = LoadTimer;
 exports.UpdateTimer = UpdateTimer;
 
@@ -12,7 +13,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var timer = 500000;
+var timer = exports.timer = 10000;
 var el;
 var styles = {
   fontFamily: 'Barlow Condensed',
@@ -26,13 +27,16 @@ var styles = {
 };
 
 function LoadTimer() {
-  timer = 0;
+  exports.timer = timer = 10000;
   el = (0, _jquery2.default)('<div class="timer">' + toHHMMSS(timer) + '</div>');
   el.css(styles);
   (0, _jquery2.default)('.Game').append(el);
 }
 function UpdateTimer(dt) {
-  timer -= 1;
+  exports.timer = timer -= 1;
+  if (timer <= 0) {
+    exports.timer = timer = 0;
+  }
   el.html(toHHMMSS(timer));
 }
 
@@ -52,5 +56,5 @@ function toHHMMSS(time) {
   if (seconds < 10) {
     seconds = '0' + seconds;
   }
-  return minutes + ':' + seconds;
+  return hours + ':' + minutes + ':' + seconds;
 }
