@@ -41,5 +41,6 @@ function TriggerLose() {
 }
 
 function animateGame() {
+  alert('this is working wtf');
   (0, _jquery2.default)('.Game').animate({ background: 'black' }, { duration: 500 });
 }
