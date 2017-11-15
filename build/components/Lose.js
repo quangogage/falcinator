@@ -41,16 +41,5 @@ function TriggerLose() {
 }
 
 function animateGame() {
-  var game = (0, _jquery2.default)('.Game');
-  game.animate({
-    backgroundColor: 'RGB(200,200,200)'
-  }, {
-    duration: 420,
-    queue: false,
-    complete: function complete() {
-      game.animate({
-        backgroundColor: 'RGB(255,255,255)'
-      }, { duration: 420, queue: false });
-    }
-  });
+  (0, _jquery2.default)('.Game').animate({ background: 'black' }, { duration: 500 });
 }
