@@ -12,7 +12,7 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var timer = 100000;
+var timer = 500000;
 var el;
 var styles = {
   fontFamily: 'Barlow Condensed',
@@ -40,7 +40,7 @@ function toHHMMSS(time) {
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - hours * 3600) / 60);
   var seconds = sec_num - hours * 3600 - minutes * 60;
-  var milli = sec_num - hours * 3600 - minutes;
+  var milli = sec_num - hours * 3600 - minutes * 60 / 100;
 
   if (hours < 10) {
     hours = '0' + hours;
