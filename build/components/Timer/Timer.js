@@ -18,7 +18,7 @@ var el;
 var styles = {
   fontFamily: 'alarm clock',
   fontWeight: '200',
-  fontSize: '4vw',
+  fontSize: '50px',
   position: 'absolute',
   bottom: '5px',
   left: '50%',
@@ -63,7 +63,8 @@ function toHHMMSS(time) {
 // Get intense when time is running out!
 function intensity() {
   if (timer <= 600) {
-    var redness = Math.abs(timer - 600) / 255 * 100;
+    var redness = 100 + Math.abs(timer - 600) / 255 * 100;
+    var fontSize;
     el.css({
       color: 'RGB(' + redness + ',0,0)'
     });
