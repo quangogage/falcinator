@@ -33,15 +33,17 @@ function TriggerLoseExplosion(x, y) {
   });
 }
 function UpdateLoseExplosion(dt) {
-  animTimer += dt;
-  if (animTimer >= framerate) {
-    if (frame !== frames.length - 1) {
-      frame += 1;
+  if (el) {
+    animTimer += dt;
+    if (animTimer >= framerate) {
+      if (frame !== frames.length - 1) {
+        frame += 1;
+      }
+      el.attr('src', frames[frame]);
+      if (frame === frames.length - 1) {
+        el.remove();
+      }
+      animTimer = 0;
     }
-    el.attr('src', frames[frame]);
-    if (frame === frames.length - 1) {
-      el.remove();
-    }
-    animTimer = 0;
   }
 }
