@@ -7,11 +7,17 @@ exports.hasLost = undefined;
 exports.LoadLose = LoadLose;
 exports.UpdateLose = UpdateLose;
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _Timer = require('./Timer/Timer');
 
 var _LoseExplosion = require('./Particle/LoseExplosion');
 
 var _Game = require('./Game');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var hasLost = exports.hasLost = false;
 
@@ -35,7 +41,7 @@ function TriggerLose() {
 }
 
 function animateGame() {
-  var game = $('.Game');
+  var game = (0, _jquery2.default)('.Game');
   game.animate({
     background: 'RGB(200,200,200)'
   }, {
