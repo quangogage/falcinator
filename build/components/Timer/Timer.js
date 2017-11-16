@@ -71,7 +71,13 @@ function AddTime(amount) {
   } else {
     note = (0, _jquery2.default)('.add-timer');
     clearTimeout(fadeTimeout);
-    note.css({ opacity: 1, transform: 'translateY(0px)', color: '#57FF59' });
+    note.css({ transition: '0s' });
+    note.css({
+      opacity: 1,
+      transform: 'translateY(0px)',
+      color: '#57FF59',
+      transition: 'opacity 0.5s, transform 0.5s'
+    });
     (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
   }
   // Subtracting score
@@ -81,7 +87,8 @@ function AddTime(amount) {
   }
   fadeTimeout = setTimeout(function () {
     note.css({
-      opacity: 0
+      opacity: 0,
+      transform: 'translateY(50px)'
     });
   }, 1500);
 }
