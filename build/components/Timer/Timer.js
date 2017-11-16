@@ -55,7 +55,7 @@ function AddTime(amount) {
   var fadeTimeout;
   var note;
   if ((0, _jquery2.default)('.add-timer').length === 0 || !note) {
-    note = (0, _jquery2.default)('<div class="add-timer"> +' + toSS(amount) + 'sec</div>');
+    note = (0, _jquery2.default)('<div class="add-timer"> +' + toSS(amount) + '</div>');
     note.css({
       fontFamily: 'alarm clock',
       fontSize: '100px',
@@ -70,12 +70,12 @@ function AddTime(amount) {
   } else {
     clearTimeout(fadeTimeout);
     note.css({ opacity: 1, transform: 'translateY(0px)', color: '#57FF59' });
-    (0, _jquery2.default)('.add-timer').html('+' + toSS(amount) + 'sec');
+    (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
   }
   // Subtracting score
   if (amount < 0) {
     note.css({ color: 'red' });
-    note.html('-' + toSS(amount) + 'sec');
+    note.html(toSS(amount));
   }
   fadeTimeout = setTimeout(function () {
     note.animate({
