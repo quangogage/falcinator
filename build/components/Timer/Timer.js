@@ -121,7 +121,7 @@ function intensity() {
       color: 'RGB(' + redness + ',0,0)',
       fontSize: fontSize + 'px'
     });
-  } else {
-    console.log(el.css('color'));
+  } else if (el.css('color') !== 'rgb(0, 0, 0)') {
+    el.css({ color: 'rgb(0, 0, 0)' });
   }
 }
