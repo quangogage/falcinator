@@ -50,6 +50,7 @@ function AddTime(amount) {
     fontSize: '100px',
     position: 'absolute',
     bottom: '5px',
+    left: el.offset().left + el.width(),
     zIndex: 10,
     userSelect: 'none'
   });
