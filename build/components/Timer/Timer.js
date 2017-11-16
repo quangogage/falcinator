@@ -52,6 +52,7 @@ function UpdateTimer(dt) {
 }
 function AddTime(amount) {
   exports.timer = timer += amount;
+  var fadeTimeout;
   var note;
   if ((0, _jquery2.default)('.add-timer').length === 0) {
     note = (0, _jquery2.default)('<div class="add-timer"> +' + toSS(amount) + '</div>');
@@ -70,8 +71,9 @@ function AddTime(amount) {
     note = (0, _jquery2.default)('.add-timer');
     note.css({ opacity: 1 });
     (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
+    clearInterval(fadeTimeout);
   }
-  setTimeout(function () {
+  fadeTimeout = setTimeout(function () {
     note.animate({
       opacity: 0
     }, { duration: 500, queue: false });
