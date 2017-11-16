@@ -54,7 +54,7 @@ function AddTime(amount) {
   exports.timer = timer += amount;
   var fadeTimeout;
   var note;
-  if ((0, _jquery2.default)('.add-timer').length === 0) {
+  if ((0, _jquery2.default)('.add-timer').length === 0 || !note) {
     note = (0, _jquery2.default)('<div class="add-timer"> +' + toSS(amount) + '</div>');
     note.css({
       fontFamily: 'alarm clock',
