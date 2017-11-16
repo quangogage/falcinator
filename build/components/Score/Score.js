@@ -31,7 +31,11 @@ function loadScore() {
   highScoreEl = (0, _jquery2.default)('<div class=\'highscore\'>Highscore: ' + highScore + '</div>');
   checkHighScore();
   (0, _jquery2.default)('.Game').append(el, highScoreEl);
-  highScoreEl.css({ top: el.offset().top + el.height(), left: 50 });
+  highScoreEl.css({
+    top: el.offset().top + el.height(),
+    left: 50,
+    display: 'none'
+  });
 }
 function addScore() {
   score++;
