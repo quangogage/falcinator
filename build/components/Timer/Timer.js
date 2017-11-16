@@ -54,6 +54,7 @@ function AddTime(amount) {
   exports.timer = timer += amount;
   var fadeTimeout;
   var note;
+  var animation;
   if ((0, _jquery2.default)('.add-timer').length === 0) {
     note = (0, _jquery2.default)('<div class="add-timer"> +' + toSS(amount) + '</div>');
     note.css({
@@ -70,6 +71,9 @@ function AddTime(amount) {
   } else {
     note = (0, _jquery2.default)('.add-timer');
     clearTimeout(fadeTimeout);
+    if (animation) {
+      animation.stop();
+    }
     note.css({ opacity: 1, transform: 'translateY(0px)', color: '#57FF59' });
     (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
   }
@@ -79,7 +83,7 @@ function AddTime(amount) {
     note.html(toSS(amount));
   }
   fadeTimeout = setTimeout(function () {
-    note.animate({
+    animation = note.animate({
       opacity: 0,
       transform: 'translateY(50px)'
     }, { duration: 500, queue: false });
