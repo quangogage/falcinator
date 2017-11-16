@@ -29,7 +29,7 @@ var styles = {
 };
 
 function LoadTimer() {
-  exports.timer = timer = 1775;
+  exports.timer = timer = 2000;
   el = (0, _jquery2.default)('<div class="timer">' + toHHMMSS(timer) + '</div>');
   el.css(styles);
   (0, _jquery2.default)('.Game').append(el);
