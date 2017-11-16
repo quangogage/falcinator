@@ -44,7 +44,10 @@ function UpdateTimer(dt) {
 
   // Match addtime font size
   if ((0, _jquery2.default)('.add-timer').length !== 0) {
-    (0, _jquery2.default)('.add-timer').css({ fontSize: el.css('font-size') });
+    (0, _jquery2.default)('.add-timer').css({
+      fontSize: el.css('font-size'),
+      left: el.offset().left + el.width()
+    });
   }
 }
 function AddTime(amount) {
