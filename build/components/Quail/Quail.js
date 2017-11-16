@@ -60,6 +60,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
     if (v.dir === 1 && v.x > window.innerWidth + el.width() || v.dir === -1 && v.x < -el.width()) {
       subtractScore();
       killQuail(i);
+      (0, _Timer.AddTime)(-2);
     }
 
     // Collide with bullets
