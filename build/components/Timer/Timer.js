@@ -68,10 +68,10 @@ function AddTime(amount) {
     });
     (0, _jquery2.default)('.Game').append(note);
   } else {
+    clearInterval(fadeTimeout);
     note = (0, _jquery2.default)('.add-timer');
     note.css({ opacity: 1 });
     (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
-    clearInterval(fadeTimeout);
   }
   fadeTimeout = setTimeout(function () {
     note.animate({
