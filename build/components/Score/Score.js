@@ -25,7 +25,8 @@ function loadScore() {
     left: 50,
     bottom: 50,
     fontFamily: 'score',
-    fontSize: '25px'
+    fontSize: '25px',
+    display: 'none'
   });
   highScoreEl = (0, _jquery2.default)('<div class=\'highscore\'>Highscore: ' + highScore + '</div>');
   checkHighScore();

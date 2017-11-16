@@ -82,7 +82,7 @@ function loadGame() {
   world = (0, _jquery2.default)('.Game');
   exports.ship = ship = (0, _Ship.loadShip)();
   (0, _Blood.loadBlood)();
-  // loadScore();
+  (0, _Score.loadScore)();
 
   world.append(ship);
   // username = loadUser();
