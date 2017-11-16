@@ -25,8 +25,7 @@ var styles = {
   left: '50%',
   transform: 'translateX(-50%)',
   zIndex: 10,
-  userSelect: 'none',
-  display: 'flex'
+  userSelect: 'none'
 };
 
 function LoadTimer() {
@@ -46,7 +45,15 @@ function UpdateTimer(dt) {
 function AddTime(amount) {
   exports.timer = timer += amount;
   var note = (0, _jquery2.default)('<div class="add">' + toSS(amount));
-  el.append(note);
+  note.css({
+    fontFamily: 'alarm clock',
+    fontSize: '100px',
+    position: 'absolute',
+    bottom: '5px',
+    zIndex: 10,
+    userSelect: 'none'
+  });
+  (0, _jquery2.default)('.Game').append(note);
 }
 setTimeout(function () {
   AddTime(100);
