@@ -44,7 +44,7 @@ function UpdateTimer(dt) {
 }
 function AddTime(amount) {
   exports.timer = timer += amount;
-  var note = (0, _jquery2.default)('<div class="add">' + toSS(amount));
+  var note = (0, _jquery2.default)('<div class="add">' + toSS(amount) + '</div>');
   note.css({
     fontFamily: 'alarm clock',
     fontSize: '100px',
