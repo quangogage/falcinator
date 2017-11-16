@@ -66,11 +66,8 @@ function AddTime(amount) {
     note.animate({
       opacity: 0
     }, { duration: 500, queue: false });
-  }, 500);
+  }, 1500);
 }
-setTimeout(function () {
-  AddTime(100);
-}, 500);
 
 // Format string to HHMMSS
 function toHHMMSS(time) {

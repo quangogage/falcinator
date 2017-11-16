@@ -20,6 +20,8 @@ var _Bullet = require('../Bullet/Bullet');
 
 var _Flash = require('../Flash');
 
+var _Timer = require('../Timer/Timer');
+
 var _Game = require('../Game');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -31,6 +33,7 @@ var quails = exports.quails = [];
 // Customizable Variables
 var speedRange = [0.1, 0.3]; // How fast can a quail go?
 var camShake = 5; // How much does the camera shake when you kill a quail?
+var timeAdd = 100; // How much time is added when you kill a quail?
 
 // ** Global Functions ** \\
 function updateQuail(world, bullets, createBlood, createParticle, addScore, subtractScore, dt) {
@@ -77,6 +80,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
         killQuail(i);
         (0, _Camera.ShakeCamera)(camShake);
         (0, _Flash.CreateFlash)(va.x + Math.cos(va.angle) * va.el.height() / 2, va.y + va.el.height() / 2 + Math.sin(va.angle) * va.el.height() / 2);
+        (0, _Timer.AddTime)(timeAdd);
         if (va.onDestroy) {
           va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
         }
