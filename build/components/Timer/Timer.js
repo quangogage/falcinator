@@ -54,6 +54,7 @@ function AddTime(amount) {
       bottom: '5px',
       left: el.offset().left + el.width(),
       zIndex: 10,
+      color: '#57FF59',
       userSelect: 'none'
     });
     (0, _jquery2.default)('.Game').append(note);
@@ -61,9 +62,11 @@ function AddTime(amount) {
     note = (0, _jquery2.default)('.add-timer');
     (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
   }
-  note.animate({
-    opacity: 0
-  }, { duration: 500, queue: false });
+  setTimeout(function () {
+    note.animate({
+      opacity: 0
+    }, { duration: 500, queue: false });
+  }, 500);
 }
 setTimeout(function () {
   AddTime(100);
