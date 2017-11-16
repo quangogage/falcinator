@@ -75,6 +75,7 @@ function AddTime(amount) {
   // Subtracting score
   if (amount < 0) {
     note.css({ color: 'red' });
+    note.html('-' + toSS(amount) + 'sec');
   }
   fadeTimeout = setTimeout(function () {
     note.animate({
