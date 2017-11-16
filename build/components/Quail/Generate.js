@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -19,7 +19,9 @@ var spawnAmountRange = [1, 2]; // How many can spawn at once?
 var timerLim = getRandom(spawnRateRange[0], spawnRateRange[1]);
 function generate(world, spawnQuail, dt) {
   timer += dt;
+  console.log(timer);
   if (timer >= timerLim) {
+    console.log('spawned quail');
     var amount = Math.round(getRandom(spawnAmountRange[0] * 100, spawnAmountRange[1] * 100) / 100);
     for (var i = 0; i < amount; i++) {
       spawnQuail(world);
