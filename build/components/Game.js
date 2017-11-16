@@ -100,7 +100,7 @@ function updateGame() {
   (0, _Ship.updateShip)(ship, dt, mouseX, mouseY);
   (0, _Jet.UpdateJet)(dt);
   (0, _Particle.updateParticle)(dt);
-  (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), _Bullet.bullets, _Blood.createBlood, _Particle.createParticle, _Score.subtractScore, dt);
+  (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), _Bullet.bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
   (0, _Powerups.updatePowerups)(dt);
   (0, _Camera.UpdateCamera)(dt);
   (0, _Timer.UpdateTimer)(dt);
