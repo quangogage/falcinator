@@ -113,7 +113,7 @@ function toSS(time) {
   if (seconds < 10) {
     seconds = '0' + seconds;
   }
-  return seconds;
+  return minutes;
 }
 
 // Get intense when time is running out!
