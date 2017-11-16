@@ -44,17 +44,26 @@ function UpdateTimer(dt) {
 }
 function AddTime(amount) {
   exports.timer = timer += amount;
-  var note = (0, _jquery2.default)('<div class="add">' + toSS(amount) + '</div>');
-  note.css({
-    fontFamily: 'alarm clock',
-    fontSize: '100px',
-    position: 'absolute',
-    bottom: '5px',
-    left: el.offset().left + el.width(),
-    zIndex: 10,
-    userSelect: 'none'
-  });
-  (0, _jquery2.default)('.Game').append(note);
+  var note;
+  if ((0, _jquery2.default)('.add-timer').length === 0) {
+    note = (0, _jquery2.default)('<div class="add-timer"> +' + toSS(amount) + '</div>');
+    note.css({
+      fontFamily: 'alarm clock',
+      fontSize: '100px',
+      position: 'absolute',
+      bottom: '5px',
+      left: el.offset().left + el.width(),
+      zIndex: 10,
+      userSelect: 'none'
+    });
+    (0, _jquery2.default)('.Game').append(note);
+  } else {
+    note = (0, _jquery2.default)('.add-timer');
+    (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
+  }
+  note.animate({
+    opacity: 0
+  }, { duration: 500, queue: false });
 }
 setTimeout(function () {
   AddTime(100);
