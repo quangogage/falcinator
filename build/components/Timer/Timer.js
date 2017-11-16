@@ -12,6 +12,8 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _Lose = require('../Lose');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var timer = exports.timer = 10000;
@@ -29,7 +31,7 @@ var styles = {
 };
 
 function LoadTimer() {
-  exports.timer = timer = 2650;
+  exports.timer = timer = 3000;
   el = (0, _jquery2.default)('<div class="timer">' + toHHMMSS(timer) + '</div>');
   el.css(styles);
   (0, _jquery2.default)('.Game').append(el);
@@ -51,46 +53,48 @@ function UpdateTimer(dt) {
   }
 }
 function AddTime(amount) {
-  exports.timer = timer += amount;
-  var fadeTimeout;
-  var note;
-  if ((0, _jquery2.default)('.add-timer').length === 0) {
-    note = (0, _jquery2.default)('<div class="add-timer"> +' + toSS(amount) + '</div>');
-    note.css({
-      fontFamily: 'alarm clock',
-      fontSize: '100px',
-      position: 'absolute',
-      bottom: '5px',
-      left: el.offset().left + el.width(),
-      zIndex: 10,
-      color: '#57FF59',
-      userSelect: 'none',
-      transition: 'opacity 0.5s, transform 0.5s'
-    });
-    (0, _jquery2.default)('.Game').append(note);
-  } else {
-    note = (0, _jquery2.default)('.add-timer');
-    clearTimeout(fadeTimeout);
-    note.css({ transition: '0s' });
-    note.css({
-      opacity: 1,
-      transform: 'translateY(0px)',
-      color: '#57FF59',
-      transition: 'opacity 0.5s, transform 0.5s'
-    });
-    (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
+  if (!_Lose.hasLost) {
+    exports.timer = timer += amount;
+    var fadeTimeout;
+    var note;
+    if ((0, _jquery2.default)('.add-timer').length === 0) {
+      note = (0, _jquery2.default)('<div class="add-timer"> +' + toSS(amount) + '</div>');
+      note.css({
+        fontFamily: 'alarm clock',
+        fontSize: '100px',
+        position: 'absolute',
+        bottom: '5px',
+        left: el.offset().left + el.width(),
+        zIndex: 10,
+        color: '#57FF59',
+        userSelect: 'none',
+        transition: 'opacity 0.5s, transform 0.5s'
+      });
+      (0, _jquery2.default)('.Game').append(note);
+    } else {
+      note = (0, _jquery2.default)('.add-timer');
+      clearTimeout(fadeTimeout);
+      note.css({ transition: '0s' });
+      note.css({
+        opacity: 1,
+        transform: 'translateY(0px)',
+        color: '#57FF59',
+        transition: 'opacity 0.5s, transform 0.5s'
+      });
+      (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
+    }
+    // Subtracting score
+    if (amount < 0) {
+      note.css({ color: 'red' });
+      note.html(toSS(amount));
+    }
+    fadeTimeout = setTimeout(function () {
+      note.css({
+        opacity: 0,
+        transform: 'translateY(50px)'
+      });
+    }, 1500);
   }
-  // Subtracting score
-  if (amount < 0) {
-    note.css({ color: 'red' });
-    note.html(toSS(amount));
-  }
-  fadeTimeout = setTimeout(function () {
-    note.css({
-      opacity: 0,
-      transform: 'translateY(50px)'
-    });
-  }, 1500);
 }
 
 // Format string to HHMMSS
