@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.timer = undefined;
 exports.LoadTimer = LoadTimer;
 exports.UpdateTimer = UpdateTimer;
+exports.AddTime = AddTime;
 
 var _jquery = require('jquery');
 
@@ -41,6 +42,14 @@ function UpdateTimer(dt) {
   el.html(toHHMMSS(timer));
   intensity();
 }
+function AddTime(amount) {
+  exports.timer = timer += amount;
+  var note = (0, _jquery2.default)('<div class="add">' + toSS(amount));
+  el.append(note);
+}
+setTimeout(function () {
+  AddTime(100);
+}, 500);
 
 // Format string to HHMMSS
 function toHHMMSS(time) {
@@ -59,6 +68,23 @@ function toHHMMSS(time) {
     seconds = '0' + seconds;
   }
   return hours + ':' + minutes + ':' + seconds;
+}
+function toHHMMSS(time) {
+  var sec_num = parseInt(time, 10); // don't forget the second param
+  var hours = Math.floor(sec_num / 3600);
+  var minutes = Math.floor((sec_num - hours * 3600) / 60);
+  var seconds = sec_num - hours * 3600 - minutes * 60;
+
+  if (hours < 10) {
+    hours = '0' + hours;
+  }
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  return seconds;
 }
 
 // Get intense when time is running out!
