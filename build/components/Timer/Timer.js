@@ -69,12 +69,13 @@ function AddTime(amount) {
     (0, _jquery2.default)('.Game').append(note);
   } else {
     clearTimeout(fadeTimeout);
-    note.css({ opacity: 1 });
+    note.css({ opacity: 1, transform: 'translateY(0px)' });
     (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
   }
   fadeTimeout = setTimeout(function () {
     note.animate({
-      opacity: 0
+      opacity: 0,
+      transform: 'translateY(50px)'
     }, { duration: 500, queue: false });
   }, 1500);
 }
