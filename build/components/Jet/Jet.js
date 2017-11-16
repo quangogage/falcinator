@@ -108,7 +108,7 @@ function UpdateJet(dt) {
 
     // Get / act-on the current action status
     v.status = getStatus();
-    status[v.status](v, dt);
+    status[v.status](i, v, dt);
 
     // Aiming down or up
     var targetAngle = Math.atan2(v.y - v.target.y, v.x - v.target.x) + Math.PI;

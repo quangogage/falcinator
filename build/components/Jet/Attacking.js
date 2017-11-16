@@ -18,8 +18,11 @@ var shootTime = 100;
 var fastShootRate = 50;
 var shootAngleRange = 0.6;
 
-function UpdateAttacking(v, dt) {
+function UpdateAttacking(i, v, dt) {
   var targetQuail = _Quail.quails[_Quail.quails.length - 1];
+  if (_Quail.quails[_Quail.quails.length - 1 - i]) {
+    targetQuail = _Quail.quails[_Quail.quails.length - 1 - i];
+  }
 
   // Targeting
   if (targetQuail.dir === 1) {
