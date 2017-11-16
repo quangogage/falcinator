@@ -38,6 +38,9 @@ function TriggerLose() {
   (0, _LoseExplosion.TriggerLoseExplosion)(_Game.ship.offset().left + _Game.ship.width() / 2, _Game.ship.offset().top + _Game.ship.height() / 2);
   _Game.ship.remove();
   animateGame();
+  setTimeout(function () {
+    createPrompt();
+  }, 1500);
 }
 
 function animateGame() {
@@ -47,4 +50,9 @@ function animateGame() {
     (0, _jquery2.default)('.Game').css({ transition: 'background 4s' });
     (0, _jquery2.default)('.Game').css({ backgroundColor: '' });
   }, 1250);
+}
+
+// Create the prompt
+function createPrompt() {
+  var prompt = (0, _jquery2.default)('<div class="lose-prompt">\n    \n  </div>');
 }

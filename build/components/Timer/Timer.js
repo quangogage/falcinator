@@ -23,7 +23,8 @@ var styles = {
   bottom: '5px',
   left: '50%',
   transform: 'translateX(-50%)',
-  zIndex: 10
+  zIndex: 10,
+  userSelect: 'none'
 };
 
 function LoadTimer() {
@@ -64,7 +65,7 @@ function toHHMMSS(time) {
 function intensity() {
   if (timer <= 600) {
     var redness = 100 + Math.abs(timer - 600) / 255 * 100;
-    var fontSize = 100 + Math.abs(timer - 600) / 600 * 100;
+    var fontSize = 100 + Math.abs(timer - 600) / 650 * 100;
     el.css({
       color: 'RGB(' + redness + ',0,0)',
       fontSize: fontSize + 'px'
