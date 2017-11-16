@@ -41,6 +41,11 @@ function UpdateTimer(dt) {
   }
   el.html(toHHMMSS(timer));
   intensity();
+
+  // Match addtime font size
+  if ((0, _jquery2.default)('.add-timer').length !== 0) {
+    (0, _jquery2.default)('.add-timer').css({ fontSize: el.css('font-size') });
+  }
 }
 function AddTime(amount) {
   exports.timer = timer += amount;
@@ -60,6 +65,7 @@ function AddTime(amount) {
     (0, _jquery2.default)('.Game').append(note);
   } else {
     note = (0, _jquery2.default)('.add-timer');
+    note.css({ opacity: 1 });
     (0, _jquery2.default)('.add-timer').html('+' + toSS(amount));
   }
   setTimeout(function () {
