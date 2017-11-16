@@ -25,7 +25,8 @@ var styles = {
   left: '50%',
   transform: 'translateX(-50%)',
   zIndex: 10,
-  userSelect: 'none'
+  userSelect: 'none',
+  display: 'flex'
 };
 
 function LoadTimer() {
@@ -69,7 +70,7 @@ function toHHMMSS(time) {
   }
   return hours + ':' + minutes + ':' + seconds;
 }
-function toHHMMSS(time) {
+function toSS(time) {
   var sec_num = parseInt(time, 10); // don't forget the second param
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - hours * 3600) / 60);
