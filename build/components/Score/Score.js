@@ -58,7 +58,8 @@ function createScoreMarker(html, className) {
   marker.css({
     left: x - 50,
     top: y,
-    opacity: 0
+    opacity: 0,
+    display: 'none'
   });
   (0, _jquery2.default)('.Game').append(marker);
   marker.animate({
