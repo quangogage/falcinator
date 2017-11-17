@@ -55,4 +55,5 @@ function animateGame() {
 // Create the prompt
 function createPrompt() {
   var prompt = (0, _jquery2.default)('<div class="lose-prompt">\n    <div class=\'window\'>\n      <h1>You lose</h1>\n      <p>Try again?</p>\n    </div>\n  </div>');
+  (0, _jquery2.default)('.Game').append(prompt);
 }
