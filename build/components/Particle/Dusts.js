@@ -17,10 +17,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var types = [{
   name: 'confetti',
   images: [require('./images/confetti/1.png'), require('./images/confetti/2.png'), require('./images/confetti/3.png'), require('./images/confetti/4.png'), require('./images/confetti/5.png')],
-  spread: 0.5,
+  spread: 0.9,
   friction: 0.00045,
   amount: [10, 15],
-  initialXSpeed: [0.6, 1.2],
+  initialXSpeed: [0.6, 0.85],
   initialYSpeed: [0.6, 1.2],
   rotSpeed: [0.76, 1.02],
   rotFriction: 0.00045,
