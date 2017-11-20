@@ -13,7 +13,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Executed on lose
 function HandleHighscore() {
-  var firebaseRef = new _firebase2.default('https://falcinator-988f4.firebaseio.com/scores');
+  var config = {
+    apiKey: 'AIzaSyBtu5nBaAeIItHuhHRVfp6mXiL9dLpqyLA',
+    authDomain: 'falcinator-988f4.firebaseapp.com',
+    databaseURL: 'https://falcinator-988f4.firebaseio.com',
+    projectId: 'falcinator-988f4',
+    storageBucket: 'falcinator-988f4.appspot.com',
+    messagingSenderId: '842435348000'
+  };
+  firebase.initializeApp(config);
 
   // Submit Dummy Score
   firebaseRef.push({ name: 'test score', score: '1250890' });
