@@ -36,9 +36,6 @@ var LosePrompt = function (_React$Component) {
   _createClass(LosePrompt, [{
     key: 'render',
     value: function render() {
-      if (_Lose.hasLost === false) {
-        return false;
-      }
       return _react2.default.createElement(
         'div',
         { className: 'LosePrompt', style: _LosePromptStyles2.default['container'] },
