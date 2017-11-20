@@ -53,7 +53,9 @@ function animateGame() {
 }
 
 // Create the prompt
+var headerStyles = '\n  font-family:actionman;\n  font-size:50px;\n  color:white;\n  padding:50px;  \n';
+var paragraphStyles = '\n  font-family:actionman;\n  font-size:35px;\n  color:white;\n  padding:25px;\n';
 function createPrompt() {
-  var prompt = (0, _jquery2.default)('<div class="lose-prompt">\n    <div class=\'window\'>\n      <h1>You lose</h1>\n      <p>Try again?</p>\n    </div>\n  </div>');
+  var prompt = (0, _jquery2.default)('<div class="lose-prompt">\n    <div class=\'window\'>\n      <h1 style="' + headerStyles + '">You lose</h1>\n      <p style="' + paragraphStyles + '">Try again?</p>\n    </div>\n  </div>');
   (0, _jquery2.default)('.Game').append(prompt);
 }
