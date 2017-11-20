@@ -151,12 +151,10 @@ var Game = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log(_Lose.hasLost);
-      var RenderLosePrompt = _Lose.hasLost ? _react2.default.createElement(_LosePrompt2.default, null) : _react2.default.createElement('div', null);
       return _react2.default.createElement(
         'div',
         { className: 'Game' },
-        RenderLosePrompt
+        _react2.default.createElement(_LosePrompt2.default, null)
       );
     }
   }]);

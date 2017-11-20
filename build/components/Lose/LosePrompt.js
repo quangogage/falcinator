@@ -14,6 +14,8 @@ var _LosePromptStyles = require('./LosePromptStyles');
 
 var _LosePromptStyles2 = _interopRequireDefault(_LosePromptStyles);
 
+var _Lose = require('./Lose');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34,6 +36,9 @@ var LosePrompt = function (_React$Component) {
   _createClass(LosePrompt, [{
     key: 'render',
     value: function render() {
+      if (!_Lose.hasLost) {
+        return false;
+      }
       return _react2.default.createElement(
         'div',
         { className: 'LosePrompt', style: _LosePromptStyles2.default['container'] },
