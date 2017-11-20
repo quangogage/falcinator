@@ -36,11 +36,8 @@ var LosePrompt = function (_React$Component) {
   _createClass(LosePrompt, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'LosePrompt', style: _LosePromptStyles2.default['container'] },
-        'YOU HAVE LOST!!'
-      );
+      var styles = _LosePromptStyles2.default;
+      return _react2.default.createElement('div', { className: 'LosePrompt', style: styles['container'] });
     }
   }]);
 

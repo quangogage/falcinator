@@ -15,6 +15,8 @@ var _Timer = require('../Timer/Timer');
 
 var _LoseExplosion = require('../Particle/LoseExplosion');
 
+var _Highscores = require('./Highscores');
+
 var _Game = require('../Game');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -38,9 +40,10 @@ function TriggerLose() {
   (0, _LoseExplosion.TriggerLoseExplosion)(_Game.ship.offset().left + _Game.ship.width() / 2, _Game.ship.offset().top + _Game.ship.height() / 2);
   _Game.ship.remove();
   animateGame();
+  (0, _Highscores.HandleHighscore)();
   setTimeout(function () {
     (0, _jquery2.default)('.LosePrompt').css({ display: 'block' });
-  }, 1500);
+  }, 2000);
 }
 
 function animateGame() {
