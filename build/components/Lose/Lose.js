@@ -39,7 +39,7 @@ function TriggerLose() {
   _Game.ship.remove();
   animateGame();
   setTimeout(function () {
-    // Show lose prompt
+    (0, _jquery2.default)('.LosePrompt').css({ display: 'block' });
   }, 1500);
 }
 
