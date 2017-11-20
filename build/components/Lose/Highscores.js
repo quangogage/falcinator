@@ -21,8 +21,8 @@ function HandleHighscore() {
     storageBucket: 'falcinator-988f4.appspot.com',
     messagingSenderId: '842435348000'
   };
-  firebase.initializeApp(config);
+  _firebase2.default.initializeApp(config);
 
   // Submit Dummy Score
-  firebaseRef.push({ name: 'test score', score: '1250890' });
+  _firebase2.default.push({ name: 'test score', score: '1250890' });
 }
