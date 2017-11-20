@@ -39,7 +39,7 @@ var _Jet = require('./Jet/Jet');
 
 var _Timer = require('./Timer/Timer');
 
-var _Lose = require('./Lose');
+var _Lose = require('./Lose/Lose');
 
 var _WeaponHandler = require('./WeaponHandler');
 

@@ -9,7 +9,7 @@ var _Bullet = require('./Bullet/Bullet');
 
 var _Game = require('./Game');
 
-var _Lose = require('./Lose');
+var _Lose = require('./Lose/Lose');
 
 function WeaponHandler(mouseX, mouseY) {
   if (!_Lose.hasLost) {
