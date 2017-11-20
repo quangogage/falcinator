@@ -31,7 +31,7 @@ function HandleHighscore() {
 
 // Add a high score
 function addHighScore(name) {
-  var scoreRef = database.push();
+  var scoreRef = database.ref().push();
   scoreRef.set({
     name: name,
     score: '150293'
