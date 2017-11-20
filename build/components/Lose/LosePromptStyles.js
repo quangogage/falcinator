@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = LosePromptStyles = {
+var LosePromptStyles = {
   container: {
     position: 'absolute',
     width: '100%',
@@ -12,3 +12,4 @@ exports.default = LosePromptStyles = {
     zIndex: 100
   }
 };
+exports.default = LosePromptStyles;
