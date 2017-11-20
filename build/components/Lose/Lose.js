@@ -11,11 +11,11 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _Timer = require('./Timer/Timer');
+var _Timer = require('../Timer/Timer');
 
-var _LoseExplosion = require('./Particle/LoseExplosion');
+var _LoseExplosion = require('../Particle/LoseExplosion');
 
-var _Game = require('./Game');
+var _Game = require('../Game');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
