@@ -41,6 +41,10 @@ var _Timer = require('./Timer/Timer');
 
 var _Lose = require('./Lose/Lose');
 
+var _LosePrompt = require('./Lose/LosePrompt');
+
+var _LosePrompt2 = _interopRequireDefault(_LosePrompt);
+
 var _WeaponHandler = require('./WeaponHandler');
 
 var _WeaponHandler2 = _interopRequireDefault(_WeaponHandler);
@@ -147,7 +151,12 @@ var Game = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'Game' });
+      var RenderLosePrompt = _Lose.hasLost ? _react2.default.createElement(_LosePrompt2.default, null) : _react2.default.createElement('div', null);
+      return _react2.default.createElement(
+        'div',
+        { className: 'Game' },
+        RenderLosePrompt
+      );
     }
   }]);
 
