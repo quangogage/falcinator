@@ -37,6 +37,7 @@ var scores = [];
 
 // Triggered once when you lose
 function HandleHighscore() {
+  addHighScore('testing', 1000);
   // Submit Dummy Score
   getHighScores();
 }
