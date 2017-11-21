@@ -73,6 +73,11 @@ function addHighScore(name, time) {
 // Add the field to submit your score
 function addSubmitScore() {
   var insertIndex;
+  var submit = function submit() {
+    for (var i = 0; i < scores.length; i++) {
+      addHighScore(scores[i].name, scores[i].score);
+    }
+  };
   if (scores.length !== 0) {
     for (var i = 0; i <= scores.length - 1; i++) {
       var thisScore = scores[i].score;
