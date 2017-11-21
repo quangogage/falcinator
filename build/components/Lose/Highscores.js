@@ -85,5 +85,5 @@ function addSubmitScore() {
       insertIndex = scores.length - 1;
     }
   }
-  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + score + '</div>\n  </div>\n');
+  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n  </div>\n');
 }
