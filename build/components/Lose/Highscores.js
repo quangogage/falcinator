@@ -55,6 +55,7 @@ function getHighScores() {
       // Add to array
       scores[scores.length] = { score: score, name: name };
       console.log('adding to scores, new amount: ' + scores.length);
+      childSnapshot.remove();
     });
     addSubmitScore();
   });
@@ -87,5 +88,10 @@ function addSubmitScore() {
     insertIndex = 0;
   }
   console.log('Adding score in list');
-  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:white;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n  </div>\n  ');
+  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n  </div>\n  ');
+  (0, _jquery2.default)('.textinput').on('keypress', function (e) {
+    if (e.keyCode == '13') {
+      alert('enter key pressed');
+    }
+  });
 }
