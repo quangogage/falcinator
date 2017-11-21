@@ -10,6 +10,10 @@ var _firebase = require('firebase');
 
 var _firebase2 = _interopRequireDefault(_firebase);
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Executed on lose
@@ -25,23 +29,22 @@ _firebase2.default.initializeApp(config);
 var database = _firebase2.default.database();
 
 // Triggered once when you lose
-function HandleHighscore() {}
-// Submit Dummy Score
-// addHighScore('super testing', 5020);
+function HandleHighscore() {
+  // Submit Dummy Score
+  // addHighScore('super testing', 5020);
+  getHighScores();
+}
 
-
-// Get an array of every high score
+// Get and inject a list of high scores
 function getHighScores() {
   var ref = database.ref();
-  var scores = [];
   ref.on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       var score = childSnapshot.val().score;
       var name = childSnapshot.val().name;
-      scores.push({ score: score, name: name });
+      (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\'>\n          <div class=\'name\'>' + name + '</div>\n          <div class=\'time\'>' + score + '</div>\n        </div>\n      ');
     });
   });
-  return scores;
 }
 
 // Add a high score

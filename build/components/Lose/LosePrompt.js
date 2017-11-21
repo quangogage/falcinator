@@ -39,30 +39,10 @@ var LosePrompt = function (_React$Component) {
     key: 'render',
     value: function render() {
       var styles = _LosePromptStyles2.default;
-      var scores = (0, _Highscores.getHighScores)();
       return _react2.default.createElement(
         'div',
         { className: 'LosePrompt', style: styles['container'] },
-        _react2.default.createElement(
-          'div',
-          { className: 'score-list' },
-          scores.map(function (score, index) {
-            _react2.default.createElement(
-              'div',
-              { className: 'score' },
-              _react2.default.createElement(
-                'div',
-                { className: 'name' },
-                score.name
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'time' },
-                score.time
-              )
-            );
-          })
-        )
+        _react2.default.createElement('div', { className: 'score-list' })
       );
     }
   }]);
