@@ -38,7 +38,7 @@ var scores;
 // Triggered once when you lose
 function HandleHighscore() {
   // Submit Dummy Score
-  scores = getHighScores();
+  getHighScores();
 
   if (scores.length < 9) {
     console.log('There are less than 10 scores');
@@ -49,7 +49,6 @@ function HandleHighscore() {
 // Get and inject a list of high scores
 function getHighScores() {
   var ref = database.ref();
-  var tempScores = [];
   ref.on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       var score = childSnapshot.val().score;
@@ -59,11 +58,10 @@ function getHighScores() {
       (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n          <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n          <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + score + '</div>\n        </div>\n      ');
 
       // Add to array
-      tempScores[tempScores.length] = { score: score, name: name };
+      scores[scores.length] = { score: score, name: name };
+      console.log('adding to scores, new amount: ' + scores.length);
     });
   });
-  console.log('Saving scores, amount: ' + tempScores.length);
-  return tempScores;
 }
 
 // Add your score
