@@ -103,8 +103,7 @@ function addSubmitScore() {
       name = (0, _jquery2.default)('.textinput').val();
       addNewScore();
       console.log(setIndex);
-      (0, _jquery2.default)('score').eq(setIndex).after('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n      </div>\n      ');
-      (0, _jquery2.default)('#new-score').remove();
+      (0, _jquery2.default)('#new-score').replace('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n      </div>\n      ');
     }
   });
 }
