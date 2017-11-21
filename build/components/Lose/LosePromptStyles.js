@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 var LosePromptStyles = {
   container: {
     display: 'none',
+    position: 'absolute'
+  },
+  window: {
     position: 'absolute',
     width: '80%',
     height: '80%',
