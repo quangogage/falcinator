@@ -16,6 +16,8 @@ var _LosePromptStyles2 = _interopRequireDefault(_LosePromptStyles);
 
 var _Lose = require('./Lose');
 
+var _Highscores = require('./Highscores');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37,7 +39,31 @@ var LosePrompt = function (_React$Component) {
     key: 'render',
     value: function render() {
       var styles = _LosePromptStyles2.default;
-      return _react2.default.createElement('div', { className: 'LosePrompt', style: styles['container'] });
+      var scores = (0, _Highscores.getHighScores)();
+      return _react2.default.createElement(
+        'div',
+        { className: 'LosePrompt', style: styles['container'] },
+        _react2.default.createElement(
+          'div',
+          { className: 'score-list' },
+          scores.map(function (score, index) {
+            _react2.default.createElement(
+              'div',
+              { className: 'score' },
+              _react2.default.createElement(
+                'div',
+                { className: 'name' },
+                score.name
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'time' },
+                score.time
+              )
+            );
+          })
+        )
+      );
     }
   }]);
 
