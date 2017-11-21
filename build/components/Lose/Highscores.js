@@ -40,7 +40,8 @@ function HandleHighscore() {
   // Submit Dummy Score
   scores = getHighScores();
 
-  if (scores.length < 10) {
+  if (scores.length < 9) {
+    console.log('There are less than 10 scores');
     addSubmitScore();
   }
 }
@@ -79,11 +80,13 @@ function addSubmitScore() {
   var insertIndex;
   for (var i = 0; i < scores.length - 1; i++) {
     var thisScore = scores[i].score;
+    console.log('Comparing score ' + i);
     if (_Timer.totalTimer >= thisScore) {
       insertIndex = i - 1;
     } else if (i === scores.length - 1) {
       insertIndex = scores.length - 1;
     }
   }
-  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n  </div>\n');
+  console.log('Adding score in list');
+  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n  </div>\n  ');
 }
