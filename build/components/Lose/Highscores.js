@@ -59,7 +59,7 @@ function getHighScores() {
       (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n          <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n          <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + score + '</div>\n        </div>\n      ');
 
       // Add to array
-      scores.push({ score: score, name: name });
+      scores[scores.length] = { score: score, name: name };
     });
   });
   console.log('Saving scores, amount: ' + scores.length);
