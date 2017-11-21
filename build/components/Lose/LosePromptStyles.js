@@ -6,13 +6,15 @@ Object.defineProperty(exports, "__esModule", {
 var LosePromptStyles = {
   container: {
     display: 'none',
-    position: 'absolute'
+    position: 'absolute',
+    zIndex: 100,
+    width: '100%',
+    height: '100%'
   },
   window: {
     position: 'absolute',
     width: '80%',
     height: '80%',
-    zIndex: 100,
     left: '50%',
     top: '50%',
     transform: 'translateX(-50%) translateY(-50%)',
