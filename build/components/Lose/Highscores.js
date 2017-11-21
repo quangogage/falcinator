@@ -39,11 +39,6 @@ var scores = [];
 function HandleHighscore() {
   // Submit Dummy Score
   getHighScores();
-
-  if (scores.length < 9) {
-    console.log('There are less than 10 scores');
-    addSubmitScore();
-  }
 }
 
 // Get and inject a list of high scores
@@ -61,7 +56,7 @@ function getHighScores() {
       scores[scores.length] = { score: score, name: name };
       console.log('adding to scores, new amount: ' + scores.length);
     });
-  });
+  }).then(addSubmitScore());
 }
 
 // Add your score
