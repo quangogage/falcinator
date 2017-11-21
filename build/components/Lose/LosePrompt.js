@@ -42,7 +42,7 @@ var LosePrompt = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'LosePrompt', style: styles['container'] },
-        _react2.default.createElement('div', { className: 'score-list' })
+        _react2.default.createElement('div', { className: 'score-list', style: styles['scoreList'] })
       );
     }
   }]);

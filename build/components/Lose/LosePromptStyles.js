@@ -21,6 +21,6 @@ var LosePromptStyles = {
     display: 'flex',
     flexDirection: 'column'
   },
-  score: '\n    display: flex,\n    align-items: center,\n    justify-content: space-around\n  '
+  score: '\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n  '
 };
 exports.default = LosePromptStyles;
