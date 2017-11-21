@@ -74,13 +74,13 @@ function addHighScore(name, time) {
 // Add the field to submit your score
 function addSubmitScore() {
   var insertIndex;
+  var name;
   var submit = function submit() {
     for (var i = 0; i < scores.length; i++) {
       addHighScore(scores[i].name, scores[i].score);
     }
   };
   var addNewScore = function addNewScore() {
-    var name = (0, _jquery2.default)('.textinput').val();
     scores[scores.length] = { name: name, score: _Timer.totalTimer };
 
     submit();
@@ -103,7 +103,10 @@ function addSubmitScore() {
   (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n  </div>\n  ');
   (0, _jquery2.default)('.textinput').on('keypress', function (e) {
     if (e.keyCode == '13') {
+      name = (0, _jquery2.default)('.textinput').val();
       addNewScore();
+      (0, _jquery2.default)('.textinput').remove();
+      (0, _jquery2.default)('score').eq(insertIndex).after('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n      </div>\n    ');
     }
   });
 }
