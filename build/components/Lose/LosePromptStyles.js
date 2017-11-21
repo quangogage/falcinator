@@ -24,8 +24,10 @@ var LosePromptStyles = {
   scoreList: {
     position: 'relative',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    alignItems: 'center'
   },
-  score: '\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n  '
+  score: '\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    width:80%;\n    background:RGB(255,100,100);\n  ',
+  scoreText: '\n    font-family:arial;\n    font-size:25px;\n    color:white;\n    padding:5px;\n  '
 };
 exports.default = LosePromptStyles;
