@@ -44,7 +44,7 @@ function HandleHighscore() {
 // Get and inject a list of high scores
 function getHighScores() {
   var ref = database.ref();
-  ref.on('value', function (snapshot) {
+  ref.once('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       var score = childSnapshot.val().score;
       var name = childSnapshot.val().name;
@@ -56,7 +56,8 @@ function getHighScores() {
       scores[scores.length] = { score: score, name: name };
       console.log('adding to scores, new amount: ' + scores.length);
     });
-  }).then(addSubmitScore());
+    addSubmitScore();
+  });
 }
 
 // Add your score
