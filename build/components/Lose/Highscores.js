@@ -29,7 +29,9 @@ function HandleHighscore() {
   // addHighScore('super testing', 5020);
   var ref = database.ref();
   ref.on('value', function (snapshot) {
-    console.log(snapshot[0]);
+    snapshot.forEach(function (childSnapshot) {
+      console.log(childSnapshot.val());
+    });
   });
 }
 
