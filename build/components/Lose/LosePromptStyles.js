@@ -9,7 +9,8 @@ var LosePromptStyles = {
     position: 'absolute',
     zIndex: 100,
     width: '100%',
-    height: '100%'
+    height: '100%',
+    background: 'RGBA(0,0,0,0.8)'
   },
   window: {
     position: 'absolute',

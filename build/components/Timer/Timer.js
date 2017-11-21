@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.timer = undefined;
+exports.totalTimer = exports.timer = undefined;
 exports.LoadTimer = LoadTimer;
 exports.UpdateTimer = UpdateTimer;
 exports.AddTime = AddTime;
@@ -17,6 +17,7 @@ var _Lose = require('../Lose/Lose');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var timer = exports.timer = 10000;
+var totalTimer = exports.totalTimer = 0;
 var el;
 var styles = {
   fontFamily: 'alarm clock',
@@ -31,6 +32,7 @@ var styles = {
 };
 
 function LoadTimer() {
+  exports.totalTimer = totalTimer = 0;
   exports.timer = timer = 3000;
   exports.timer = timer = 50;
   el = (0, _jquery2.default)('<div class="timer">' + toHHMMSS(timer) + '</div>');
@@ -51,6 +53,9 @@ function UpdateTimer(dt) {
       fontSize: el.css('font-size'),
       left: el.offset().left + el.width()
     });
+  }
+  if (!_Lose.hasLost) {
+    exports.totalTimer = totalTimer += 1;
   }
 }
 function AddTime(amount) {

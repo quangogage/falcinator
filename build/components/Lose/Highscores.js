@@ -18,6 +18,8 @@ var _LosePromptStyles = require('./LosePromptStyles');
 
 var _LosePromptStyles2 = _interopRequireDefault(_LosePromptStyles);
 
+var _Timer = require('../Timer/Timer');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Firebase db config
@@ -31,23 +33,36 @@ var config = {
 };
 _firebase2.default.initializeApp(config);
 var database = _firebase2.default.database();
+var scores;
 
 // Triggered once when you lose
 function HandleHighscore() {
   // Submit Dummy Score
-  getHighScores();
+  scores = getHighScores();
+
+  if (scores.length < 10) {
+    addSubmitScore();
+  }
 }
 
 // Get and inject a list of high scores
 function getHighScores() {
   var ref = database.ref();
+  var scores = [];
   ref.on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       var score = childSnapshot.val().score;
       var name = childSnapshot.val().name;
+
+      // Add to DOM
       (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n          <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n          <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + score + '</div>\n        </div>\n      ');
+
+      // Add to array
+      scores.push({ score: score, name: name });
     });
   });
+
+  return scores;
 }
 
 // Add your score
@@ -57,4 +72,18 @@ function addHighScore(name, time) {
     name: name,
     score: time
   });
+}
+
+// Add the field to submit your score
+function addSubmitScore() {
+  var insertIndex;
+  for (var i = 0; i < scores.length - 1; i++) {
+    var thisScore = scores[i].score;
+    if (_Timer.totalTimer >= thisScore) {
+      insertIndex = i - 1;
+    } else if (i === scores.length - 1) {
+      insertIndex = scores.length - 1;
+    }
+  }
+  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + score + '</div>\n  </div>\n');
 }
