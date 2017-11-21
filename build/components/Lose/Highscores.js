@@ -28,7 +28,7 @@ function HandleHighscore() {
   // Submit Dummy Score
   // addHighScore('super testing', 5020);
   database.ref('/').once('value').then(function (snapshot) {
-    console.log(snapshot.val() && snapshot.val().name) || 'Anonymous';
+    console.log(snapshot.val().name);
     // ...
   });
 }
