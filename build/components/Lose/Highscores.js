@@ -55,9 +55,9 @@ function getHighScores() {
       // Add to array
       scores[scores.length] = { score: score, name: name };
       console.log('adding to scores, new amount: ' + scores.length);
-      childSnapshot.remove();
     });
     addSubmitScore();
+    ref.remove();
   });
 }
 
