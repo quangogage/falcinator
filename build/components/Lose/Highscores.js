@@ -14,9 +14,13 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _LosePromptStyles = require('./LosePromptStyles');
+
+var _LosePromptStyles2 = _interopRequireDefault(_LosePromptStyles);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Executed on lose
+// Firebase db config
 var config = {
   apiKey: 'AIzaSyBtu5nBaAeIItHuhHRVfp6mXiL9dLpqyLA',
   authDomain: 'falcinator-988f4.firebaseapp.com',
@@ -31,7 +35,6 @@ var database = _firebase2.default.database();
 // Triggered once when you lose
 function HandleHighscore() {
   // Submit Dummy Score
-  // addHighScore('super testing', 5020);
   getHighScores();
 }
 
@@ -42,12 +45,12 @@ function getHighScores() {
     snapshot.forEach(function (childSnapshot) {
       var score = childSnapshot.val().score;
       var name = childSnapshot.val().name;
-      (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\'>\n          <div class=\'name\'>' + name + '</div>\n          <div class=\'time\'>' + score + '</div>\n        </div>\n      ');
+      (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\' style=' + _LosePromptStyles2.default['score'] + '>\n          <div class=\'name\'>' + name + '</div>\n          <div class=\'time\'>' + score + '</div>\n        </div>\n      ');
     });
   });
 }
 
-// Add a high score
+// Add your score
 function addHighScore(name, time) {
   var scoreRef = database.ref().push();
   scoreRef.set({
