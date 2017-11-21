@@ -78,6 +78,12 @@ function addSubmitScore() {
       addHighScore(scores[i].name, scores[i].score);
     }
   };
+  var addNewScore = function addNewScore() {
+    var name = (0, _jquery2.default)('.textinput').val();
+    scores[scores.length] = { name: name, score: _Timer.totalTimer };
+
+    submit();
+  };
   if (scores.length !== 0) {
     for (var i = 0; i <= scores.length - 1; i++) {
       var thisScore = scores[i].score;
@@ -96,7 +102,7 @@ function addSubmitScore() {
   (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n  </div>\n  ');
   (0, _jquery2.default)('.textinput').on('keypress', function (e) {
     if (e.keyCode == '13') {
-      alert('enter key pressed');
+      addNewScore();
     }
   });
 }
