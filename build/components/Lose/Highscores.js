@@ -26,14 +26,14 @@ var database = _firebase2.default.database();
 // Triggered once when you lose
 function HandleHighscore() {
   // Submit Dummy Score
-  addHighScore('testing');
+  addHighScore('super testing', 5020);
 }
 
 // Add a high score
-function addHighScore(name) {
+function addHighScore(name, time) {
   var scoreRef = database.ref().push();
   scoreRef.set({
     name: name,
-    score: '150293'
+    score: time
   });
 }
