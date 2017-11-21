@@ -33,7 +33,7 @@ var config = {
 };
 _firebase2.default.initializeApp(config);
 var database = _firebase2.default.database();
-var scores;
+var scores = [];
 
 // Triggered once when you lose
 function HandleHighscore() {
