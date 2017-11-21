@@ -26,7 +26,11 @@ var database = _firebase2.default.database();
 // Triggered once when you lose
 function HandleHighscore() {
   // Submit Dummy Score
-  addHighScore('super testing', 5020);
+  // addHighScore('super testing', 5020);
+  _firebase2.default.database().ref('/').once('value').then(function (snapshot) {
+    console.log(snapshot.val() && snapshot.val().name) || 'Anonymous';
+    // ...
+  });
 }
 
 // Add a high score
