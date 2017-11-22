@@ -56,12 +56,9 @@ function getHighScores() {
       scores[scores.length] = { score: score, name: name };
     });
 
-    // Creates a score field with a textinput field for your name.
-    addSubmitScore();
-
-    // Sort high scores
+    // Sort high scores (descending)
     scores.sort(function (a, b) {
-      return a.score - b.score;
+      return b.score - a.score;
     });
 
     // Iterate through newly sorted scores and add them to DOM
@@ -71,6 +68,9 @@ function getHighScores() {
       // Add to DOM
       (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n          <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n          <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(score) + '</div>\n        </div>\n      ');
     }
+
+    // Creates a score field with a textinput field for your name.
+    addSubmitScore();
   });
 }
 
