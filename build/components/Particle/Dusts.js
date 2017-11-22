@@ -20,7 +20,7 @@ var types = [{
   spread: 0.4,
   friction: 0.00045,
   amount: [10, 15],
-  initialXSpeed: [0.3, 0.85],
+  initialXSpeed: [0.1, 0.85],
   initialYSpeed: [0.6, 1.2],
   rotSpeed: [0.42, 1.02],
   rotFriction: 0.00045,
