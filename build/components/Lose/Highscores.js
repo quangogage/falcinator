@@ -132,7 +132,7 @@ function checkMaxScores() {
   if (scores.length > 10) {
     for (var i = 0; i < scores.length; i++) {
       var thisScore = scores[i];
-      if (i >= 9) {
+      if (i >= 8) {
         database.ref().child(thisScore.snapshot.key).remove();
         scores.splice(i, 1);
       }
