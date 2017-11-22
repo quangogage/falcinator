@@ -108,35 +108,45 @@ function checkBrokenScore() {
 }
 
 var gifs = [require('./gifs/1.gif'), require('./gifs/2.gif'), require('./gifs/3.gif'), require('./gifs/4.gif'), require('./gifs/5.gif')];
-function highScoreAlert() {
-  var gif = (0, _jquery2.default)('<img src=' + gifs[Math.floor(getRandom(0, gifs.length - 1))] + ' class=\'gif\' />');
-  gif.css({
-    position: 'absolute',
-    width: '200px',
-    right: -200,
-    bottom: 50
-  });
-  (0, _jquery2.default)('.Game').append(gif);
-  gif.animate({
+function highScoreAlert() {}
+/*
+var gif = $(
+  `<img src=${gifs[Math.floor(getRandom(0, gifs.length - 1))]} class='gif' />`
+);
+gif.css({
+  position: 'absolute',
+  width: '200px',
+  right: -200,
+  bottom: 50
+});
+$('.Game').append(gif);
+gif.animate(
+  {
     right: 50
-  }, {
+  },
+  {
     duration: 500,
     queue: false,
-    complete: function complete() {
-      setTimeout(function () {
-        gif.animate({
-          right: -200
-        }, {
-          duration: 500,
-          queue: false,
-          complete: function complete() {
-            gif.remove();
+    complete: function() {
+      setTimeout(function() {
+        gif.animate(
+          {
+            right: -200
+          },
+          {
+            duration: 500,
+            queue: false,
+            complete: function() {
+              gif.remove();
+            }
           }
-        });
+        );
       }, 1500);
     }
-  });
-}
+  }
+);
+*/
+
 
 // Get a random number between two values
 function getRandom(min, max) {
