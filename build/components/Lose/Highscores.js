@@ -38,7 +38,6 @@ var scores = [];
 // Triggered once when you lose
 function HandleHighscore() {
   // Submit Dummy Score
-  addHighScore('Gage', 50);
   getHighScores();
 }
 
@@ -106,6 +105,7 @@ function addSubmitScore() {
       var thisScore = scores[i].score;
       if (_Timer.totalTimer >= thisScore) {
         insertIndex = i;
+        console.log(_Timer.totalTimer + ' is greater than ' + thisScore);
         console.log('insertIndex=' + i);
       } else if (i === scores.length - 1 && insertIndex === null) {
         insertIndex = null;
