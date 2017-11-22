@@ -104,8 +104,6 @@ function addSubmitScore() {
       var thisScore = scores[i].score;
       if (_Timer.totalTimer >= thisScore && !insertIndex) {
         insertIndex = i - 1;
-        (0, _jquery2.default)('.score').eq(i).remove();
-        scores.splice(i, 1);
       } else if (i === scores.length - 1) {
         insertIndex = scores.length - 1;
       }
@@ -116,14 +114,14 @@ function addSubmitScore() {
   }
   console.log('Adding score in list');
   (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' id="new-score" style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n  </div>\n  ');
+  checkMaxScores();
   (0, _jquery2.default)('.textinput').on('keypress', function (e) {
     if (e.keyCode == '13') {
       var setIndex = (0, _jquery2.default)('.textinput').parent().index();
       name = (0, _jquery2.default)('.textinput').val();
       addNewScore();
       console.log(setIndex);
-      (0, _jquery2.default)('#new-score').replaceWith('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n      </div>\n      ');
-      checkMaxScores();
+      (0, _jquery2.default)('#new-score').replaceWith('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + insertIndex + '. ' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n      </div>\n      ');
     }
   });
 }
