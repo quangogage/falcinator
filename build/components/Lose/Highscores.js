@@ -113,8 +113,8 @@ function addSubmitScore() {
     insertIndex = 0;
   }
   console.log('Adding score in list');
-  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' id="new-score" style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n  </div>\n  ');
   checkMaxScores();
+  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' id="new-score" style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n  </div>\n  ');
   (0, _jquery2.default)('.textinput').on('keypress', function (e) {
     if (e.keyCode == '13') {
       var setIndex = (0, _jquery2.default)('.textinput').parent().index();
@@ -133,6 +133,7 @@ function checkMaxScores() {
       var thisScore = scores[i];
       if (i >= 8) {
         database.ref().child(thisScore.snapshot.key).remove();
+        (0, _jquery2.default)('.score').eq(i).remove();
         scores.splice(i, 1);
       }
     }
