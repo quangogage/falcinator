@@ -50,7 +50,7 @@ function getHighScores() {
       var name = childSnapshot.val().name;
 
       // Add to DOM
-      (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n          <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n          <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + score + '</div>\n        </div>\n      ');
+      (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n          <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n          <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(score) + '</div>\n        </div>\n      ');
 
       // Add to array
       scores[scores.length] = { score: score, name: name };
@@ -96,14 +96,33 @@ function addSubmitScore() {
     insertIndex = 0;
   }
   console.log('Adding score in list');
-  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' id="new-score" style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n  </div>\n  ');
+  (0, _jquery2.default)('.score').eq(insertIndex).after('\n  <div class=\'score\' id="new-score" style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n  </div>\n  ');
   (0, _jquery2.default)('.textinput').on('keypress', function (e) {
     if (e.keyCode == '13') {
       var setIndex = (0, _jquery2.default)('.textinput').parent().index();
       name = (0, _jquery2.default)('.textinput').val();
       addNewScore();
       console.log(setIndex);
-      (0, _jquery2.default)('#new-score').replaceWith('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + _Timer.totalTimer + '</div>\n      </div>\n      ');
+      (0, _jquery2.default)('#new-score').replaceWith('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n      </div>\n      ');
     }
   });
+}
+
+// Format total time n shit
+function formatTime(time) {
+  var sec_num = parseInt(time, 10); // don't forget the second param
+  var hours = Math.floor(sec_num / 3600);
+  var minutes = Math.floor((sec_num - hours * 3600) / 60);
+  var seconds = sec_num - hours * 3600 - minutes * 60;
+
+  if (hours < 10) {
+    hours = '0' + hours;
+  }
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+  return hours + ':' + minutes + ':' + seconds;
 }

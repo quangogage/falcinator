@@ -47,6 +47,12 @@ var LosePrompt = function (_React$Component) {
           { className: 'window', style: styles['window'] },
           _react2.default.createElement(
             'h1',
+            { style: { fontFamily: 'arial', color: 'white' }, id: 'your-score' },
+            'Your score:',
+            ' '
+          ),
+          _react2.default.createElement(
+            'h1',
             { style: { fontFamily: 'arial', color: 'white' } },
             'High Scores'
           ),
