@@ -101,7 +101,8 @@ function addSubmitScore() {
     submit();
   };
   if (scores.length !== 0) {
-    for (var i = 0; i <= scores.length - 1; i++) {
+    var i = scores.length;
+    while (i--) {
       var thisScore = scores[i].score;
       if (_Timer.totalTimer >= thisScore) {
         insertIndex = i;
