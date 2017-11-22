@@ -138,7 +138,7 @@ function checkMaxScores() {
       }
     }
   }
-  (0, _jquery2.default)('.score').forEach(function () {
+  (0, _jquery2.default)('.score').each(function () {
     if ((0, _jquery2.default)(this).index() > 10) {
       (0, _jquery2.default)(this).remove();
     }
