@@ -102,6 +102,7 @@ function addSubmitScore() {
   if (scores.length !== 0) {
     var i = scores.length;
     if (_Timer.totalTimer > scores[0]) {
+      console.log('You got the top score');
       insertIndex = -1;
     } else {
       while (i--) {
@@ -112,6 +113,7 @@ function addSubmitScore() {
           console.log('insertIndex=' + i);
         } else if (i === 0 && insertIndex === null) {
           if (scores.length < 10) {
+            console.log('you got the lowest score');
             insertIndex = scores.length;
           } else {
             insertIndex = null;
