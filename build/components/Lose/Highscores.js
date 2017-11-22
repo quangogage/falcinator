@@ -133,7 +133,7 @@ function checkMaxScores() {
     for (var i = 0; i < scores.length; i++) {
       var thisScore = scores[i];
       if (i > 10) {
-        thisScore.snapshot.remove();
+        thisScore.snapshot.ref().remove();
         scores.splice(i, 1);
       }
     }
