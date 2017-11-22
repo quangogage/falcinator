@@ -36,8 +36,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // Reset
 function reset() {
-  (0, _jquery2.default)('.Game').empty();
-  (0, _Game.loadGame)();
+  location.reload();
 }
 
 var LosePrompt = function (_React$Component) {
