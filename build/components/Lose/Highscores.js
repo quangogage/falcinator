@@ -103,21 +103,22 @@ function addSubmitScore() {
   if (scores.length !== 0) {
     for (var i = 0; i <= scores.length - 1; i++) {
       var thisScore = scores[i].score;
-
-      console.log('Your score: ' + _Timer.totalTimer, 'Compared score: ' + thisScore);
       if (_Timer.totalTimer >= thisScore) {
         insertIndex = i;
+        console.log('insertIndex=' + i);
       } else if (i === scores.length - 1 && insertIndex === null) {
         insertIndex = null;
+        console.log('insertIndex=null');
       }
     }
   } else {
     console.log('There are no scores!');
     insertIndex = 0;
+    console.log('insertIndex=0');
   }
   if (insertIndex !== null) {
     // Only add if you're score is at least better than the lowest
-    console.log('Adding score in list');
+    console.log('Adding score in list at index: ' + insertIndex);
     checkMaxScores();
     (0, _jquery2.default)('.score').eq(insertIndex).replaceWith('\n    <div class=\'score\' id="new-score" style="' + _LosePromptStyles2.default['score'] + '">\n      <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n      <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n    </div>\n    ');
     (0, _jquery2.default)('.textinput').on('keypress', function (e) {
