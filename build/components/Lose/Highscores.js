@@ -53,7 +53,11 @@ function getHighScores() {
       var name = childSnapshot.val().name;
 
       // Store child values in `scores` array.
-      scores[scores.length] = { score: score, name: name };
+      scores[scores.length] = {
+        score: score,
+        name: name,
+        snapshot: childSnapshot
+      };
     });
 
     // Sort high scores (descending)
@@ -118,8 +122,22 @@ function addSubmitScore() {
       addNewScore();
       console.log(setIndex);
       (0, _jquery2.default)('#new-score').replaceWith('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n      </div>\n      ');
+      checkMaxScores();
     }
   });
+}
+
+// Handle the high score list if there are more than 10 entries
+function checkMaxScores() {
+  if (scores.length > 10) {
+    for (var i = 0; i < scores.length; i++) {
+      var thisScore = scores[i];
+      if (i > 10) {
+        thisScore.snapshot.remove();
+        scores.splice(i, 1);
+      }
+    }
+  }
 }
 
 // Format total time n shit
