@@ -7,6 +7,8 @@ exports.mouseY = exports.mouseX = exports.ship = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+exports.loadGame = loadGame;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -15,7 +17,7 @@ require('./styles.css');
 
 var _Ship = require('./Ship');
 
-var _Bullet = require('./Bullet');
+var _Bullet = require('./Bullet/Bullet');
 
 var _Quail = require('./Quail/Quail');
 
@@ -31,9 +33,23 @@ var _User = require('./Firebase/User');
 
 var _SlowMotion = require('./Powerups/PowerupHandlers/SlowMotion');
 
-var _BurstShot = require('./Powerups/PowerupHandlers/BurstShot');
-
 var _Camera = require('./Camera/Camera');
+
+var _Beam = require('./Beam');
+
+var _Jet = require('./Jet/Jet');
+
+var _Timer = require('./Timer/Timer');
+
+var _Lose = require('./Lose/Lose');
+
+var _LosePrompt = require('./Lose/LosePrompt');
+
+var _LosePrompt2 = _interopRequireDefault(_LosePrompt);
+
+var _WeaponHandler = require('./WeaponHandler');
+
+var _WeaponHandler2 = _interopRequireDefault(_WeaponHandler);
 
 var _crosshair = require('./crosshair.png');
 
@@ -57,7 +73,6 @@ var world;
 var gameLoopInterval;
 var mouseX = exports.mouseX = 0;
 var mouseY = exports.mouseY = 0;
-var bullets = [];
 var shipX, shipY;
 
 var username = '';
@@ -77,6 +92,8 @@ function loadGame() {
 
   world.append(ship);
   // username = loadUser();
+  (0, _Timer.LoadTimer)();
+  (0, _Lose.LoadLose)();
 }
 
 function updateGame() {
@@ -84,16 +101,20 @@ function updateGame() {
   var dt = now - lastUpdate;
   dt = (0, _SlowMotion.handleSlowMo)(dt, now, lastUpdate);
   lastUpdate = now;
-  bullets = (0, _Bullet.updateBullets)(dt);
+  (0, _Bullet.updateBullets)(dt);
+  (0, _Beam.updateBeam)(dt);
   (0, _Ship.updateShip)(ship, dt, mouseX, mouseY);
+  (0, _Jet.UpdateJet)(dt);
   (0, _Particle.updateParticle)(dt);
-  (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
-  (0, _Powerups.updatePowerups)(bullets, dt);
+  (0, _Quail.updateQuail)((0, _jquery2.default)('.Game'), _Bullet.bullets, _Blood.createBlood, _Particle.createParticle, _Score.addScore, _Score.subtractScore, dt);
+  (0, _Powerups.updatePowerups)(dt);
   (0, _Camera.UpdateCamera)(dt);
+  (0, _Timer.UpdateTimer)(dt);
+  (0, _Lose.UpdateLose)(dt);
 }
 
 function gameClick(e) {
-  (0, _Bullet.shootBullet)(e.pageX, e.pageY, ship, world);
+  (0, _WeaponHandler2.default)(e.pageX, e.pageY);
 }
 function gameResize() {
   (0, _Ship.repositionShip)(ship, shipX, shipY);
@@ -132,7 +153,11 @@ var Game = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'Game' });
+      return _react2.default.createElement(
+        'div',
+        { className: 'Game' },
+        _react2.default.createElement(_LosePrompt2.default, null)
+      );
     }
   }]);
 

@@ -14,9 +14,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var frames = [require('./images/explosion/1.png'), require('./images/explosion/2.png'), require('./images/explosion/3.png'), require('./images/explosion/4.png'), require('./images/explosion/5.png')];
+var frames = [require('./images/explosion/1.png'), require('./images/explosion/2.png'), require('./images/explosion/3.png'), require('./images/explosion/4.png'), require('./images/explosion/5.png'), require('./images/explosion/6.png'), require('./images/explosion/7.png')];
 
-var framerate = 75;
+// Adjustable variables
+var framerate = 40; // How long is each animation frame?
+var scaleRange = [0.5, 0.59]; // How big is the element?
 
 var Explosion = function () {
   function Explosion() {
@@ -25,19 +27,27 @@ var Explosion = function () {
 
   _createClass(Explosion, [{
     key: 'play',
-    value: function play(x, y) {
+    value: function play(x, y, angle) {
       var frame = 0;
       var div = (0, _jquery2.default)('<img src=' + frames[0] + ' class="explosion" draggable="false" />');
+      var scale = getRandom(scaleRange[0] * 100, scaleRange[1] * 100) / 100;
+
+      x += Math.cos(angle) * 62;
+      y += Math.sin(angle) * 62;
+
       div.css({
         left: x,
         top: y,
-        transform: 'translateX(-50%) translateY(-50%)'
+        transform: 'translateX(-50%) translateY(-50%) rotate(' + (angle + Math.PI / 2) + 'rad) scale(' + scale + ')',
+        imageRendering: 'pixelated',
+        zIndex: 2
       });
       (0, _jquery2.default)('.Game').append(div);
       var animation = setInterval(function () {
-        frame += 1;
-        div.attr('src', frames[frame]);
-        if (frame >= frames.length - 1) {
+        if (frame !== frames.length - 1) {
+          frame += 1;
+          div.attr('src', frames[frame]);
+        } else {
           div.remove();
           clearInterval(animation);
         }
@@ -47,5 +57,9 @@ var Explosion = function () {
 
   return Explosion;
 }();
+
+function getRandom(min, max) {
+  return Math.random() * (max - min + 1) + min;
+}
 
 exports.default = new Explosion();

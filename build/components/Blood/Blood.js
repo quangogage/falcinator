@@ -18,6 +18,7 @@ var splatters = [require('./images/splatter 1.png'), require('./images/splatter 
 
 // Adjustable variables
 var scaleRange = [2.25, 3.5]; // How large can the blood be?
+var lifetime = 85000; // How long does the blood remain visible?
 
 function loadBlood() {
   container = (0, _jquery2.default)('<div class="blood-container"></div>');
@@ -38,9 +39,25 @@ function createBlood(x, y, angle) {
   image.css({
     left: x,
     top: y,
-    transform: 'rotate(' + (angle + Math.PI) + 'rad) scale(' + scale + ')'
+    transform: 'rotate(' + (angle + Math.PI / 2) + 'rad) scale(' + scale + ')'
   });
   container.append(image);
+  live(image);
+}
+
+// Remove after set lifetime
+function live(el) {
+  setTimeout(function () {
+    el.animate({
+      opacity: 0
+    }, {
+      duration: 500,
+      queue: false,
+      complete: function complete() {
+        el.remove();
+      }
+    });
+  }, lifetime);
 }
 
 // Get a random number between two values

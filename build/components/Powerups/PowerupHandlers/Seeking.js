@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MailSeek = MailSeek;
 
-var _Bullet = require('../../Bullet');
+var _Bullet = require('../../Bullet/Bullet');
 
 var _Quail = require('../../Quail/Quail');
 
@@ -17,7 +17,7 @@ function MailSeek(dt) {
     if (!target) {
       v.angle = v.angle;
     } else {
-      var targetAngleRad = Math.atan2(v.y - target.y, v.x - target.x) + Math.PI / 2;
+      var targetAngleRad = Math.atan2(v.y - target.y, v.x - target.x) + Math.PI;
       var targetAngle = toDegrees(targetAngleRad);
       var bulletAngle = toDegrees(v.angle);
       if (Math.abs(bulletAngle - targetAngle) <= 5) {

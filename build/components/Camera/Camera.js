@@ -15,11 +15,32 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var cam = {
   x: 0,
   y: 0,
-  resetSpeed: 0.1
+  resetSpeed: 0.025
 };
 function UpdateCamera(dt) {
   cam.x = cam.x - (cam.x - 0) * cam.resetSpeed * dt;
   cam.y = cam.y - (cam.y - 0) * cam.resetSpeed * dt;
+
+  if (Math.abs(cam.x - 0) <= 1) {
+    cam.x = 0;
+    (0, _jquery2.default)('.Game').css({ left: 0 });
+  }
+  if (Math.abs(cam.y - 0) <= 1) {
+    cam.y = 0;
+    (0, _jquery2.default)('.Game').css({ top: 0 });
+  }
+
+  // Don't get TOO crazy!
+  if (cam.x > 40) {
+    cam.x = 40;
+  } else if (cam.x < -40) {
+    cam.x = -40;
+  }
+  if (cam.y > 40) {
+    cam.y = 40;
+  } else if (cam.y < -40) {
+    cam.y = -40;
+  }
 
   if (cam.x !== 0 || cam.y !== 0) {
     (0, _jquery2.default)('.Game').css({
@@ -30,19 +51,9 @@ function UpdateCamera(dt) {
 }
 function ShakeCamera(shake) {
   var angle = getRandom(-5 * 100, 5 * 100) / 100;
-  var amount = getRandom(shake * 0.8, shake * 2);
+  var amount = Math.floor(getRandom(shake * 80, shake * 120) / 100);
   cam.x = Math.cos(angle) * amount;
   cam.y = Math.sin(angle) * amount;
-  if (cam.x > 45) {
-    cam.x = 45;
-  } else if (cam.x < -45) {
-    cam.x = -45;
-  }
-  if (cam.y > 45) {
-    cam.y = 45;
-  } else if (cam.y < -45) {
-    cam.y = -45;
-  }
 }
 
 // Get a random number between two values

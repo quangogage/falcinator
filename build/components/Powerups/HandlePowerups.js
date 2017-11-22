@@ -17,6 +17,10 @@ var _BurstShot = require('./PowerupHandlers/BurstShot');
 
 var _BouncyBullets = require('./PowerupHandlers/BouncyBullets');
 
+var _MailCannon = require('./PowerupHandlers/MailCannon');
+
+var _Jet = require('../Jet/Jet');
+
 var _Notification = require('./Notification/Notification');
 
 var _Notification2 = _interopRequireDefault(_Notification);
@@ -34,14 +38,14 @@ var powerupList = exports.powerupList = [{
   name: 'Slow Motion',
   phrase: 'SNAIL MAIL!',
   func: _SlowMotion.SlowMotion,
-  duration: 3750,
+  duration: 3000,
   active: false,
   timer: 0
 }, {
   name: 'Seeking Mail!',
   phrase: 'MAIL, man!',
   func: _Seeking.MailSeek,
-  duration: 6500,
+  duration: 7750,
   active: false,
   timer: 0
 }, {
@@ -55,7 +59,29 @@ var powerupList = exports.powerupList = [{
   name: 'Ricochet Bullets!',
   phrase: 'MAILSTROM!',
   func: _BouncyBullets.BouncyBullets,
-  duration: 7500,
+  duration: 7750,
+  active: false,
+  timer: 0
+}, {
+  name: '...Cannon Balls',
+  phrase: 'Mail Cannon!',
+  func: _MailCannon.MailCannon,
+  duration: 6500,
+  active: false,
+  timer: 0
+}, {
+  name: 'Missiles!!',
+  phrase: 'Missiles!!',
+  func: function func() {},
+  duration: 5500,
+  active: false,
+  timer: 0
+}, {
+  name: 'Jet?!',
+  phrase: 'Air Delivery!',
+  func: function func() {},
+  loadFunc: _Jet.CreateJet,
+  duration: 1000,
   active: false,
   timer: 0
 }];
@@ -64,6 +90,7 @@ function HandlePowerups(dt) {
   for (var i = 0; i < powerupList.length; i++) {
     var v = powerupList[i];
     if (v.active === true) {
+      // Execute the powerup handler function
       v.func(dt);
 
       // Lifetime
@@ -78,9 +105,12 @@ function HandlePowerups(dt) {
 // Activate / return new powerup
 function activatePowerup() {
   var activePowerup = powerupList[Math.floor(getRandom(0, powerupList.length - 1))];
-  // activePowerup = powerupList[4];
+  // activePowerup = powerupList[7];
   activePowerup.timer = 0;
   activePowerup.active = true;
+  if (activePowerup.loadFunc) {
+    activePowerup.loadFunc();
+  }
   (0, _Notification2.default)(activePowerup.phrase, activePowerup.name);
 }
 

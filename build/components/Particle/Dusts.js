@@ -17,14 +17,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var types = [{
   name: 'confetti',
   images: [require('./images/confetti/1.png'), require('./images/confetti/2.png'), require('./images/confetti/3.png'), require('./images/confetti/4.png'), require('./images/confetti/5.png')],
-  spread: 0.5,
+  spread: 0.4,
   friction: 0.00045,
   amount: [10, 15],
-  initialXSpeed: [0.3, 0.6],
-  initialYSpeed: [0.3, 0.6],
-  rotSpeed: [0.5, 0.76],
+  initialXSpeed: [0.1, 0.85],
+  initialYSpeed: [0.6, 1.2],
+  rotSpeed: [0.42, 1.02],
   rotFriction: 0.00045,
-  gravity: 0.00042
+  gravity: 0.00071
 }, {
   name: 'blood',
   images: [require('./images/blood/1.png')],
@@ -105,8 +105,10 @@ var Dust = function () {
       var image = type.images[Math.floor(getRandom(0, type.images.length - 1))];
       var el = (0, _jquery2.default)('<img class="dust ' + type.name + '" src=' + image + ' draggable="false"></div>');
       var xvel, yvel;
-      var xSpeed = Math.cos(angle + Math.PI / 2) * getRandom(type.initialXSpeed[0] * 100, type.initialXSpeed[1] * 100) / 100;
-      var ySpeed = Math.sin(angle - Math.PI / 2) * getRandom(type.initialYSpeed[0] * 100, type.initialYSpeed[1] * 100) / 100;
+      var randomSpread = getRandom(-type.spread * 100, type.spread * 100) / 100;
+      angle += Math.PI + randomSpread;
+      var xSpeed = Math.cos(angle + Math.PI * 1) * getRandom(type.initialXSpeed[0] * 100, type.initialXSpeed[1] * 100) / 100;
+      var ySpeed = Math.sin(angle) * getRandom(type.initialYSpeed[0] * 100, type.initialYSpeed[1] * 100) / 100;
       var rotSpeed = getRandom(type.rotSpeed[0] * 100, type.rotSpeed[1] * 100) / 100;
       var rotation = getRandom(-360, 360);
       var scale = 10;

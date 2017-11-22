@@ -16,6 +16,14 @@ var _Generate2 = _interopRequireDefault(_Generate);
 
 var _Camera = require('../Camera/Camera');
 
+var _Bullet = require('../Bullet/Bullet');
+
+var _Flash = require('../Flash');
+
+var _Timer = require('../Timer/Timer');
+
+var _Game = require('../Game');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var frames = [require('./frames/box1.png'), require('./frames/box2.png'), require('./frames/box3.png')];
@@ -24,7 +32,10 @@ var quails = exports.quails = [];
 
 // Customizable Variables
 var speedRange = [0.1, 0.3]; // How fast can a quail go?
-var lastUpdate = Date.now();
+var camShake = 10; // How much does the camera shake when you kill a quail?
+var timeAdd = 50; // How much time is added when you kill a quail?
+var timeMinus = -300; // How much time is decreased when a quail travels across the entire page?
+
 // ** Global Functions ** \\
 function updateQuail(world, bullets, createBlood, createParticle, addScore, subtractScore, dt) {
   (0, _Generate2.default)(world, spawnQuail, dt); // Create them.
@@ -33,7 +44,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
     var el = v.el;
 
     // Move
-    v.x = v.x + v.speed * v.dir * dt;
+    v.x += v.speed * v.dir * dt;
 
     //Animate
     animQuail(v, dt);
@@ -50,6 +61,7 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
     if (v.dir === 1 && v.x > window.innerWidth + el.width() || v.dir === -1 && v.x < -el.width()) {
       subtractScore();
       killQuail(i);
+      (0, _Timer.AddTime)(timeMinus);
     }
 
     // Collide with bullets
@@ -65,10 +77,15 @@ function updateQuail(world, bullets, createBlood, createParticle, addScore, subt
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
         createBlood(quailX + v.el.width() / 2, quailY + v.el.height() / 2, va.angle);
         createParticle(v.x + v.el.width() / 2, v.y + v.el.height() / 2, va.angle);
-        addScore();
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
         killQuail(i);
-        (0, _Camera.ShakeCamera)(5);
+        (0, _Camera.ShakeCamera)(camShake);
+        addScore(1);
+        (0, _Flash.CreateFlash)(va.x + Math.cos(va.angle) * va.el.height() / 2, va.y + va.el.height() / 2 + Math.sin(va.angle) * va.el.height() / 2);
+        (0, _Timer.AddTime)(timeAdd);
+        if (va.onDestroy) {
+          va.onDestroy(v.x + v.el.width() / 2, v.y + v.el.height() / 2);
+        }
       }
     }
   }

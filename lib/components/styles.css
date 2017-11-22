@@ -6,24 +6,12 @@
   height: 100%;
   overflow: hidden;
   z-index: -5;
+  transition: background 0.5s;
 }
 .ship {
   position: absolute;
   z-index: 1;
   user-select: none;
-}
-.bullet {
-  position: absolute;
-  width: 22px;
-  height: 35px;
-  /* background: rgb(0, 183, 255); */
-  /* box-shadow: 0px 0px 5px rgb(0, 183, 255); */
-  z-index: 0;
-  user-select: none;
-  background-image: url('Quail/envelope.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  image-rendering: pixelated;
 }
 .quail {
   position: absolute;
@@ -69,4 +57,26 @@ body {
 @font-face {
   font-family: actionman;
   src: url('./fonts/action man.ttf');
+}
+
+@font-face {
+  font-family: 'alarm clock';
+  src: url('./fonts/alarm clock.ttf');
+}
+
+/* Losing Prompt */
+.lose-prompt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: RGBA(0, 0, 0, 0.8);
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lose-prompt .window {
+  background: red;
 }

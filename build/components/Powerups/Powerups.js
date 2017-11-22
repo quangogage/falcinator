@@ -17,7 +17,11 @@ var _Dusts = require('../Particle/Dusts');
 
 var _Dusts2 = _interopRequireDefault(_Dusts);
 
+var _Flash = require('../Flash');
+
 var _HandlePowerups = require('./HandlePowerups');
+
+var _Bullet = require('../Bullet/Bullet');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27,9 +31,10 @@ var frames = [require('./frames/1.png'), require('./frames/2.png'), require('./f
 var speed = 0.5; // Zoom zoom.
 var framerate = 68; // Animation framerate
 var dustAmountRange = [5, 10]; // How much dust spawns when a powerup is hit?
+var scale = 1; // How large is the powerup quail compared to the normal quail?
 
 // ** Global Functions ** \\
-function updatePowerups(bullets, dt) {
+function updatePowerups(dt) {
   // Generation
   (0, _GeneratePowerups2.default)(spawnPowerup, dt);
   // Handle these bad bois
@@ -56,8 +61,8 @@ function updatePowerups(bullets, dt) {
     v.el.attr('src', frames[v.frame]);
 
     // Shooting
-    for (var ia = bullets.length - 1; ia >= 0; ia--) {
-      var va = bullets[ia];
+    for (var ia = _Bullet.bullets.length - 1; ia >= 0; ia--) {
+      var va = _Bullet.bullets[ia];
       var quailX = v.x;
       var quailY = v.y;
       var quailWidth = v.el.width();
@@ -68,6 +73,7 @@ function updatePowerups(bullets, dt) {
       if (bulletX > quailX && bulletX < quailX + quailWidth && bulletY > quailY && bulletY < quailY + quailHeight) {
         v.setToDelete = true;
         va.setToDelete = true; // Actually gets deleted inside of Bullet.js
+        (0, _Flash.CreateFlash)(va.x + Math.cos(va.angle) * va.el.height() / 2, va.y + va.el.height() / 2 + Math.sin(va.angle) * va.el.height() / 2);
         (0, _HandlePowerups.activatePowerup)();
       }
     }
@@ -102,7 +108,8 @@ function spawnPowerup() {
     userSelect: 'none',
     width: '45px',
     height: '45px',
-    filter: 'drop-shadow(2px 2px RGBA(0,0,0,0.4))'
+    filter: 'drop-shadow(2px 2px RGBA(0,0,0,0.4))',
+    transform: 'scale(' + scale + ')'
   });
 
   // Create object
