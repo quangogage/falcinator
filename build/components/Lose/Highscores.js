@@ -44,19 +44,33 @@ function HandleHighscore() {
 // Get and inject a list of high scores
 function getHighScores() {
   var ref = database.ref();
+
+  // Call to database root
   ref.once('value', function (snapshot) {
+    // Iterate through all children
     snapshot.forEach(function (childSnapshot) {
       var score = childSnapshot.val().score;
       var name = childSnapshot.val().name;
 
+      // Store child values in `scores` array.
+      scores[scores.length] = { score: score, name: name };
+    });
+
+    // Creates a score field with a textinput field for your name.
+    addSubmitScore();
+
+    // Sort high scores
+    scores.sort(function (a, b) {
+      return a.score < b.score;
+    });
+
+    // Iterate through newly sorted scores and add them to DOM
+    for (var i = 0; i < scores.length; i++) {
+      var name = scores[i].name;
+      var score = scores[i].score;
       // Add to DOM
       (0, _jquery2.default)('.score-list').append('\n        <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n          <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + name + '</div>\n          <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(score) + '</div>\n        </div>\n      ');
-
-      // Add to array
-      scores[scores.length] = { score: score, name: name };
-      console.log('adding to scores, new amount: ' + scores.length);
-    });
-    addSubmitScore();
+    }
   });
 }
 
