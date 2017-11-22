@@ -134,11 +134,15 @@ function checkMaxScores() {
       var thisScore = scores[i];
       if (i >= 8) {
         database.ref().child(thisScore.snapshot.key).remove();
-        (0, _jquery2.default)('.score').eq(i).remove();
         scores.splice(i, 1);
       }
     }
   }
+  (0, _jquery2.default)('.score').forEach(function () {
+    if ((0, _jquery2.default)(this).index() > 10) {
+      (0, _jquery2.default)(this).remove();
+    }
+  });
 }
 
 // Format total time n shit
