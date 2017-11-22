@@ -129,7 +129,8 @@ function addSubmitScore() {
 // Handle the high score list if there are more than 10 entries
 function checkMaxScores() {
   if (scores.length > 10) {
-    for (var i = 0; i < scores.length; i++) {
+    var i = scores.length;
+    while (i--) {
       var thisScore = scores[i];
       if (i >= 8) {
         database.ref().child(thisScore.snapshot.key).remove();
