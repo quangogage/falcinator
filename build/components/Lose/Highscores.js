@@ -38,6 +38,7 @@ var scores = [];
 // Triggered once when you lose
 function HandleHighscore() {
   // Submit Dummy Score
+  addHighScore('Gage', 50);
   getHighScores();
 }
 
