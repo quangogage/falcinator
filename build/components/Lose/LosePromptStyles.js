@@ -33,8 +33,11 @@ var LosePromptStyles = {
   button: {
     fontFamily: 'arial',
     fontSize: '35px',
-    padding: '25px 15px',
-    background: 'orange'
+    padding: '10px 45px',
+    background: 'orange',
+    color: 'white',
+    display: 'inline-block',
+    marginTop: '25px'
   }
 };
 exports.default = LosePromptStyles;
