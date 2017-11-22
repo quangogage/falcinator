@@ -128,14 +128,12 @@ function addSubmitScore() {
 
 // Handle the high score list if there are more than 10 entries
 function checkMaxScores() {
-  if (scores.length > 10) {
-    var i = scores.length;
-    while (i--) {
-      var thisScore = scores[i];
-      if (i >= 8) {
-        database.ref().child(thisScore.snapshot.key).remove();
-        scores.splice(i, 1);
-      }
+  var i = scores.length;
+  while (i--) {
+    var thisScore = scores[i];
+    if (i >= 8) {
+      database.ref().child(thisScore.snapshot.key).remove();
+      scores.splice(i, 1);
     }
   }
   (0, _jquery2.default)('.score').each(function () {
