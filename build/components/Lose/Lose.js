@@ -31,7 +31,7 @@ function LoadLose() {
 function UpdateLose(dt) {
   if (!hasLost && _Timer.timer <= 0) {
     TriggerLose();
-    (0, _jquery2.default)('#your-score').html('Your score: ' + formatTime(_Timer.totalTimer));
+    (0, _jquery2.default)('#your-score').html('You Lasted: ' + formatTime(_Timer.totalTimer));
     exports.hasLost = hasLost = true;
   }
 }
