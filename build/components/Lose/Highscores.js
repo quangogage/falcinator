@@ -103,28 +103,32 @@ function addSubmitScore() {
   if (scores.length !== 0) {
     for (var i = 0; i <= scores.length - 1; i++) {
       var thisScore = scores[i].score;
-      if (_Timer.totalTimer >= thisScore && !insertIndex) {
+
+      if (_Timer.totalTimer >= thisScore) {
         insertIndex = i;
       } else if (i === scores.length - 1) {
-        insertIndex = scores.length - 1;
+        insertIndex = null;
       }
     }
   } else {
     console.log('There are no scores!');
     insertIndex = 0;
   }
-  console.log('Adding score in list');
-  checkMaxScores();
-  (0, _jquery2.default)('.score').eq(insertIndex).replaceWith('\n  <div class=\'score\' id="new-score" style="' + _LosePromptStyles2.default['score'] + '">\n    <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n    <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n  </div>\n  ');
-  (0, _jquery2.default)('.textinput').on('keypress', function (e) {
-    if (e.keyCode == '13') {
-      var setIndex = (0, _jquery2.default)('.textinput').parent().index();
-      name = (0, _jquery2.default)('.textinput').val();
-      addNewScore();
-      console.log(setIndex);
-      (0, _jquery2.default)('#new-score').replaceWith('\n      <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n        <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + (setIndex + 1) + '. ' + name + '</div>\n        <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n      </div>\n      ');
-    }
-  });
+  if (insertIndex !== null) {
+    // Only add if you're score is at least better than the lowest
+    console.log('Adding score in list');
+    checkMaxScores();
+    (0, _jquery2.default)('.score').eq(insertIndex).replaceWith('\n    <div class=\'score\' id="new-score" style="' + _LosePromptStyles2.default['score'] + '">\n      <input type=\'text\' placeholder=\'Enter your name.\' class=\'name textinput\' style="' + _LosePromptStyles2.default['scoreText'] + 'color:black;" />\n      <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n    </div>\n    ');
+    (0, _jquery2.default)('.textinput').on('keypress', function (e) {
+      if (e.keyCode == '13') {
+        var setIndex = (0, _jquery2.default)('.textinput').parent().index();
+        name = (0, _jquery2.default)('.textinput').val();
+        addNewScore();
+        console.log(setIndex);
+        (0, _jquery2.default)('#new-score').replaceWith('\n        <div class=\'score\' style="' + _LosePromptStyles2.default['score'] + '">\n          <div class=\'name\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + (setIndex + 1) + '. ' + name + '</div>\n          <div class=\'time\' style="' + _LosePromptStyles2.default['scoreText'] + '">' + formatTime(_Timer.totalTimer) + '</div>\n        </div>\n        ');
+      }
+    });
+  }
 }
 
 // Handle the high score list if there are more than 10 entries
