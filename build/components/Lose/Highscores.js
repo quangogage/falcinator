@@ -104,6 +104,7 @@ function addSubmitScore() {
     for (var i = 0; i <= scores.length - 1; i++) {
       var thisScore = scores[i].score;
 
+      console.log('Your score: ' + _Timer.totalTimer, 'Compared score: ' + thisScore);
       if (_Timer.totalTimer >= thisScore) {
         insertIndex = i;
       } else if (i === scores.length - 1 && insertIndex === null) {
