@@ -61,7 +61,7 @@ function getHighScores() {
 
     // Sort high scores
     scores.sort(function (a, b) {
-      return a.score < b.score;
+      return a.score - b.score;
     });
 
     // Iterate through newly sorted scores and add them to DOM
