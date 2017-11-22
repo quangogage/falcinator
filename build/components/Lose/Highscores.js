@@ -106,7 +106,7 @@ function addSubmitScore() {
 
       if (_Timer.totalTimer >= thisScore) {
         insertIndex = i;
-      } else if (i === scores.length - 1) {
+      } else if (i === scores.length - 1 && insertIndex === null) {
         insertIndex = null;
       }
     }
