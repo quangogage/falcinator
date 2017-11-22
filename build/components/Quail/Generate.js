@@ -35,7 +35,7 @@ function generate(world, spawnQuail, dt) {
   } else {
     timerLim -= spawnRateIncrease * 0.05;
   }
-  console.log(timerLim);
+  // console.log(timerLim);
 }
 
 // ** Helper Functions ** \\
