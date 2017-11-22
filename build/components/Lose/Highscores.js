@@ -103,7 +103,7 @@ function addSubmitScore() {
     for (var i = 0; i <= scores.length - 1; i++) {
       var thisScore = scores[i].score;
       console.log('Comparing score ' + i);
-      if (_Timer.totalTimer >= thisScore) {
+      if (_Timer.totalTimer >= thisScore && !insertIndex) {
         insertIndex = i - 1;
         (0, _jquery2.default)('.score').eq(i).remove();
       } else if (i === scores.length - 1) {
