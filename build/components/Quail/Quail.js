@@ -34,7 +34,7 @@ var quails = exports.quails = [];
 var speedRange = [0.1, 0.3]; // How fast can a quail go?
 var camShake = 10; // How much does the camera shake when you kill a quail?
 var timeAdd = 50; // How much time is added when you kill a quail?
-var timeMinus = -3; // How much time is decreased when a quail travels across the entire page?
+var timeMinus = -300; // How much time is decreased when a quail travels across the entire page?
 
 // ** Global Functions ** \\
 function updateQuail(world, bullets, createBlood, createParticle, addScore, subtractScore, dt) {
