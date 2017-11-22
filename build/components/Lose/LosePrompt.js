@@ -67,7 +67,13 @@ var LosePrompt = function (_React$Component) {
           _react2.default.createElement('div', { className: 'score-list', style: styles['scoreList'] }),
           _react2.default.createElement(
             'div',
-            { className: 'restart-button', style: styles['button'] },
+            {
+              className: 'restart-button',
+              style: styles['button'],
+              onClick: function onClick() {
+                return reset();
+              }
+            },
             'Retry'
           )
         )
